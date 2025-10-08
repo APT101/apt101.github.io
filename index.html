@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Phish Training Tool - APTT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="resources\favicons\favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources\favicons\favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="resources\favicons\favicon-48x48.png">
+
+  <!-- Apple Favicon  -->
+  <link rel="apple-touch-icon" sizes="180x180" href="resources\favicons\favicon-180x180.png">
+
+  <!-- Android & Progressive Web App Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="resources\favicons\favicon-192x192.png">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="logo">
+        <span><img src="resources\header_icon.png"></span>
+      </div>
+      <div class="nav-links">
+        <a href="learn.html">Learn</a>
+        <a href="resources.html">Resources</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="main">
+    <section class="grid">
+      <!-- CARD 1 (PHISH) -->
+      <article class="card" data-correct="phish">
+        <h3>I need you to check this file ASAP</h3>
+        <div class="attach">
+          <span class="paperclip"></span>
+          <span class="pill warn">Important.pdf.exe</span>
+        </div>
+        <p class="desc">
+          Hey, attached is a file that I need you to look at ASAP. So please, at your earliest
+          convenience open the file and run it on your computer.
+        </p>
+        <div class="btn-row">
+          <button class="btn phish" data-guess="phish">Phish</button>
+        </div>
+      </article>
+
+      <!-- CARD 2 (SAFE FOR DEMO) -->
+      <article class="card" data-correct="safe">
+        <h3>Look into this file for me when you get a chance</h3>
+        <div class="attach">
+          <span class="paperclip"></span>
+          <span class="pill">Important.pdf</span>
+        </div>
+        <p class="desc">
+          Hey, when you get a chance I need you to look at this important file for me. I need it
+          reviewed this week, and email me back with any questions.
+        </p>
+        <div class="btn-row">
+          <button class="btn phish" data-guess="phish">Phish</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Toast (POP UP AT BOTTOM OF SCREEN) -->
+  <div class="toast" id="toast">
+    <span class="dot" id="toast-dot"></span>
+    <span id="toast-text">Feedback…</span>
+  </div>
+
+  <footer>
+    <span> APTT LLC. © 2025</span> 
+  </footer>
+
+  <script>
+    // Simple quiz logic
+    const toast = document.getElementById('toast');
+    const toastDot = document.getElementById('toast-dot');
+    const toastText = document.getElementById('toast-text');
+    let hideTimer = null;
+
+    function showToast(ok, msg){
+      toast.classList.add('show');
+      toastDot.className = 'dot ' + (ok ? 'good' : 'bad');
+      toastText.textContent = msg;
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(()=>toast.classList.remove('show'), 2200);
+    }
+
+    function markCard(card, ok){
+      card.style.outline = '2px solid ' + (ok ? '#16a34a' : '#b91c1c');
+      card.style.outlineOffset = '3px';
+      setTimeout(()=>{ card.style.outline='none'; }, 1400);
+    }
+
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('click', (e)=>{
+        const btn = e.target.closest('button[data-guess]');
+        if(!btn) return;
+        const guess = btn.getAttribute('data-guess');       // 'phish' | 'safe'
+        const correct = card.getAttribute('data-correct');  // 'phish' | 'safe'
+        const isCorrect = guess === correct;
+
+        // Feedback messages
+        let message = '';
+        if(isCorrect){
+          message = (guess === 'phish')
+            ? 'Correct: Suspicious file type (double extension .pdf.exe).'
+            : 'Correct: No immediate red flags in this message.';
+        } else {
+          message = (guess === 'phish')
+            ? 'Not quite. This one looks routine; no obvious red flags.'
+            : 'Careful! Double extension (.pdf.exe) is a classic malware trick.';
+        }
+
+        showToast(isCorrect, message);
+        markCard(card, isCorrect);
+      });
+    });
+  </script>
+</body>
+</html>
