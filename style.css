@@ -40,7 +40,6 @@ a {
 .nav {
   background: var(--brand);
   color: #fff;
-  position: sticky;
   top: 0;
   z-index: 10;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
@@ -104,6 +103,17 @@ a {
   line-height: 1.25;
 }
 
+.email-meta {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.email-meta strong {
+  color: var(--ink);
+}
+
 .attach {
   display: flex;
   align-items: center;
@@ -147,6 +157,7 @@ a {
 
 .btn-row {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 

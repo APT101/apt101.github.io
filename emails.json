@@ -1,0 +1,62 @@
+{
+  "email_group_1": [
+    {
+      "id": 1,
+      "subject": "I need you to check this file ASAP",
+      "from": "ceo@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf.exe",
+      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "correct": "phish"
+    },
+    {
+      "id": 2,
+      "subject": "Look into this file for me when you get a chance",
+      "from": "coworker@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf",
+      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "correct": "safe"
+    }
+  ],
+  "email_group_2": [
+    {
+      "id": 1,
+      "subject": "I need you to check this file ASAP",
+      "from": "ceo@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf.exe",
+      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "correct": "phish"
+    },
+    {
+      "id": 2,
+      "subject": "Look into this file for me when you get a chance",
+      "from": "coworker@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf",
+      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "correct": "safe"
+    }
+  ],
+  "email_group_3": [
+    {
+      "id": 1,
+      "subject": "I need you to check this file ASAP",
+      "from": "ceo@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf.exe",
+      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "correct": "phish"
+    },
+    {
+      "id": 2,
+      "subject": "Look into this file for me when you get a chance",
+      "from": "coworker@company.com",
+      "to": "employee@company.com",
+      "attachment": "Important.pdf",
+      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "correct": "safe"
+    }
+  ],
+}
