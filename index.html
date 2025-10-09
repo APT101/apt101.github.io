@@ -33,6 +33,7 @@
   </nav>
 
   <main class="container" id="main">
+	
     <section class="grid">
       <!-- CARD 1 (PHISH) -->
       <article class="card" data-correct="phish">
@@ -43,7 +44,7 @@
         </div>
         <div class="attach">
           <span class="paperclip"></span>
-          <span class="pill">Important.pdf.exe</span>
+          <span class="pill warn">Important.pdf.exe</span>
         </div>
         <p class="desc">
           Hey, attached is a file that I need you to look at ASAP. So please, at your earliest
@@ -74,6 +75,16 @@
         </div>
       </article>
     </section>
+    
+   <! ........................>
+    <div id="group-tabs" style="display:flex;gap:10px;margin:12px 0;">
+      <a href="#email_group_1" class="js-group" data-group="email_group_1">Group 1</a>
+      <a href="#email_group_2" class="js-group" data-group="email_group_2">Group 2</a>
+    </div>
+
+    <section class="grid" id="content" aria-live="polite"></section>
+    <!........................>
+
   </main>
 
   <!-- Toast (POP UP AT BOTTOM OF SCREEN) -->
@@ -89,4 +100,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
