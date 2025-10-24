@@ -45,7 +45,7 @@ document.querySelectorAll('.card').forEach(card=>{
 
 
 // ........................
-// NEW (append-only, minimal): JSON-driven pair quiz logic
+// NEW (append-only, minimal): JSON-driven pair quiz logic with auto-next group
 (() => {
   const DATA_URL = './emails.json';
   const DEFAULT_GROUP = 'email_group_1';
@@ -56,6 +56,10 @@ document.querySelectorAll('.card').forEach(card=>{
   let QZ_INDEX = 0;   // index of first item in current pair
   let QZ_SCORE = 0;
   let QZ_ADVANCING = false;
+
+  // group sequencing
+  let QZ_GROUP_KEYS = null;   // e.g., ["email_group_1", "email_group_2", ...]
+  let QZ_GROUP_INDEX = 0;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -77,6 +81,10 @@ document.querySelectorAll('.card').forEach(card=>{
 
   function normalizeCorrect(v) {
     return String(v || '').toLowerCase().replace('phishing','phish');
+  }
+
+  function listGroupKeys(data){
+    return Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
   }
 
   async function loadEmails() {
@@ -105,8 +113,15 @@ document.querySelectorAll('.card').forEach(card=>{
     const left = QZ_CURRENT_LIST[QZ_INDEX];
     const right = QZ_CURRENT_LIST[QZ_INDEX + 1];
 
-    // When we've exhausted all items, show the result screen
+    // When we've exhausted all items, go to next group if any; otherwise show Done
     if (!left && !right) {
+      const hasNextGroup = QZ_GROUP_KEYS && (QZ_GROUP_INDEX < QZ_GROUP_KEYS.length - 1);
+      if (hasNextGroup) {
+        const nextKey = QZ_GROUP_KEYS[QZ_GROUP_INDEX + 1];
+        setTimeout(() => { go(nextKey); }, 300);
+        return;
+      }
+
       root.innerHTML = `
         <section class="card" style="padding:16px;">
           <h3>Done!</h3>
@@ -167,13 +182,9 @@ document.querySelectorAll('.card').forEach(card=>{
     const isRight = correct === 'phish';
 
     if (isRight) QZ_SCORE += 1;
-    // reuse existing showToast function for consistent UI
     showToast(isRight, isRight ? 'Correct' : 'Incorrect');
-
-    // small visual mark as before
     markCard(cardEl, isRight);
 
-    // advance by pair
     QZ_ADVANCING = true;
     setTimeout(() => {
       QZ_INDEX += 2;
@@ -195,6 +206,10 @@ document.querySelectorAll('.card').forEach(card=>{
 
     try {
       const data = await loadEmails();
+
+      if (!QZ_GROUP_KEYS) QZ_GROUP_KEYS = listGroupKeys(data);
+      QZ_GROUP_INDEX = Math.max(0, QZ_GROUP_KEYS.indexOf(groupKey));
+
       QZ_CURRENT_GROUP = groupKey;
       QZ_CURRENT_LIST = getGroup(data, groupKey);
       QZ_INDEX = 0;
