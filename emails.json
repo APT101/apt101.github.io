@@ -7,7 +7,7 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf.exe",
       "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
-      "correct": "phish"
+      "correct": "phish",
       "explanation": "you aint so smart lol"
     },
     {
@@ -17,8 +17,8 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf",
       "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
-      "correct": "safe"
-      "explanation": "  you are so right, you must be the president "
+      "correct": "safe",
+      "explanation": "you are so right, you must be the president"
     }
   ],
   "email_group_2": [
@@ -29,8 +29,8 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf.exe",
       "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
-      "correct": "phish"
-      "explanation": " you aint so smart lol"
+      "correct": "phish",
+      "explanation": "you aint so smart lol"
     },
     {
       "id": 2,
@@ -39,8 +39,8 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf",
       "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
-      "correct": "safe"
-      "explanation": "  you are so right, you must be the president "
+      "correct": "safe",
+      "explanation": "you are so right, you must be the president"
     }
   ],
   "email_group_3": [
@@ -51,8 +51,8 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf.exe",
       "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
-      "correct": "phish"
-      "explanation": " you aint so smart lol"
+      "correct": "phish",
+      "explanation": "you aint so smart lol"
     },
     {
       "id": 2,
@@ -61,13 +61,8 @@
       "to": "employee@company.com",
       "attachment": "Important.pdf",
       "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
-      "correct": "safe"
-      "explanation": "  you are so right, you must be the president "
+      "correct": "safe",
+      "explanation": "you are so right, you must be the president"
     }
   ]
-
 }
-
-
-
-
