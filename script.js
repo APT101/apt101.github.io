@@ -43,8 +43,9 @@ document.querySelectorAll('.card').forEach(card=>{
   });
 });
 
-//........................
-/* NEW: JSON-driven quiz flow (added at end; existing code unchanged) */
+
+// ........................
+// NEW (append-only, minimal): JSON-driven pair quiz logic
 (() => {
   const DATA_URL = './emails.json';
   const DEFAULT_GROUP = 'email_group_1';
@@ -52,7 +53,7 @@ document.querySelectorAll('.card').forEach(card=>{
   let QZ_EMAILS_CACHE = null;
   let QZ_CURRENT_GROUP = null;
   let QZ_CURRENT_LIST = [];
-  let QZ_INDEX = 0;
+  let QZ_INDEX = 0;   // index of first item in current pair
   let QZ_SCORE = 0;
   let QZ_ADVANCING = false;
 
@@ -68,34 +69,14 @@ document.querySelectorAll('.card').forEach(card=>{
       .replaceAll("'", '&#039;');
   }
 
-  function toastShow(ok, msg) {
-    const toast = document.getElementById('toast');
-    const dot = document.getElementById('toast-dot');
-    const text = document.getElementById('toast-text');
-    if (!toast) return;
-    toast.classList.add('show');
-    if (dot) dot.className = 'dot ' + (ok ? 'good' : 'bad');
-    if (text) text.textContent = msg;
-    clearTimeout(toast._hideTimer);
-    toast._hideTimer = setTimeout(() => toast.classList.remove('show'), 800);
-  }
-
   function setActiveGroup(key) {
     $$('.js-group[aria-current]').forEach(a => a.removeAttribute('aria-current'));
     const el = $(`.js-group[data-group="${CSS.escape(key)}"]`);
     if (el) el.setAttribute('aria-current', 'page');
   }
 
-  function disableAnswers(disabled) {
-    $$('.js-answer').forEach(btn => {
-      btn.disabled = !!disabled;
-      btn.style.opacity = disabled ? '0.7' : '1';
-      btn.style.pointerEvents = disabled ? 'none' : 'auto';
-    });
-  }
-
   function normalizeCorrect(v) {
-    return String(v || '').toLowerCase().replace('phishing', 'phish');
+    return String(v || '').toLowerCase().replace('phishing','phish');
   }
 
   async function loadEmails() {
@@ -111,6 +92,7 @@ document.querySelectorAll('.card').forEach(card=>{
     return Array.isArray(list) ? list : [];
   }
 
+  // Render pair-view: two cards (left, right). Each card has a "Pick as Phish" button.
   function renderCurrent() {
     const root = document.getElementById('content');
     if (!root) return;
@@ -120,7 +102,11 @@ document.querySelectorAll('.card').forEach(card=>{
       return;
     }
 
-    if (QZ_INDEX >= QZ_CURRENT_LIST.length) {
+    const left = QZ_CURRENT_LIST[QZ_INDEX];
+    const right = QZ_CURRENT_LIST[QZ_INDEX + 1];
+
+    // When we've exhausted all items, show the result screen
+    if (!left && !right) {
       root.innerHTML = `
         <section class="card" style="padding:16px;">
           <h3>Done!</h3>
@@ -133,54 +119,64 @@ document.querySelectorAll('.card').forEach(card=>{
       return;
     }
 
-    const e = QZ_CURRENT_LIST[QZ_INDEX];
-    const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
-    const attachment = e.attachment ? `
-      <div class="attach">
-        <span class="paperclip"></span>
-        <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
-      </div>
-    ` : '';
+    const renderCard = (e, side) => {
+      if (!e) return '';
+      const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
+      const attachment = e.attachment ? `
+        <div class="attach">
+          <span class="paperclip"></span>
+          <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
+        </div>` : '';
 
+      return `
+        <article class="card" data-side="${side}" data-correct="${escapeHtml(normalizeCorrect(e.correct))}">
+          <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
+          <div class="email-meta">
+            <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
+            <div><strong>To:</strong> ${escapeHtml(to)}</div>
+          </div>
+          ${attachment}
+          <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
+
+          <div class="btn-row">
+            <button class="btn js-pick-phish">Pick as Phish</button>
+          </div>
+        </article>
+      `;
+    };
+
+    // layout: two cards side-by-side (using existing .grid styles)
     root.innerHTML = `
-      <article class="card" data-correct="${escapeHtml(normalizeCorrect(e.correct))}">
-        <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
-        <div class="email-meta">
-          <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
-          <div><strong>To:</strong> ${escapeHtml(to)}</div>
-        </div>
-        ${attachment}
-        <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
+      <div class="grid">
+        ${renderCard(left, 'left')}
+        ${renderCard(right, 'right')}
+      </div>
 
-        <div class="btn-row">
-          <button class="btn phish js-answer" data-choice="phish">Phish</button>
-          <button class="btn safe js-answer" data-choice="safe">Safe</button>
-        </div>
-
-        <p class="progress" style="opacity:.7;margin-top:8px;">
-          Question ${QZ_INDEX + 1} of ${QZ_CURRENT_LIST.length}
-        </p>
-      </article>
+      <p class="progress" style="opacity:.7;margin-top:8px;">
+        Pair ${Math.floor(QZ_INDEX/2) + 1} of ${Math.ceil(QZ_CURRENT_LIST.length / 2)}
+      </p>
     `;
-
-    disableAnswers(false);
   }
 
-  function handleAnswer(choice) {
+  // When user picks a card as phish, evaluate and advance by two items (next pair)
+  function handlePickPhish(cardEl) {
+    if (!cardEl) return;
     if (QZ_ADVANCING) return;
-    if (!QZ_CURRENT_LIST.length || QZ_INDEX >= QZ_CURRENT_LIST.length) return;
 
-    const item = QZ_CURRENT_LIST[QZ_INDEX];
-    const correct = normalizeCorrect(item?.correct);
-    const isRight = choice === correct;
+    const correct = (cardEl.getAttribute('data-correct') || '').toLowerCase();
+    const isRight = correct === 'phish';
 
     if (isRight) QZ_SCORE += 1;
-    toastShow(isRight, isRight ? 'Correct' : `Incorrect — it was ${correct.toUpperCase()}`);
+    // reuse existing showToast function for consistent UI
+    showToast(isRight, isRight ? 'Correct' : 'Incorrect');
 
-    disableAnswers(true);
+    // small visual mark as before
+    markCard(cardEl, isRight);
+
+    // advance by pair
     QZ_ADVANCING = true;
     setTimeout(() => {
-      QZ_INDEX += 1;
+      QZ_INDEX += 2;
       QZ_ADVANCING = false;
       renderCurrent();
     }, 450);
@@ -214,6 +210,7 @@ document.querySelectorAll('.card').forEach(card=>{
     }
   }
 
+  // delegated clicks for group links, pick buttons and restart
   document.addEventListener('click', (e) => {
     const g = e.target.closest('.js-group');
     if (g) {
@@ -222,10 +219,11 @@ document.querySelectorAll('.card').forEach(card=>{
       return;
     }
 
-    const a = e.target.closest('.js-answer');
-    if (a) {
+    const pick = e.target.closest('.js-pick-phish');
+    if (pick) {
       e.preventDefault();
-      handleAnswer((a.dataset.choice || '').toLowerCase());
+      const cardEl = pick.closest('.card');
+      handlePickPhish(cardEl);
       return;
     }
 
@@ -242,4 +240,4 @@ document.querySelectorAll('.card').forEach(card=>{
     go(key);
   });
 })();
-//........................
+// ........................
