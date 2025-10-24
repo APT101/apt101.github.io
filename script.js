@@ -24,8 +24,9 @@ let GROUP_KEYS = null;
 let GROUP_INDEX = 0;
 let LIST = [];
 let INDEX = 0;
-let SCORE = 0;
+let SCORE = 0;            // total correct across all groups
 let LOCK = false;
+let TOTAL_ITEMS = 0;      // total emails across all groups (e.g., 10)
 
 function escapeHtml(str){
   return String(str ?? '')
@@ -45,6 +46,11 @@ async function loadData(){
 function initGroups(data){
   if (GROUP_KEYS) return;
   GROUP_KEYS = Object.keys(data).filter(k=>k.startsWith('email_group_')).sort();
+  // compute total items across all groups (for final score like "X of 10")
+  TOTAL_ITEMS = GROUP_KEYS.reduce((sum, k)=> {
+    const arr = data[k];
+    return sum + (Array.isArray(arr) ? arr.length : 0);
+  }, 0);
 }
 
 function getList(data){
@@ -101,7 +107,6 @@ function showModal(title, text, onOk){
   setTimeout(()=>ok.focus(), 0);
 }
 
-// render pair
 function render(){
   const root = document.getElementById('content');
   if (!root) return;
@@ -110,20 +115,19 @@ function render(){
   const right = LIST[INDEX+1];
 
   if (!left && !right){
-    // next group if available
+    // next group if available (do NOT reset SCORE here)
     if (GROUP_INDEX < GROUP_KEYS.length - 1){
       GROUP_INDEX += 1;
       INDEX = 0;
-      SCORE = 0;
       renderLoading();
       setTimeout(loadGroup, 0);
       return;
     }
-    // done
+    // done: show total score out of TOTAL_ITEMS (e.g., 10)
     root.innerHTML = `
       <section class="card" style="padding:16px;">
         <h3>Done!</h3>
-        <p>You answered ${SCORE} of ${LIST.length} correctly.</p>
+        <p>You answered ${SCORE} of ${TOTAL_ITEMS} correctly.</p>
         <div class="btn-row">
           <button class="btn js-restart">Restart Group</button>
         </div>
@@ -157,14 +161,12 @@ function render(){
     `;
   }
 
+  // pair view (no "Pair X of Y" text)
   root.innerHTML = `
     <div class="grid">
       ${cardHTML(left, 'left')}
       ${cardHTML(right, 'right')}
     </div>
-    <p class="progress" style="opacity:.7;margin-top:8px;">
-      Pair ${Math.floor(INDEX/2)+1} of ${Math.ceil(LIST.length/2)}
-    </p>
   `;
 }
 
@@ -182,7 +184,6 @@ async function loadGroup(){
   render();
 }
 
-// actions
 function pick(card){
   if (!card || LOCK) return;
   LOCK = true;
@@ -198,8 +199,8 @@ function pick(card){
   const explanation = email.explain || email.explanation || '';
 
   showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
-    if (isRight) SCORE += 1;
-    INDEX += 2;
+    if (isRight) SCORE += 1;      // accumulate total correct
+    INDEX += 2;                   // next pair
     LOCK = false;
     render();
   });
@@ -208,12 +209,11 @@ function pick(card){
 function restart(){
   GROUP_INDEX = 0;
   INDEX = 0;
-  SCORE = 0;
+  SCORE = 0;                     // reset total score on restart
   renderLoading();
   loadGroup();
 }
 
-// events
 document.addEventListener('click', (e)=>{
   const pickBtn = e.target.closest('.js-pick');
   if (pickBtn){
@@ -230,7 +230,6 @@ document.addEventListener('click', (e)=>{
   }
 });
 
-// init
 document.addEventListener('DOMContentLoaded', ()=>{
   renderLoading();
   loadGroup().catch(()=> {
