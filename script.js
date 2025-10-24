@@ -151,7 +151,7 @@ function render(){
         ${att}
         <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
         <div class="btn-row">
-          <button class="btn js-pick">Pick as Phish</button>
+          <button class="btn js-pick">Phish</button>
         </div>
       </article>
     `;
