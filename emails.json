@@ -2,7 +2,7 @@
   "email_group_1": [
     {
       "id": 1,
-      "subject": "I need you to check this file ASAP",
+      "subject": "Group 1 lol",
       "from": "ceo@company.com",
       "to": "employee@company.com",
       "attachment": "Important.pdf.exe",
@@ -22,7 +22,7 @@
   "email_group_2": [
     {
       "id": 1,
-      "subject": "I need you to check this file ASAP",
+      "subject": "Group 2",
       "from": "ceo@company.com",
       "to": "employee@company.com",
       "attachment": "Important.pdf.exe",
@@ -61,3 +61,4 @@
   ]
 
 }
+
