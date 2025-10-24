@@ -20,13 +20,12 @@ function markCard(card, ok){
 
 // data + state
 const DATA_URL = './emails.json';
-let GROUP_KEYS = null;
-let GROUP_INDEX = 0;
-let LIST = [];
+const ROUND_SIZE = 10;
+let ALL_PAIRS = [];
+let ORDER = [];
 let INDEX = 0;
-let SCORE = 0;            // total correct across all groups
+let SCORE = 0;
 let LOCK = false;
-let TOTAL_ITEMS = 0;      // total emails across all groups (e.g., 10)
 
 function escapeHtml(str){
   return String(str ?? '')
@@ -43,19 +42,25 @@ async function loadData(){
   return res.json();
 }
 
-function initGroups(data){
-  if (GROUP_KEYS) return;
-  GROUP_KEYS = Object.keys(data).filter(k=>k.startsWith('email_group_')).sort();
-  // compute total items across all groups (for final score like "X of 10")
-  TOTAL_ITEMS = GROUP_KEYS.reduce((sum, k)=> {
-    const arr = data[k];
-    return sum + (Array.isArray(arr) ? arr.length : 0);
-  }, 0);
+function shuffle(arr){
+  for (let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
-function getList(data){
-  const key = GROUP_KEYS[GROUP_INDEX] || GROUP_KEYS[0];
-  return Array.isArray(data[key]) ? data[key] : [];
+function preparePairs(data){
+  const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
+  const pairs = [];
+  for (const key of keys){
+    const g = data[key];
+    if (!Array.isArray(g)) continue;
+    for (let i = 0; i + 1 < g.length; i += 2){
+      pairs.push([ g[i], g[i + 1] ]);
+    }
+  }
+  return pairs;
 }
 
 // modal
@@ -97,7 +102,7 @@ function showModal(title, text, onOk){
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape'){ e.preventDefault(); accept(); }
   }
   function onAnyClick(e){
-    e.preventDefault(); // any click acts as OK (inside or outside)
+    e.preventDefault();
     accept();
   }
 
@@ -107,34 +112,29 @@ function showModal(title, text, onOk){
   setTimeout(()=>ok.focus(), 0);
 }
 
+// render pair
 function render(){
   const root = document.getElementById('content');
   if (!root) return;
 
-  const left = LIST[INDEX];
-  const right = LIST[INDEX+1];
+  const TOTAL = ORDER.length;
 
-  if (!left && !right){
-    // next group if available (do NOT reset SCORE here)
-    if (GROUP_INDEX < GROUP_KEYS.length - 1){
-      GROUP_INDEX += 1;
-      INDEX = 0;
-      renderLoading();
-      setTimeout(loadGroup, 0);
-      return;
-    }
-    // done: show total score out of TOTAL_ITEMS (e.g., 10)
+  if (INDEX >= TOTAL){
     root.innerHTML = `
       <section class="card" style="padding:16px;">
-        <h3>Done!</h3>
-        <p>You answered ${SCORE} of ${TOTAL_ITEMS} correctly.</p>
+        <h3>Score</h3>
+        <p>You scored ${SCORE} / ${TOTAL}</p>
         <div class="btn-row">
-          <button class="btn js-restart">Restart Group</button>
+          <button class="btn js-restart">Restart</button>
         </div>
       </section>
     `;
     return;
   }
+
+  const pair = ORDER[INDEX];
+  const left = pair[0];
+  const right = pair[1];
 
   function cardHTML(e, side){
     if (!e) return '';
@@ -161,12 +161,14 @@ function render(){
     `;
   }
 
-  // pair view (no "Pair X of Y" text)
   root.innerHTML = `
     <div class="grid">
       ${cardHTML(left, 'left')}
       ${cardHTML(right, 'right')}
     </div>
+    <p class="progress" style="opacity:.7;margin-top:8px;">
+      Pair ${INDEX + 1} of ${TOTAL}
+    </p>
   `;
 }
 
@@ -175,15 +177,7 @@ function renderLoading(){
   if (root) root.innerHTML = `<p>Loading…</p>`;
 }
 
-async function loadGroup(){
-  const data = await loadData();
-  initGroups(data);
-  const key = GROUP_KEYS[GROUP_INDEX] || GROUP_KEYS[0];
-  LIST = Array.isArray(data[key]) ? data[key] : [];
-  INDEX = 0;
-  render();
-}
-
+// actions
 function pick(card){
   if (!card || LOCK) return;
   LOCK = true;
@@ -194,26 +188,27 @@ function pick(card){
   showToast(isRight, isRight ? 'Correct' : 'Incorrect');
   markCard(card, isRight);
 
-  const idx = card.getAttribute('data-side') === 'right' ? INDEX+1 : INDEX;
-  const email = LIST[idx] || {};
+  const side = card.getAttribute('data-side') === 'right' ? 1 : 0;
+  const email = ORDER[INDEX][side];
   const explanation = email.explain || email.explanation || '';
 
   showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
-    if (isRight) SCORE += 1;      // accumulate total correct
-    INDEX += 2;                   // next pair
+    if (isRight) SCORE++;
+    INDEX++;
     LOCK = false;
     render();
   });
 }
 
 function restart(){
-  GROUP_INDEX = 0;
+  SCORE = 0;
   INDEX = 0;
-  SCORE = 0;                     // reset total score on restart
-  renderLoading();
-  loadGroup();
+  LOCK = false;
+  ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
+  render();
 }
 
+// events
 document.addEventListener('click', (e)=>{
   const pickBtn = e.target.closest('.js-pick');
   if (pickBtn){
@@ -230,10 +225,16 @@ document.addEventListener('click', (e)=>{
   }
 });
 
-document.addEventListener('DOMContentLoaded', ()=>{
+// init
+document.addEventListener('DOMContentLoaded', async ()=>{
   renderLoading();
-  loadGroup().catch(()=> {
+  try {
+    const data = await loadData();
+    ALL_PAIRS = preparePairs(data);
+    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
+    render();
+  } catch {
     const root = document.getElementById('content');
     if (root) root.innerHTML = `<p style="color:#b91c1c;">Failed to load data.</p>`;
-  });
+  }
 });
