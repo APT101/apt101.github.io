@@ -1,69 +1,524 @@
 {
   "email_group_1": [
     {
-      "id": 1,
-      "subject": "Group 1 lol",
-      "from": "ceo@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf.exe",
-      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "subject": "Urgent: Wire transfer authorization needed",
+      "from": "cfo-office@compaany.com",
+      "to": ["employee@company.com"],
+      "attachment": "TransferForm.pdf.exe",
+      "desc": "We need your authorization for today’s vendor payment. Download and run the attached form to approve before 4 PM.",
       "correct": "phish",
-      "explanation": "you are so right, you must be the president"
+      "explain": "Double-extension (.pdf.exe) is an executable, not a PDF. Finance would never ask you to run software to approve payments."
     },
     {
-      "id": 2,
-      "subject": "Look into this file for me when you get a chance",
-      "from": "coworker@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf",
-      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "subject": "Q2 travel policy update",
+      "from": "hr@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "Travel-Policy.pdf",
+      "desc": "We’ve clarified hotel reimbursement caps and rideshare limits. Please review and reach out to HR with questions.",
       "correct": "safe",
-      "explanation": "you aint so smart lol"
+      "explain": "The sender is from your domain HR, the file is a normal PDF, and the wording is consistent with internal policy updates."
+    },
+    {
+      "subject": "Mailbox full: increase your storage now",
+      "from": "it-support@it-helpdesk.io",
+      "to": ["employee@company.com"],
+      "desc": "Your mailbox is at 98% capacity. Click here to increase your quota immediately or your emails will stop syncing.",
+      "correct": "phish",
+      "explain": "External domain, pressure language, and a generic link request. IT typically adjusts quotas automatically or via the ticketing portal."
+    },
+    {
+      "subject": "Calendar: quarterly team sync",
+      "from": "pm@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Adding the standing 30-minute sync this Thursday. No prep required. Please accept the invite in your calendar.",
+      "correct": "safe",
+      "explain": "Internal sender, routine meeting, and no odd requests. Matches normal workflow."
+    },
+    {
+      "subject": "Security alert: confirm your identity",
+      "from": "security@compa nny.com",
+      "to": ["employee@company.com"],
+      "attachment": "Verification.zip",
+      "desc": "We detected a sign-in from a new device. Open the attached tool and follow the steps to keep your account active.",
+      "correct": "phish",
+      "explain": "Misspelled domain, zipped ‘tool’ for verification, and urgency to run software—classic phishing indicators."
+    },
+    {
+      "subject": "Team offsite headcount",
+      "from": "peopleops@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’re finalizing food counts for next week’s offsite. Please reply with dietary restrictions by EOD.",
+      "correct": "safe",
+      "explain": "Reasonable request from People Ops, no links or files, and fits context of an internal event."
     }
   ],
   "email_group_2": [
     {
-      "id": 1,
-      "subject": "Group 2",
-      "from": "ceo@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf.exe",
-      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "subject": "DocuSign: action needed on contract",
+      "from": "contracts@d0cusign-secure.com",
+      "to": ["employee@company.com"],
+      "desc": "Please complete your signature. Failure to sign in 2 hours will cancel the agreement.",
       "correct": "phish",
-      "explanation": "you are so right, you must be the president"
+      "explain": "Look-alike domain (‘d0cusign’ with a zero) and extreme urgency. Use the official DocuSign link from the vendor or your records."
     },
     {
-      "id": 2,
-      "subject": "Look into this file for me when you get a chance",
-      "from": "coworker@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf",
-      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "subject": "Stipend reimbursement window",
+      "from": "finance@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "Reimbursement-Guidelines.pdf",
+      "desc": "Upload receipts by the 5th to qualify for this month’s wellness stipend. See details in the PDF.",
       "correct": "safe",
-      "explanation": "you aint so smart lol"
+      "explain": "Proper domain, plausible timing, and a standard PDF. No push to install or bypass normal systems."
+    },
+    {
+      "subject": "Password expires today",
+      "from": "itadmin@company-reset.com",
+      "to": ["employee@company.com"],
+      "desc": "Your account will lock in 30 minutes. Click here to keep access.",
+      "correct": "phish",
+      "explain": "Domain is not your company domain; IT doesn’t send last-minute password resets from a separate look-alike domain."
+    },
+    {
+      "subject": "Quarterly training schedule",
+      "from": "lnd@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’ve posted the Q3 training dates on the portal. Log in as you normally do to select your session.",
+      "correct": "safe",
+      "explain": "Internal L&D with a normal instruction to use the usual portal—no direct links or suspicious attachments."
+    },
+    {
+      "subject": "Outstanding invoice attached",
+      "from": "billing@vend0r-pay.com",
+      "to": ["employee@company.com"],
+      "attachment": "Invoice_0823.xlsm",
+      "desc": "Please enable macros to view the full invoice and remit immediately to avoid service disruption.",
+      "correct": "phish",
+      "explain": "Unknown domain, macro-enabled spreadsheet, and urgency. Never enable macros from untrusted sources."
+    },
+    {
+      "subject": "Office parking reminder",
+      "from": "facilities@company.com",
+      "to": ["employee@company.com"],
+      "desc": "New visitor spots are marked. Please avoid the reserved rows after 9 AM.",
+      "correct": "safe",
+      "explain": "Routine internal notice, consistent tone and context. No files, no links."
     }
   ],
   "email_group_3": [
     {
-      "id": 1,
-      "subject": "Group 3 bro",
-      "from": "ceo@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf.exe",
-      "desc": "Hey, attached is a file that I need you to look at ASAP. So please, at your earliest convenience open the file and run it on your computer.",
+      "subject": "CEO request: quick favor",
+      "from": "ceo.office@companny.co",
+      "to": ["employee@company.com"],
+      "desc": "Are you available? I need you to buy gift cards urgently—send codes back here.",
       "correct": "phish",
-      "explanation": "you are so right, you must be the president"
+      "explain": "Impersonation with a look-alike domain, out-of-band payment request, and urgency—classic CEO fraud."
     },
     {
-      "id": 2,
-      "subject": "Look into this file for me when you get a chance",
-      "from": "coworker@company.com",
-      "to": "employee@company.com",
-      "attachment": "Important.pdf",
-      "desc": "Hey, when you get a chance I need you to look at this important file for me. I need it reviewed this week, and email me back with any questions.",
+      "subject": "Laptop maintenance window",
+      "from": "it@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’ll push OS updates tonight. Keep your laptop connected to power and Wi-Fi.",
       "correct": "safe",
-      "explanation": "you aint so smart lol"
+      "explain": "Normal IT maintenance with realistic instructions, no requests for credentials or installed tools."
+    },
+    {
+      "subject": "Payroll info confirmation",
+      "from": "payroll@compayroll.com",
+      "to": ["employee@company.com"],
+      "attachment": "Payroll_FixTool.exe",
+      "desc": "We cannot process payroll until you run the attached fix tool.",
+      "correct": "phish",
+      "explain": "External domain and an executable ‘fix tool’. Payroll will never require running software to update info."
+    },
+    {
+      "subject": "Volunteer day sign-up",
+      "from": "csr@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We have limited slots for the river clean-up. Reply with your preferred time window.",
+      "correct": "safe",
+      "explain": "Internal CSR initiative, simple reply requested, no suspicious elements."
+    },
+    {
+      "subject": "VPN suspended: verify account",
+      "from": "support@vpn-secure.company-login.net",
+      "to": ["employee@company.com"],
+      "desc": "Your VPN access is suspended. Sign in on this portal to restore connectivity.",
+      "correct": "phish",
+      "explain": "Long, multi-part look-alike domain and a push to sign in on an unfamiliar portal. Use your normal SSO only."
+    },
+    {
+      "subject": "Badge printer downtime",
+      "from": "security@company.com",
+      "to": ["employee@company.com"],
+      "desc": "The badge printer will be down from 6–7 PM today. Please plan your exit accordingly.",
+      "correct": "safe",
+      "explain": "Legit internal notice with predictable maintenance timing."
+    }
+  ],
+  "email_group_4": [
+    {
+      "subject": "Compliance review: action needed",
+      "from": "audit@comp1iance-team.com",
+      "to": ["employee@company.com"],
+      "desc": "We noticed irregular activity. Confirm your credentials immediately to avoid escalation.",
+      "correct": "phish",
+      "explain": "Trick domain (comp1iance), vague accusation, and credential harvest. Real audits go through official channels."
+    },
+    {
+      "subject": "New org chart",
+      "from": "people@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "OrgChart_Q3.pdf",
+      "desc": "Sharing the updated org chart for reference.",
+      "correct": "safe",
+      "explain": "Internal sender with a normal PDF and a straightforward purpose."
+    },
+    {
+      "subject": "Package delivery failed",
+      "from": "notify@ship-fast.io",
+      "to": ["employee@company.com"],
+      "attachment": "RedeliveryForm.zip",
+      "desc": "We couldn’t deliver your package. Open the attached form to reschedule.",
+      "correct": "phish",
+      "explain": "Unexpected package + zipped form to run; common malware delivery approach."
+    },
+    {
+      "subject": "Break room fridge clean-up",
+      "from": "office@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’ll clear unlabelled items Friday at 3 PM. Label anything you want to keep.",
+      "correct": "safe",
+      "explain": "Routine facilities message. No urgency tactics or data requests."
+    },
+    {
+      "subject": "Encrypted message: download viewer",
+      "from": "securemail@inbox-protect.com",
+      "to": ["employee@company.com"],
+      "attachment": "SecureViewer.exe",
+      "desc": "To view your encrypted message, install the attached viewer.",
+      "correct": "phish",
+      "explain": "Requests installing an executable from an unknown domain—high risk."
+    },
+    {
+      "subject": "Policy acknowledgment reminder",
+      "from": "legal@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Please acknowledge receipt of the updated confidentiality policy in the portal by Friday.",
+      "correct": "safe",
+      "explain": "Standard legal request directing you to the normal portal."
+    }
+  ],
+  "email_group_5": [
+    {
+      "subject": "Benefits portal: verify identity",
+      "from": "benefits@comp-anybenefit.com",
+      "to": ["employee@company.com"],
+      "desc": "We added new options. Verify your identity to keep access.",
+      "correct": "phish",
+      "explain": "Look-alike domain and vague verification link. Use the known benefits portal instead."
+    },
+    {
+      "subject": "Ergonomic equipment request",
+      "from": "workplace@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Fill out the standard form in the portal if you need a keyboard tray or stand.",
+      "correct": "safe",
+      "explain": "Internal process using the existing portal, no direct attachments or installers."
+    },
+    {
+      "subject": "New voicemail attachment",
+      "from": "voicemail@notify-voice.net",
+      "to": ["employee@company.com"],
+      "attachment": "VoiceMessage.mp3.exe",
+      "desc": "You have one new voicemail. Open the attached file to listen.",
+      "correct": "phish",
+      "explain": "Audio files shouldn’t be .exe—double extension indicates malware."
+    },
+    {
+      "subject": "Laptop return label",
+      "from": "it-assets@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "ReturnLabel.pdf",
+      "desc": "Here’s the return label you requested. Drop-off details are on page 2.",
+      "correct": "safe",
+      "explain": "Expected PDF from an internal IT assets inbox; nothing suspicious."
+    },
+    {
+      "subject": "Expense card suspended",
+      "from": "alerts@card-serv1ce.com",
+      "to": ["employee@company.com"],
+      "desc": "Sign in to prevent suspension. This is your final notice.",
+      "correct": "phish",
+      "explain": "Look-alike domain and ‘final notice’ pressure to click. Use your known card portal."
+    },
+    {
+      "subject": "Desk booking reminder",
+      "from": "workplace@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Please reserve desks for next week by Wednesday 5 PM.",
+      "correct": "safe",
+      "explain": "Routine internal scheduling request."
+    }
+  ],
+  "email_group_6": [
+    {
+      "subject": "Security scan required",
+      "from": "it-scan@comp-security.org",
+      "to": ["employee@company.com"],
+      "attachment": "QuickScan.zip",
+      "desc": "Run the attached scanner immediately to meet audit requirements.",
+      "correct": "phish",
+      "explain": "Untrusted domain, zipped executable ‘scanner’, and urgency—typical malware."
+    },
+    {
+      "subject": "New brand assets",
+      "from": "design@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "BrandKit.zip",
+      "desc": "Here’s the finalized logo pack and usage guide.",
+      "correct": "safe",
+      "explain": "Expected content from design; a zip of images and docs is normal in this context."
+    },
+    {
+      "subject": "MFA disabled—verify now",
+      "from": "no-reply@auth-secure.co",
+      "to": ["employee@company.com"],
+      "desc": "Your MFA is disabled. Click to re-enable or your access will be revoked.",
+      "correct": "phish",
+      "explain": "Non-corporate domain and scare tactics. Account changes should occur only through your known SSO."
+    },
+    {
+      "subject": "Wellness webinar",
+      "from": "benefits@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Join our 30-minute session on stress management this Friday. Add to your calendar if interested.",
+      "correct": "safe",
+      "explain": "Legit internal invite with no credential requests."
+    },
+    {
+      "subject": "Mandatory encryption upgrade",
+      "from": "security@comp-securemail.com",
+      "to": ["employee@company.com"],
+      "attachment": "EncryptNow.exe",
+      "desc": "Install the attached tool to keep sending email securely.",
+      "correct": "phish",
+      "explain": "Unrecognized domain and a request to install software via email—high risk."
+    },
+    {
+      "subject": "Printer toner scheduled",
+      "from": "facilities@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Toner replacement is scheduled for 2 PM in the east wing.",
+      "correct": "safe",
+      "explain": "Normal facilities note; no sensitive info requested."
+    }
+  ],
+  "email_group_7": [
+    {
+      "subject": "Action needed: tax form correction",
+      "from": "payroll@comp-taxforms.net",
+      "to": ["employee@company.com"],
+      "attachment": "TaxFixTool.exe",
+      "desc": "We can’t process your tax forms until you run the attached tool.",
+      "correct": "phish",
+      "explain": "Executable attachment and external domain. Tax corrections never require running software."
+    },
+    {
+      "subject": "Timesheet reminder",
+      "from": "payroll@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Please submit your timesheet by 6 PM Friday as usual.",
+      "correct": "safe",
+      "explain": "Expected reminder from internal payroll; no links or attachments required."
+    },
+    {
+      "subject": "Shared drive access revoked",
+      "from": "storage@cloud-manage.co",
+      "to": ["employee@company.com"],
+      "desc": "Your access was revoked. Sign in here to restore immediately.",
+      "correct": "phish",
+      "explain": "Unknown cloud domain with a demand to sign in. Use your normal drive link if access changed."
+    },
+    {
+      "subject": "Mentorship program sign-up",
+      "from": "peopleops@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’re matching mentors next month. Reply if you want to join.",
+      "correct": "safe",
+      "explain": "Internal program with a simple reply call-to-action."
+    },
+    {
+      "subject": "Encrypted fax received",
+      "from": "fax@securefaxing.com",
+      "to": ["employee@company.com"],
+      "attachment": "FaxMessage.pdf.exe",
+      "desc": "Open the attached file to view your secure fax.",
+      "correct": "phish",
+      "explain": "PDF.exe is malicious; secure faxes shouldn’t come as executables."
+    },
+    {
+      "subject": "Help desk ticket closed",
+      "from": "it@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’ve closed your ticket #48213. Reply if the issue persists.",
+      "correct": "safe",
+      "explain": "Normal ticket closure from IT; no suspicious content."
+    }
+  ],
+  "email_group_8": [
+    {
+      "subject": "Conference pass confirmation needed",
+      "from": "events@confirma-pass.com",
+      "to": ["employee@company.com"],
+      "desc": "Confirm your pass within 30 minutes or the reservation will be released.",
+      "correct": "phish",
+      "explain": "Unknown domain, harsh deadline, and push to click—common phishing pattern."
+    },
+    {
+      "subject": "Travel booking receipts",
+      "from": "travel@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "Receipts_March.pdf",
+      "desc": "Attaching your receipts for reimbursement. Submit through the normal portal.",
+      "correct": "safe",
+      "explain": "Expected attachment from internal travel with standard process wording."
+    },
+    {
+      "subject": "Action required: account compromised",
+      "from": "security@account-alerts-svc.net",
+      "to": ["employee@company.com"],
+      "desc": "Reset your password immediately using this secure page.",
+      "correct": "phish",
+      "explain": "Non-corporate ‘security’ domain and immediate reset demand. Use SSO only."
+    },
+    {
+      "subject": "Community ERG meeting",
+      "from": "erg@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Monthly meeting Thursday at noon. Add to your calendar if interested.",
+      "correct": "safe",
+      "explain": "Internal ERG invite; normal tone and request."
+    },
+    {
+      "subject": "Payment details changed",
+      "from": "vendor-ap@vender-portal.com",
+      "to": ["employee@company.com"],
+      "attachment": "NewBankDetails.xlsm",
+      "desc": "Update your records using the attached sheet. Macros must be enabled.",
+      "correct": "phish",
+      "explain": "Macro-enabled sheet from an off-domain sender asking to change payment data—high risk."
+    },
+    {
+      "subject": "Building HVAC maintenance",
+      "from": "facilities@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Cooling maintenance Saturday 8–10 AM. Minimal impact expected.",
+      "correct": "safe",
+      "explain": "Facilities notice with predictable timing and scope."
+    }
+  ],
+  "email_group_9": [
+    {
+      "subject": "SharePoint access request",
+      "from": "no-reply@sharepolnt-secure.com",
+      "to": ["employee@company.com"],
+      "desc": "Someone shared files with you. Sign in to view.",
+      "correct": "phish",
+      "explain": "Misspelled domain (‘sharepolnt’ with an L instead of I) and generic sign-in request."
+    },
+    {
+      "subject": "Quarterly results deck",
+      "from": "fpna@company.com",
+      "to": ["employee@company.com"],
+      "attachment": "Q3_Results.pdf",
+      "desc": "Here’s the deck for tomorrow’s review. You can read ahead if you like.",
+      "correct": "safe",
+      "explain": "Internal FP&A sender with a normal PDF deck."
+    },
+    {
+      "subject": "We suspended your email",
+      "from": "support@email-verifier.co",
+      "to": ["employee@company.com"],
+      "desc": "Your mailbox is disabled. Click to restore now.",
+      "correct": "phish",
+      "explain": "External support domain, scare language, and demand to click a link."
+    },
+    {
+      "subject": "Parking garage closure",
+      "from": "office@company.com",
+      "to": ["employee@company.com"],
+      "desc": "P2 level closed after 6 PM. Please use the north entrance.",
+      "correct": "safe",
+      "explain": "Routine internal notice with specific, believable details."
+    },
+    {
+      "subject": "USB security driver",
+      "from": "security@comp-driverupdate.net",
+      "to": ["employee@company.com"],
+      "attachment": "USBGuard.exe",
+      "desc": "Install this driver to keep using your USB devices.",
+      "correct": "phish",
+      "explain": "Executable from unknown domain; IT never distributes drivers this way."
+    },
+    {
+      "subject": "Holiday office hours",
+      "from": "people@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Office will be closed next Friday. Emergency contacts remain active.",
+      "correct": "safe",
+      "explain": "Simple HR notice; nothing suspicious."
+    }
+  ],
+  "email_group_10": [
+    {
+      "subject": "Your computer is infected",
+      "from": "alerts@sys-guardscan.com",
+      "to": ["employee@company.com"],
+      "attachment": "CleanNow.zip",
+      "desc": "Immediate action required. Run this cleaner to avoid data loss.",
+      "correct": "phish",
+      "explain": "Fear tactic plus zipped ‘cleaner’. IT won’t send antivirus tools over email."
+    },
+    {
+      "subject": "VPN split-tunnel change",
+      "from": "network@company.com",
+      "to": ["employee@company.com"],
+      "desc": "We’re changing split-tunnel rules on Friday night. Reconnect if you’re bounced.",
+      "correct": "safe",
+      "explain": "Legitimate network change notice in plain language from an internal address."
+    },
+    {
+      "subject": "Payroll: update banking info",
+      "from": "payroll@company-payroll-verify.net",
+      "to": ["employee@company.com"],
+      "desc": "Your direct deposit failed. Click to re-enter bank details.",
+      "correct": "phish",
+      "explain": "Non-corporate domain requesting sensitive banking details. Use official payroll portal only."
+    },
+    {
+      "subject": "All-hands Q&A",
+      "from": "comms@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Submit questions in the usual form by Thursday noon.",
+      "correct": "safe",
+      "explain": "Normal comms workflow pointing to the standard form; no odd requests."
+    },
+    {
+      "subject": "Encrypted spreadsheet",
+      "from": "finance@secure-docs.cc",
+      "to": ["employee@company.com"],
+      "attachment": "Statement.xlsm",
+      "desc": "Enable macros to view the secure statement.",
+      "correct": "phish",
+      "explain": "Macro-enabled spreadsheet from a non-corporate finance address—common malware vector."
+    },
+    {
+      "subject": "Kitchen restock",
+      "from": "office@company.com",
+      "to": ["employee@company.com"],
+      "desc": "Snacks restocked. Please keep the kitchenette tidy.",
+      "correct": "safe",
+      "explain": "Benign facilities update consistent with office operations."
     }
   ]
 }
-
