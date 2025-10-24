@@ -34,56 +34,15 @@
 
   <main class="container" id="main">
 	
-    <section class="grid">
-      <!-- CARD 1 (PHISH) -->
-      <article class="card" data-correct="phish">
-        <h3>I need you to check this file ASAP</h3>
-        <div class="email-meta">
-          <div><strong>From:</strong> ceo@company.com</div>
-          <div><strong>To:</strong> employee@company.com</div>
-        </div>
-        <div class="attach">
-          <span class="paperclip"></span>
-          <span class="pill warn">Important.pdf.exe</span>
-        </div>
-        <p class="desc">
-          Hey, attached is a file that I need you to look at ASAP. So please, at your earliest
-          convenience open the file and run it on your computer.
-        </p>
-        <div class="btn-row">
-          <button class="btn phish" data-guess="phish">Phish</button>
-        </div>
-      </article>
-
-      <!-- CARD 2 (SAFE FOR DEMO) -->
-      <article class="card" data-correct="safe">
-        <h3>Look into this file for me when you get a chance</h3>
-        <div class="email-meta">
-          <div><strong>From:</strong> ceo@company.com</div>
-          <div><strong>To:</strong> employee@company.com</div>
-        </div>
-        <div class="attach">
-          <span class="paperclip"></span>
-          <span class="pill">Important.pdf</span>
-        </div>
-        <p class="desc">
-          Hey, when you get a chance I need you to look at this important file for me. I need it
-          reviewed this week, and email me back with any questions.
-        </p>
-        <div class="btn-row">
-          <button class="btn phish" data-guess="phish">Phish</button>
-        </div>
-      </article>
-    </section>
-    
-   <! ........................>
+    <!-- DYNAMIC AREA: removed static demo cards so page shows only the dynamic pair below -->
+    <!-- ........................ -->
     <div id="group-tabs" style="display:flex;gap:10px;margin:12px 0;">
       <a href="#email_group_1" class="js-group" data-group="email_group_1">Group 1</a>
       <a href="#email_group_2" class="js-group" data-group="email_group_2">Group 2</a>
     </div>
 
     <section class="grid" id="content" aria-live="polite"></section>
-    <!........................>
+    <!-- ........................ -->
 
   </main>
 
