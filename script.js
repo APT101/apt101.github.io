@@ -1,4 +1,4 @@
-// Simple quiz logic
+// toast
 const toast = document.getElementById('toast');
 const toastDot = document.getElementById('toast-dot');
 const toastText = document.getElementById('toast-text');
@@ -18,241 +18,223 @@ function markCard(card, ok){
   setTimeout(()=>{ card.style.outline='none'; }, 6000);
 }
 
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('click', (e)=>{
-    const btn = e.target.closest('button[data-guess]');
-    if(!btn) return;
-    const guess = btn.getAttribute('data-guess');       // 'phish' | 'safe'
-    const correct = card.getAttribute('data-correct');  // 'phish' | 'safe'
-    const isCorrect = guess === correct;
+// data + state
+const DATA_URL = './emails.json';
+let GROUP_KEYS = null;
+let GROUP_INDEX = 0;
+let LIST = [];
+let INDEX = 0;
+let SCORE = 0;
+let LOCK = false;
 
-    // Feedback messages
-    let message = '';
-    if(isCorrect){
-      message = (guess === 'phish')
-        ? 'Correct: Suspicious file type (double extension .pdf.exe).'
-        : 'Correct: No immediate red flags in this message.';
-    } else {
-      message = (guess === 'phish')
-        ? 'Not quite. This one looks routine; no obvious red flags.'
-        : 'Careful! Double extension (.pdf.exe) is a classic malware trick.';
-    }
+function escapeHtml(str){
+  return String(str ?? '')
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+}
 
-    showToast(isCorrect, message);
-    markCard(card, isCorrect);
-  });
-});
+async function loadData(){
+  const res = await fetch(DATA_URL, { cache: 'no-store' });
+  if(!res.ok) throw new Error('Failed to load emails.json');
+  return res.json();
+}
 
+function initGroups(data){
+  if (GROUP_KEYS) return;
+  GROUP_KEYS = Object.keys(data).filter(k=>k.startsWith('email_group_')).sort();
+}
 
-// ........................
-// NEW (append-only, minimal): JSON-driven pair quiz logic with auto-next group
-(() => {
-  const DATA_URL = './emails.json';
-  const DEFAULT_GROUP = 'email_group_1';
+function getList(data){
+  const key = GROUP_KEYS[GROUP_INDEX] || GROUP_KEYS[0];
+  return Array.isArray(data[key]) ? data[key] : [];
+}
 
-  let QZ_EMAILS_CACHE = null;
-  let QZ_CURRENT_GROUP = null;
-  let QZ_CURRENT_LIST = [];
-  let QZ_INDEX = 0;   // index of first item in current pair
-  let QZ_SCORE = 0;
-  let QZ_ADVANCING = false;
+// modal
+function showModal(title, text, onOk){
+  const overlay = document.createElement('div');
+  overlay.id = 'explain-overlay';
+  overlay.style.cssText = `
+    position:fixed; inset:0; background:rgba(0,0,0,.45);
+    display:flex; align-items:center; justify-content:center; z-index:9999;
+  `;
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    max-width:640px; width:min(92vw,640px); background:#fff; color:#111;
+    border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.25);
+    padding:16px 18px; font-family:inherit;
+  `;
+  modal.innerHTML = `
+    <h3 style="margin:0 0 8px 0;">${escapeHtml(title)}</h3>
+    <p style="margin:0 0 16px 0; line-height:1.5;">${escapeHtml(text||'')}</p>
+    <div style="display:flex; justify-content:flex-end;">
+      <button id="explain-ok" class="btn" style="min-width:88px;">OK</button>
+    </div>
+  `;
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
 
-  // group sequencing
-  let QZ_GROUP_KEYS = null;   // e.g., ["email_group_1", "email_group_2", ...]
-  let QZ_GROUP_INDEX = 0;
+  const ok = modal.querySelector('#explain-ok');
 
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-
-  function escapeHtml(str) {
-    return String(str ?? '')
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#039;');
+  function accept(){
+    cleanup();
+    if (typeof onOk==='function') onOk();
+  }
+  function cleanup(){
+    document.removeEventListener('keydown', onKey, true);
+    overlay.removeEventListener('click', onAnyClick, true);
+    overlay.remove();
+  }
+  function onKey(e){
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape'){ e.preventDefault(); accept(); }
+  }
+  function onAnyClick(e){
+    e.preventDefault(); // any click acts as OK (inside or outside)
+    accept();
   }
 
-  function setActiveGroup(key) {
-    $$('.js-group[aria-current]').forEach(a => a.removeAttribute('aria-current'));
-    const el = $(`.js-group[data-group="${CSS.escape(key)}"]`);
-    if (el) el.setAttribute('aria-current', 'page');
-  }
+  ok.addEventListener('click', accept);
+  overlay.addEventListener('click', onAnyClick, true);
+  document.addEventListener('keydown', onKey, true);
+  setTimeout(()=>ok.focus(), 0);
+}
 
-  function normalizeCorrect(v) {
-    return String(v || '').toLowerCase().replace('phishing','phish');
-  }
+// render pair
+function render(){
+  const root = document.getElementById('content');
+  if (!root) return;
 
-  function listGroupKeys(data){
-    return Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
-  }
+  const left = LIST[INDEX];
+  const right = LIST[INDEX+1];
 
-  async function loadEmails() {
-    if (QZ_EMAILS_CACHE) return QZ_EMAILS_CACHE;
-    const res = await fetch(DATA_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`Failed to load emails.json (${res.status})`);
-    QZ_EMAILS_CACHE = await res.json();
-    return QZ_EMAILS_CACHE;
-  }
-
-  function getGroup(data, key) {
-    const list = data?.[key];
-    return Array.isArray(list) ? list : [];
-  }
-
-  // Render pair-view: two cards (left, right). Each card has a "Pick as Phish" button.
-  function renderCurrent() {
-    const root = document.getElementById('content');
-    if (!root) return;
-
-    if (!QZ_CURRENT_LIST.length) {
-      root.innerHTML = `<p>No emails in this group.</p>`;
+  if (!left && !right){
+    // next group if available
+    if (GROUP_INDEX < GROUP_KEYS.length - 1){
+      GROUP_INDEX += 1;
+      INDEX = 0;
+      SCORE = 0;
+      renderLoading();
+      setTimeout(loadGroup, 0);
       return;
     }
-
-    const left = QZ_CURRENT_LIST[QZ_INDEX];
-    const right = QZ_CURRENT_LIST[QZ_INDEX + 1];
-
-    // When we've exhausted all items, go to next group if any; otherwise show Done
-    if (!left && !right) {
-      const hasNextGroup = QZ_GROUP_KEYS && (QZ_GROUP_INDEX < QZ_GROUP_KEYS.length - 1);
-      if (hasNextGroup) {
-        const nextKey = QZ_GROUP_KEYS[QZ_GROUP_INDEX + 1];
-        setTimeout(() => { go(nextKey); }, 300);
-        return;
-      }
-
-      root.innerHTML = `
-        <section class="card" style="padding:16px;">
-          <h3>Done!</h3>
-          <p>You answered ${QZ_SCORE} of ${QZ_CURRENT_LIST.length} correctly.</p>
-          <div class="btn-row">
-            <button class="btn js-restart">Restart Group</button>
-          </div>
-        </section>
-      `;
-      return;
-    }
-
-    const renderCard = (e, side) => {
-      if (!e) return '';
-      const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
-      const attachment = e.attachment ? `
-        <div class="attach">
-          <span class="paperclip"></span>
-          <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
-        </div>` : '';
-
-      return `
-        <article class="card" data-side="${side}" data-correct="${escapeHtml(normalizeCorrect(e.correct))}">
-          <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
-          <div class="email-meta">
-            <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
-            <div><strong>To:</strong> ${escapeHtml(to)}</div>
-          </div>
-          ${attachment}
-          <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
-
-          <div class="btn-row">
-            <button class="btn js-pick-phish">Pick as Phish</button>
-          </div>
-        </article>
-      `;
-    };
-
-    // layout: two cards side-by-side (using existing .grid styles)
+    // done
     root.innerHTML = `
-      <div class="grid">
-        ${renderCard(left, 'left')}
-        ${renderCard(right, 'right')}
-      </div>
+      <section class="card" style="padding:16px;">
+        <h3>Done!</h3>
+        <p>You answered ${SCORE} of ${LIST.length} correctly.</p>
+        <div class="btn-row">
+          <button class="btn js-restart">Restart Group</button>
+        </div>
+      </section>
+    `;
+    return;
+  }
 
-      <p class="progress" style="opacity:.7;margin-top:8px;">
-        Pair ${Math.floor(QZ_INDEX/2) + 1} of ${Math.ceil(QZ_CURRENT_LIST.length / 2)}
-      </p>
+  function cardHTML(e, side){
+    if (!e) return '';
+    const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
+    const att = e.attachment ? `
+      <div class="attach">
+        <span class="paperclip"></span>
+        <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
+      </div>
+    ` : '';
+    return `
+      <article class="card" data-side="${side}" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
+        <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
+        <div class="email-meta">
+          <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
+          <div><strong>To:</strong> ${escapeHtml(to)}</div>
+        </div>
+        ${att}
+        <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
+        <div class="btn-row">
+          <button class="btn js-pick">Pick as Phish</button>
+        </div>
+      </article>
     `;
   }
 
-  // When user picks a card as phish, evaluate and advance by two items (next pair)
-  function handlePickPhish(cardEl) {
-    if (!cardEl) return;
-    if (QZ_ADVANCING) return;
+  root.innerHTML = `
+    <div class="grid">
+      ${cardHTML(left, 'left')}
+      ${cardHTML(right, 'right')}
+    </div>
+    <p class="progress" style="opacity:.7;margin-top:8px;">
+      Pair ${Math.floor(INDEX/2)+1} of ${Math.ceil(LIST.length/2)}
+    </p>
+  `;
+}
 
-    const correct = (cardEl.getAttribute('data-correct') || '').toLowerCase();
-    const isRight = correct === 'phish';
+function renderLoading(){
+  const root = document.getElementById('content');
+  if (root) root.innerHTML = `<p>Loading…</p>`;
+}
 
-    if (isRight) QZ_SCORE += 1;
-    showToast(isRight, isRight ? 'Correct' : 'Incorrect');
-    markCard(cardEl, isRight);
+async function loadGroup(){
+  const data = await loadData();
+  initGroups(data);
+  const key = GROUP_KEYS[GROUP_INDEX] || GROUP_KEYS[0];
+  LIST = Array.isArray(data[key]) ? data[key] : [];
+  INDEX = 0;
+  render();
+}
 
-    QZ_ADVANCING = true;
-    setTimeout(() => {
-      QZ_INDEX += 2;
-      QZ_ADVANCING = false;
-      renderCurrent();
-    }, 450);
+// actions
+function pick(card){
+  if (!card || LOCK) return;
+  LOCK = true;
+
+  const correct = (card.getAttribute('data-correct')||'').toLowerCase();
+  const isRight = correct === 'phish';
+
+  showToast(isRight, isRight ? 'Correct' : 'Incorrect');
+  markCard(card, isRight);
+
+  const idx = card.getAttribute('data-side') === 'right' ? INDEX+1 : INDEX;
+  const email = LIST[idx] || {};
+  const explanation = email.explain || email.explanation || '';
+
+  showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
+    if (isRight) SCORE += 1;
+    INDEX += 2;
+    LOCK = false;
+    render();
+  });
+}
+
+function restart(){
+  GROUP_INDEX = 0;
+  INDEX = 0;
+  SCORE = 0;
+  renderLoading();
+  loadGroup();
+}
+
+// events
+document.addEventListener('click', (e)=>{
+  const pickBtn = e.target.closest('.js-pick');
+  if (pickBtn){
+    e.preventDefault();
+    const card = pickBtn.closest('.card');
+    pick(card);
+    return;
   }
-
-  function handleRestart() {
-    QZ_SCORE = 0;
-    QZ_INDEX = 0;
-    renderCurrent();
+  const restartBtn = e.target.closest('.js-restart');
+  if (restartBtn){
+    e.preventDefault();
+    restart();
+    return;
   }
+});
 
-  async function go(groupKey) {
-    setActiveGroup(groupKey);
+// init
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderLoading();
+  loadGroup().catch(()=> {
     const root = document.getElementById('content');
-    if (root) root.innerHTML = `<p>Loading…</p>`;
-
-    try {
-      const data = await loadEmails();
-
-      if (!QZ_GROUP_KEYS) QZ_GROUP_KEYS = listGroupKeys(data);
-      QZ_GROUP_INDEX = Math.max(0, QZ_GROUP_KEYS.indexOf(groupKey));
-
-      QZ_CURRENT_GROUP = groupKey;
-      QZ_CURRENT_LIST = getGroup(data, groupKey);
-      QZ_INDEX = 0;
-      QZ_SCORE = 0;
-
-      renderCurrent();
-
-      if (location.hash.replace('#', '') !== groupKey) {
-        history.replaceState(null, '', `#${groupKey}`);
-      }
-    } catch (e) {
-      if (root) root.innerHTML = `<p style="color:#b91c1c;">${escapeHtml(e.message || 'Failed to load data.')}</p>`;
-    }
-  }
-
-  // delegated clicks for group links, pick buttons and restart
-  document.addEventListener('click', (e) => {
-    const g = e.target.closest('.js-group');
-    if (g) {
-      e.preventDefault();
-      go(g.dataset.group);
-      return;
-    }
-
-    const pick = e.target.closest('.js-pick-phish');
-    if (pick) {
-      e.preventDefault();
-      const cardEl = pick.closest('.card');
-      handlePickPhish(cardEl);
-      return;
-    }
-
-    const r = e.target.closest('.js-restart');
-    if (r) {
-      e.preventDefault();
-      handleRestart();
-      return;
-    }
+    if (root) root.innerHTML = `<p style="color:#b91c1c;">Failed to load data.</p>`;
   });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const key = (location.hash || '').replace('#', '') || DEFAULT_GROUP;
-    go(key);
-  });
-})();
-// ........................
+});
