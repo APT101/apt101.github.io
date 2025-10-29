@@ -1,8 +1,6 @@
-// prevent double init if another copy is included by mistake
 if (!window.__APTT_INIT__) {
   window.__APTT_INIT__ = true;
 
-  // toast
   const toast = document.getElementById('toast');
   const toastDot = document.getElementById('toast-dot');
   const toastText = document.getElementById('toast-text');
@@ -22,12 +20,11 @@ if (!window.__APTT_INIT__) {
     setTimeout(()=>{ card.style.outline='none'; }, 6000);
   }
 
-  // data + state
   const DATA_URL = './emails.json';
   const ROUND_SIZE = 10;
   let ALL_PAIRS = [];
   let ORDER = [];
-  let INDEX = 0;    // pair index (0..ROUND_SIZE-1)
+  let INDEX = 0;
   let SCORE = 0;
   let LOCK = false;
 
@@ -54,7 +51,6 @@ if (!window.__APTT_INIT__) {
     return arr;
   }
 
-  // build pairs robustly (chunk by 2) from every group
   function preparePairs(data){
     const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
     const pairs = [];
@@ -68,7 +64,6 @@ if (!window.__APTT_INIT__) {
     return pairs;
   }
 
-  // modal
   function showModal(title, text, onOk){
     const overlay = document.createElement('div');
     overlay.id = 'explain-overlay';
@@ -117,12 +112,11 @@ if (!window.__APTT_INIT__) {
     setTimeout(()=>ok.focus(), 0);
   }
 
-  // render one PAIR at a time
   function render(){
     const root = document.getElementById('content');
     if (!root) return;
 
-    const TOTAL = ORDER.length; // should be 10
+    const TOTAL = ORDER.length;
 
     if (INDEX >= TOTAL){
       root.innerHTML = `
@@ -181,7 +175,6 @@ if (!window.__APTT_INIT__) {
     if (root) root.innerHTML = `<p>Loading…</p>`;
   }
 
-  // actions
   function pick(card){
     if (!card || LOCK) return;
     LOCK = true;
@@ -198,7 +191,7 @@ if (!window.__APTT_INIT__) {
 
     showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
       if (isRight) SCORE++;
-      INDEX++;            // advance by ONE pair each time
+      INDEX++;
       LOCK = false;
       render();
     });
@@ -208,15 +201,15 @@ if (!window.__APTT_INIT__) {
     SCORE = 0;
     INDEX = 0;
     LOCK = false;
-    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // exactly 10 pairs
+    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
     render();
   }
 
-  // events (bound once due to guard)
   document.addEventListener('click', (e)=>{
     const pickBtn = e.target.closest('.js-pick');
     if (pickBtn){
       e.preventDefault();
+      e.stopPropagation();
       const card = pickBtn.closest('.card');
       pick(card);
       return;
@@ -224,18 +217,18 @@ if (!window.__APTT_INIT__) {
     const restartBtn = e.target.closest('.js-restart');
     if (restartBtn){
       e.preventDefault();
+      e.stopPropagation();
       restart();
       return;
     }
   });
 
-  // init
   document.addEventListener('DOMContentLoaded', async ()=>{
     renderLoading();
     try {
       const data = await loadData();
-      ALL_PAIRS = preparePairs(data);                       // list of [emailA,emailB]
-      ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // 10 random pairs
+      ALL_PAIRS = preparePairs(data);
+      ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
       render();
     } catch {
       const root = document.getElementById('content');
