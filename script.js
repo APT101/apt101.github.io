@@ -21,9 +21,9 @@ function markCard(card, ok){
 // data + state
 const DATA_URL = './emails.json';
 const ROUND_SIZE = 10;
-let ALL_ITEMS = [];
+let ALL_PAIRS = [];
 let ORDER = [];
-let INDEX = 0;
+let INDEX = 0;   // which pair we are on (0..ROUND_SIZE-1)
 let SCORE = 0;
 let LOCK = false;
 
@@ -50,19 +50,18 @@ function shuffle(arr){
   return arr;
 }
 
-// flatten all groups into a single list of email items
-function prepareItems(data){
+// build pairs robustly (chunk by 2) so any accidental extra items don't break flow
+function preparePairs(data){
   const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
-  const out = [];
+  const pairs = [];
   for (const key of keys){
-    const arr = data[key];
-    if (Array.isArray(arr)) {
-      for (const item of arr){
-        out.push(item);
-      }
+    const g = data[key];
+    if (!Array.isArray(g)) continue;
+    for (let i = 0; i + 1 < g.length; i += 2){
+      pairs.push([ g[i], g[i+1] ]);
     }
   }
-  return out;
+  return pairs;
 }
 
 // modal
@@ -114,12 +113,12 @@ function showModal(title, text, onOk){
   setTimeout(()=>ok.focus(), 0);
 }
 
-// render single email (one question at a time)
+// render one PAIR at a time
 function render(){
   const root = document.getElementById('content');
   if (!root) return;
 
-  const TOTAL = ORDER.length;
+  const TOTAL = ORDER.length; // should be 10
 
   if (INDEX >= TOTAL){
     root.innerHTML = `
@@ -134,9 +133,11 @@ function render(){
     return;
   }
 
-  const email = ORDER[INDEX];
+  const pair = ORDER[INDEX];
+  const left = pair[0];
+  const right = pair[1];
 
-  function cardHTML(e){
+  function cardHTML(e, side){
     const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
     const att = e.attachment ? `
       <div class="attach">
@@ -145,7 +146,7 @@ function render(){
       </div>
     ` : '';
     return `
-      <article class="card" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
+      <article class="card" data-side="${side}" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
         <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
         <div class="email-meta">
           <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
@@ -162,10 +163,11 @@ function render(){
 
   root.innerHTML = `
     <div class="grid">
-      ${cardHTML(email)}
+      ${cardHTML(left, 'left')}
+      ${cardHTML(right, 'right')}
     </div>
     <p class="progress" style="opacity:.7;margin-top:8px;">
-      Question ${INDEX + 1} of ${TOTAL}
+      Pair ${INDEX + 1} of ${TOTAL}
     </p>
   `;
 }
@@ -186,12 +188,13 @@ function pick(card){
   showToast(isRight, isRight ? 'Correct' : 'Incorrect');
   markCard(card, isRight);
 
-  const email = ORDER[INDEX];
+  const side = card.getAttribute('data-side') === 'right' ? 1 : 0;
+  const email = ORDER[INDEX][side];
   const explanation = email.explain || email.explanation || '';
 
   showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
-    if (isRight) SCORE++;
-    INDEX++;
+    if (isRight) SCORE++;     // 1 point only if the chosen card is the phish
+    INDEX++;                  // move to the NEXT PAIR (no skipping)
     LOCK = false;
     render();
   });
@@ -201,7 +204,7 @@ function restart(){
   SCORE = 0;
   INDEX = 0;
   LOCK = false;
-  ORDER = shuffle([...ALL_ITEMS]).slice(0, ROUND_SIZE);
+  ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // exactly 10 pairs
   render();
 }
 
@@ -227,8 +230,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   renderLoading();
   try {
     const data = await loadData();
-    ALL_ITEMS = prepareItems(data);
-    ORDER = shuffle([...ALL_ITEMS]).slice(0, ROUND_SIZE);
+    ALL_PAIRS = preparePairs(data);                 // build full list of [emailA,emailB]
+    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // pick 10 random pairs
     render();
   } catch {
     const root = document.getElementById('content');
