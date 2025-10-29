@@ -21,7 +21,7 @@ function markCard(card, ok){
 // data + state
 const DATA_URL = './emails.json';
 const ROUND_SIZE = 10;
-let ALL_PAIRS = [];
+let ALL_ITEMS = [];
 let ORDER = [];
 let INDEX = 0;
 let SCORE = 0;
@@ -50,17 +50,19 @@ function shuffle(arr){
   return arr;
 }
 
-function preparePairs(data){
+// flatten all groups into a single list of email items
+function prepareItems(data){
   const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
-  const pairs = [];
+  const out = [];
   for (const key of keys){
-    const g = data[key];
-    if (!Array.isArray(g)) continue;
-    for (let i = 0; i + 1 < g.length; i += 2){
-      pairs.push([ g[i], g[i + 1] ]);
+    const arr = data[key];
+    if (Array.isArray(arr)) {
+      for (const item of arr){
+        out.push(item);
+      }
     }
   }
-  return pairs;
+  return out;
 }
 
 // modal
@@ -112,7 +114,7 @@ function showModal(title, text, onOk){
   setTimeout(()=>ok.focus(), 0);
 }
 
-// render pair
+// render single email (one question at a time)
 function render(){
   const root = document.getElementById('content');
   if (!root) return;
@@ -132,12 +134,9 @@ function render(){
     return;
   }
 
-  const pair = ORDER[INDEX];
-  const left = pair[0];
-  const right = pair[1];
+  const email = ORDER[INDEX];
 
-  function cardHTML(e, side){
-    if (!e) return '';
+  function cardHTML(e){
     const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
     const att = e.attachment ? `
       <div class="attach">
@@ -146,7 +145,7 @@ function render(){
       </div>
     ` : '';
     return `
-      <article class="card" data-side="${side}" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
+      <article class="card" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
         <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
         <div class="email-meta">
           <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
@@ -163,11 +162,10 @@ function render(){
 
   root.innerHTML = `
     <div class="grid">
-      ${cardHTML(left, 'left')}
-      ${cardHTML(right, 'right')}
+      ${cardHTML(email)}
     </div>
     <p class="progress" style="opacity:.7;margin-top:8px;">
-      Pair ${INDEX + 1} of ${TOTAL}
+      Question ${INDEX + 1} of ${TOTAL}
     </p>
   `;
 }
@@ -188,8 +186,7 @@ function pick(card){
   showToast(isRight, isRight ? 'Correct' : 'Incorrect');
   markCard(card, isRight);
 
-  const side = card.getAttribute('data-side') === 'right' ? 1 : 0;
-  const email = ORDER[INDEX][side];
+  const email = ORDER[INDEX];
   const explanation = email.explain || email.explanation || '';
 
   showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
@@ -204,7 +201,7 @@ function restart(){
   SCORE = 0;
   INDEX = 0;
   LOCK = false;
-  ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
+  ORDER = shuffle([...ALL_ITEMS]).slice(0, ROUND_SIZE);
   render();
 }
 
@@ -230,8 +227,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   renderLoading();
   try {
     const data = await loadData();
-    ALL_PAIRS = preparePairs(data);
-    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
+    ALL_ITEMS = prepareItems(data);
+    ORDER = shuffle([...ALL_ITEMS]).slice(0, ROUND_SIZE);
     render();
   } catch {
     const root = document.getElementById('content');
