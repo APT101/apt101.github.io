@@ -23,7 +23,7 @@ const DATA_URL = './emails.json';
 const ROUND_SIZE = 10;
 let ALL_PAIRS = [];
 let ORDER = [];
-let INDEX = 0;   // which pair we are on (0..ROUND_SIZE-1)
+let INDEX = 0;    // pair index (0..ROUND_SIZE-1)
 let SCORE = 0;
 let LOCK = false;
 
@@ -50,7 +50,7 @@ function shuffle(arr){
   return arr;
 }
 
-// build pairs robustly (chunk by 2) so any accidental extra items don't break flow
+// build pairs robustly (chunk by 2) from every group
 function preparePairs(data){
   const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
   const pairs = [];
@@ -193,8 +193,8 @@ function pick(card){
   const explanation = email.explain || email.explanation || '';
 
   showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
-    if (isRight) SCORE++;     // 1 point only if the chosen card is the phish
-    INDEX++;                  // move to the NEXT PAIR (no skipping)
+    if (isRight) SCORE++;
+    INDEX++;            // advance by ONE pair each time
     LOCK = false;
     render();
   });
@@ -230,8 +230,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   renderLoading();
   try {
     const data = await loadData();
-    ALL_PAIRS = preparePairs(data);                 // build full list of [emailA,emailB]
-    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // pick 10 random pairs
+    ALL_PAIRS = preparePairs(data);                       // list of [emailA,emailB]
+    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); // 10 random pairs
     render();
   } catch {
     const root = document.getElementById('content');
