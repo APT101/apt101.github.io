@@ -9,7 +9,7 @@
 // Control via env (GitHub Action inputs):
 //   OPENAI_API_KEY   (required, GitHub secret)
 //   EMAIL_TOPICS     (optional, e.g., "HR|Finance|IT|SSO|Password Reset")
-//   PAIRS_COUNT      (optional, default 10) -> 10 pairs = 20 emails
+//   PAIRS_COUNT      (optional, default 10) -> 50 pairs = 100 emails
 //
 // IMPORTANT: Schema per email (must match your site):
 //   { subject: string, from: string, to: [string], desc: string, correct: "phish"|"safe", explain: string }
@@ -22,7 +22,7 @@ const ROOT = process.cwd();
 const MAIN_FILE = path.join(ROOT, "emails.json");      // your live file (root)
 const ARCHIVE_DIR = path.join(ROOT, "archive");
 
-const PAIRS_COUNT = Number(process.env.PAIRS_COUNT || "10"); // default 10 pairs
+const PAIRS_COUNT = Number(process.env.PAIRS_COUNT || "50"); // default 50 pairs
 const EMAIL_TOPICS = process.env.EMAIL_TOPICS || "";         // e.g., "HR|Finance|IT"
 const MODEL = "gpt-4o-mini";
 
