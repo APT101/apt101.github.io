@@ -1,0 +1,204 @@
+{
+  "generated_at": "2025-11-01T13:56:01.143Z",
+  "count_pairs": 9,
+  "pairs": [
+    [
+      {
+        "subject": "Urgent: Update Your Payroll Information",
+        "from": "hr-update@payroll-secure.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Please click the link to verify your payroll details to avoid delays in your next payment.",
+        "correct": "phish",
+        "explain": "The sender's domain is suspiciously similar to a legitimate one, and it creates a sense of urgency."
+      },
+      {
+        "subject": "Quarterly Performance Review Schedule",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Your performance review is scheduled for next week. Please check the calendar for details.",
+        "correct": "safe",
+        "explain": "The email is from a legitimate company domain and contains no urgent requests or suspicious links."
+      }
+    ],
+    [
+      {
+        "subject": "Action Required: Invoice Payment Overdue",
+        "from": "billing@secure-invoice.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Your invoice is overdue. Please download the attached invoice and process the payment immediately.",
+        "correct": "phish",
+        "explain": "The domain is not recognized, and the attachment could contain malware."
+      },
+      {
+        "subject": "Team Lunch Invitation",
+        "from": "events@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Join us for a team lunch on Friday! RSVP by Thursday.",
+        "correct": "safe",
+        "explain": "The email is from a recognized domain and contains no suspicious requests or attachments."
+      }
+    ],
+    [
+      {
+        "subject": "Security Alert: Unusual Login Attempt",
+        "from": "security-alert@company-secure.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "We've detected a login attempt from an unrecognized device. Click here to secure your account.",
+        "correct": "phish",
+        "explain": "The sender's domain is a lookalike, and it prompts the recipient to click a link."
+      },
+      {
+        "subject": "Monthly IT Maintenance Schedule",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Please be informed of the upcoming IT maintenance scheduled for this weekend.",
+        "correct": "safe",
+        "explain": "The email is from the official IT department and contains no urgent or suspicious requests."
+      }
+    ],
+    [
+      {
+        "subject": "Congratulations! You've Won a Gift Card!",
+        "from": "promo@company-gifts.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "You've been selected to receive a $100 gift card! Claim it now by clicking the link.",
+        "correct": "phish",
+        "explain": "The email is from an unrecognized domain and offers an unsolicited prize, which is a common phishing tactic."
+      },
+      {
+        "subject": "Project Update Meeting",
+        "from": "manager@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Let's discuss the project updates in our meeting scheduled for Wednesday.",
+        "correct": "safe",
+        "explain": "The email is from a known company address and pertains to a legitimate work-related meeting."
+      }
+    ],
+    [
+      {
+        "subject": "Immediate Action Required: Account Verification",
+        "from": "verify@account-security.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Your account needs verification to prevent suspension. Click here to verify now.",
+        "correct": "phish",
+        "explain": "The domain is suspicious, and it creates urgency to click a link without proper context."
+      },
+      {
+        "subject": "New Policy Update",
+        "from": "compliance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Please review the attached document regarding the new company policy updates.",
+        "correct": "safe",
+        "explain": "The email is from a legitimate department and includes an attachment relevant to company policies."
+      }
+    ],
+    [
+      {
+        "subject": "Your Account Has Been Compromised",
+        "from": "support@secure-login.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "We suspect your account has been compromised. Please reset your password immediately.",
+        "correct": "phish",
+        "explain": "The sender's domain is not recognized, and the email urges immediate action without verification."
+      },
+      {
+        "subject": "Weekly Team Check-In",
+        "from": "teamlead@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Reminder for our weekly check-in meeting. Looking forward to your updates!",
+        "correct": "safe",
+        "explain": "The email is from a known address and relates to a regular team meeting with no red flags."
+      }
+    ],
+    [
+      {
+        "subject": "Important: Update Your Security Settings",
+        "from": "admin@secure-settings.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "To enhance security, please update your settings by clicking the link below.",
+        "correct": "phish",
+        "explain": "The domain is suspicious, and it requests sensitive actions without proper context."
+      },
+      {
+        "subject": "Office Supplies Order Confirmation",
+        "from": "supplies@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Your order for office supplies has been confirmed. Expected delivery is next week.",
+        "correct": "safe",
+        "explain": "The email is from a legitimate company address and contains standard order confirmation details."
+      }
+    ],
+    [
+      {
+        "subject": "Final Notice: Payment Required",
+        "from": "billing@urgent-notice.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "This is your final notice regarding payment. Please pay immediately to avoid penalties.",
+        "correct": "phish",
+        "explain": "The sender's domain is not recognized, and it uses scare tactics to prompt immediate action."
+      },
+      {
+        "subject": "Training Session Reminder",
+        "from": "training@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Don't forget about the training session scheduled for Thursday. See you there!",
+        "correct": "safe",
+        "explain": "The email is from a recognized domain and pertains to a scheduled training session."
+      }
+    ],
+    [
+      {
+        "subject": "Verify Your Email for Security Purposes",
+        "from": "verify@secure-email.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Please verify your email address by clicking the link to ensure your account's security.",
+        "correct": "phish",
+        "explain": "The domain is suspicious, and it requests verification through a link without context."
+      },
+      {
+        "subject": "Budget Review Meeting Scheduled",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "The budget review meeting is scheduled for next Monday. Please prepare your reports.",
+        "correct": "safe",
+        "explain": "The email is from a legitimate finance department and contains relevant meeting information."
+      }
+    ]
+  ]
+}
