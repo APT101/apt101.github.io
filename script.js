@@ -64,6 +64,7 @@ if (!window.__APTT_INIT__) {
     return pairs;
   }
 
+  // FIXED: prevent double-advance by ensuring dismiss happens once and only for overlay background clicks.
   function showModal(title, text, onOk){
     const overlay = document.createElement('div');
     overlay.id = 'explain-overlay';
@@ -88,26 +89,33 @@ if (!window.__APTT_INIT__) {
     document.body.appendChild(overlay);
 
     const ok = modal.querySelector('#explain-ok');
+    let dismissed = false;
 
     function accept(){
+      if (dismissed) return;  // guard to ensure it fires only once
+      dismissed = true;
       cleanup();
       if (typeof onOk==='function') onOk();
     }
     function cleanup(){
       document.removeEventListener('keydown', onKey, true);
-      overlay.removeEventListener('click', onAnyClick, true);
+      overlay.removeEventListener('click', onOverlayClick); // bubble phase (no capture)
+      ok.removeEventListener('click', accept);
       overlay.remove();
     }
     function onKey(e){
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape'){ e.preventDefault(); accept(); }
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape'){
+        e.preventDefault();
+        accept();
+      }
     }
-    function onAnyClick(e){
-      e.preventDefault();
-      accept();
+    function onOverlayClick(e){
+      // Only dismiss if clicking the dimmed background, not inside the modal
+      if (e.target === overlay) accept();
     }
 
     ok.addEventListener('click', accept);
-    overlay.addEventListener('click', onAnyClick, true);
+    overlay.addEventListener('click', onOverlayClick);     // no capture
     document.addEventListener('keydown', onKey, true);
     setTimeout(()=>ok.focus(), 0);
   }
