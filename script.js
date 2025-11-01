@@ -64,7 +64,8 @@ if (!window.__APTT_INIT__) {
     return pairs;
   }
 
-  // FIXED: prevent double-advance by ensuring dismiss happens once and only for overlay background clicks.
+  // FINAL: Modal only advances when OK is pressed. No overlay click-to-dismiss.
+  // Also guarded against double-trigger.
   function showModal(title, text, onOk){
     const overlay = document.createElement('div');
     overlay.id = 'explain-overlay';
@@ -92,30 +93,26 @@ if (!window.__APTT_INIT__) {
     let dismissed = false;
 
     function accept(){
-      if (dismissed) return;  // guard to ensure it fires only once
+      if (dismissed) return;        // ensure it fires only once
       dismissed = true;
       cleanup();
       if (typeof onOk==='function') onOk();
     }
     function cleanup(){
       document.removeEventListener('keydown', onKey, true);
-      overlay.removeEventListener('click', onOverlayClick); // bubble phase (no capture)
       ok.removeEventListener('click', accept);
       overlay.remove();
     }
     function onKey(e){
-      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape'){
+      // Only allow Enter/Space when the OK button is focused (keyboard accessibility)
+      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === ok){
         e.preventDefault();
         accept();
       }
-    }
-    function onOverlayClick(e){
-      // Only dismiss if clicking the dimmed background, not inside the modal
-      if (e.target === overlay) accept();
+      // Escape ignored intentionally to enforce OK-only dismissal
     }
 
     ok.addEventListener('click', accept);
-    overlay.addEventListener('click', onOverlayClick);     // no capture
     document.addEventListener('keydown', onKey, true);
     setTimeout(()=>ok.focus(), 0);
   }
