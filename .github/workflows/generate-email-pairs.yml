@@ -14,7 +14,7 @@ on:
         type: number
   # (Optional) nightly schedule — delete this block if you don't want auto-runs
   schedule:
-    - cron: "23 3 * * *"  # every day at 03:23 UTC
+    - cron: "23 3 * * 6"  # every Saturday at 03:23 UTC
 
 permissions:
   contents: write
