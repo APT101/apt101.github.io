@@ -4,7 +4,7 @@ if (!window.__APTT_INIT__) {
   const $ = (id) => document.getElementById(id);
   const toast = $('toast'), toastDot = $('toast-dot'), toastText = $('toast-text');
   const DATA_URL = './emails.json', ROUND_SIZE = 10;
-  let ALL_PAIRS = [], ORDER = [], INDEX = 0, SCORE = 0, LOCK = false, hideTimer = null;
+  let ALL_PAIRS = [], REMAINING = [], ORDER = [], INDEX = 0, SCORE = 0, LOCK = false, hideTimer = null;
 
   const showToast = (ok, msg) => {
     toast.classList.add('show');
@@ -36,7 +36,13 @@ if (!window.__APTT_INIT__) {
     return pairs;
   };
 
-  // Modal advances ONLY on OK (or Enter/Space on OK). No background dismissal. Guarded against double-fire.
+  // Deal the next round from the REMAINING pool (no repeats across rounds).
+  const dealNextRound = () => {
+    if (REMAINING.length === 0) REMAINING = shuffle([...ALL_PAIRS]); // refill when exhausted
+    ORDER = REMAINING.splice(0, Math.min(ROUND_SIZE, REMAINING.length)); // take next chunk
+  };
+
+  // Modal advances ONLY on OK (or Enter/Space on OK). No background dismissal.
   function showModal(title, text, onOk){
     const overlay = document.createElement('div');
     overlay.id = 'explain-overlay';
@@ -127,7 +133,12 @@ if (!window.__APTT_INIT__) {
     });
   };
 
-  const restart = () => { SCORE = 0; INDEX = 0; LOCK = false; ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); render(); };
+  const restart = () => {
+    SCORE = 0; INDEX = 0; LOCK = false;
+    if (REMAINING.length === 0) REMAINING = shuffle([...ALL_PAIRS]); // refill when exhausted
+    dealNextRound(); // take next chunk with no repeats
+    render();
+  };
 
   document.addEventListener('click', (e) => {
     const pickBtn = e.target.closest('.js-pick');
@@ -143,7 +154,8 @@ if (!window.__APTT_INIT__) {
       if (!res.ok) throw 0;
       const data = await res.json();
       ALL_PAIRS = preparePairs(data);
-      ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
+      REMAINING = shuffle([...ALL_PAIRS]);   // initialize the non-repeating pool
+      dealNextRound();                       // first round
       render();
     } catch {
       const root = $('content');
