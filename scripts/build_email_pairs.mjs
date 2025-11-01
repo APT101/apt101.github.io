@@ -152,7 +152,7 @@ async function main() {
 
   const pairs = await generatePairs(PAIRS_COUNT, EMAIL_TOPICS);
 
-  const newOnlyFile = path.join(ROOT, `generated_email_pairs_${stamp}.json`);
+  const newOnlyFile = path.join(ARCHIVE_DIR, `generated_email_pairs_${stamp}.json`);
   fs.writeFileSync(newOnlyFile, JSON.stringify({
     generated_at: new Date().toISOString(),
     count_pairs: pairs.length,
