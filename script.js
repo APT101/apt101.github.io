@@ -1,243 +1,153 @@
 if (!window.__APTT_INIT__) {
   window.__APTT_INIT__ = true;
 
-  const toast = document.getElementById('toast');
-  const toastDot = document.getElementById('toast-dot');
-  const toastText = document.getElementById('toast-text');
-  let hideTimer = null;
+  const $ = (id) => document.getElementById(id);
+  const toast = $('toast'), toastDot = $('toast-dot'), toastText = $('toast-text');
+  const DATA_URL = './emails.json', ROUND_SIZE = 10;
+  let ALL_PAIRS = [], ORDER = [], INDEX = 0, SCORE = 0, LOCK = false, hideTimer = null;
 
-  function showToast(ok, msg){
+  const showToast = (ok, msg) => {
     toast.classList.add('show');
     toastDot.className = 'dot ' + (ok ? 'good' : 'bad');
     toastText.textContent = msg;
     clearTimeout(hideTimer);
-    hideTimer = setTimeout(()=>toast.classList.remove('show'), 6000);
-  }
+    hideTimer = setTimeout(() => toast.classList.remove('show'), 6000);
+  };
 
-  function markCard(card, ok){
-    card.style.outline = '2px solid ' + (ok ? '#16a34a' : '#b91c1c');
-    card.style.outlineOffset = '3px';
-    setTimeout(()=>{ card.style.outline='none'; }, 6000);
-  }
+  const markCard = (el, ok) => {
+    el.style.outline = '2px solid ' + (ok ? '#16a34a' : '#b91c1c');
+    el.style.outlineOffset = '3px';
+    setTimeout(() => { el.style.outline = 'none'; }, 6000);
+  };
 
-  const DATA_URL = './emails.json';
-  const ROUND_SIZE = 10;
-  let ALL_PAIRS = [];
-  let ORDER = [];
-  let INDEX = 0;
-  let SCORE = 0;
-  let LOCK = false;
+  const escapeHtml = (s) => String(s ?? '')
+    .replaceAll('&','&amp;').replaceAll('<','&lt;')
+    .replaceAll('>','&gt;').replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
 
-  function escapeHtml(str){
-    return String(str ?? '')
-      .replaceAll('&','&amp;')
-      .replaceAll('<','&lt;')
-      .replaceAll('>','&gt;')
-      .replaceAll('"','&quot;')
-      .replaceAll("'","&#039;");
-  }
+  const shuffle = (a) => { for (let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 
-  async function loadData(){
-    const res = await fetch(DATA_URL, { cache: 'no-store' });
-    if(!res.ok) throw new Error('Failed to load emails.json');
-    return res.json();
-  }
-
-  function shuffle(arr){
-    for (let i = arr.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-
-  function preparePairs(data){
-    const keys = Object.keys(data).filter(k => k.startsWith('email_group_')).sort();
+  const preparePairs = (data) => {
     const pairs = [];
-    for (const key of keys){
-      const g = data[key];
-      if (!Array.isArray(g)) continue;
-      for (let i = 0; i + 1 < g.length; i += 2){
-        pairs.push([ g[i], g[i+1] ]);
-      }
+    for (const k of Object.keys(data).filter(x => x.startsWith('email_group_')).sort()){
+      const g = data[k]; if (!Array.isArray(g)) continue;
+      for (let i=0; i+1<g.length; i+=2) pairs.push([g[i], g[i+1]]);
     }
     return pairs;
-  }
+  };
 
-  // FINAL: Modal only advances when OK is pressed. No overlay click-to-dismiss.
-  // Also guarded against double-trigger.
+  // Modal advances ONLY on OK (or Enter/Space on OK). No background dismissal. Guarded against double-fire.
   function showModal(title, text, onOk){
     const overlay = document.createElement('div');
     overlay.id = 'explain-overlay';
-    overlay.style.cssText = `
-      position:fixed; inset:0; background:rgba(0,0,0,.45);
-      display:flex; align-items:center; justify-content:center; z-index:9999;
-    `;
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9999;';
     const modal = document.createElement('div');
-    modal.style.cssText = `
-      max-width:640px; width:min(92vw,640px); background:#fff; color:#111;
-      border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.25);
-      padding:16px 18px; font-family:inherit;
-    `;
+    modal.style.cssText = 'max-width:640px;width:min(92vw,640px);background:#fff;color:#111;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:16px 18px;font-family:inherit;';
     modal.innerHTML = `
       <h3 style="margin:0 0 8px 0;">${escapeHtml(title)}</h3>
-      <p style="margin:0 0 16px 0; line-height:1.5;">${escapeHtml(text||'')}</p>
-      <div style="display:flex; justify-content:flex-end;">
+      <p style="margin:0 0 16px 0;line-height:1.5;">${escapeHtml(text||'')}</p>
+      <div style="display:flex;justify-content:flex-end;">
         <button id="explain-ok" class="btn" style="min-width:88px;">OK</button>
-      </div>
-    `;
+      </div>`;
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
     const ok = modal.querySelector('#explain-ok');
-    let dismissed = false;
-
-    function accept(){
-      if (dismissed) return;        // ensure it fires only once
-      dismissed = true;
-      cleanup();
-      if (typeof onOk==='function') onOk();
-    }
-    function cleanup(){
+    let done = false;
+    const accept = () => {
+      if (done) return; done = true;
       document.removeEventListener('keydown', onKey, true);
       ok.removeEventListener('click', accept);
       overlay.remove();
-    }
-    function onKey(e){
-      // Only allow Enter/Space when the OK button is focused (keyboard accessibility)
-      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === ok){
-        e.preventDefault();
-        accept();
-      }
-      // Escape ignored intentionally to enforce OK-only dismissal
-    }
+      if (typeof onOk === 'function') onOk();
+    };
+    const onKey = (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && document.activeElement === ok){ e.preventDefault(); accept(); }
+    };
 
     ok.addEventListener('click', accept);
     document.addEventListener('keydown', onKey, true);
-    setTimeout(()=>ok.focus(), 0);
+    setTimeout(() => ok.focus(), 0);
   }
 
-  function render(){
-    const root = document.getElementById('content');
-    if (!root) return;
+  const cardHTML = (e, side) => {
+    const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
+    const att = e.attachment ? `
+      <div class="attach">
+        <span class="paperclip"></span>
+        <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
+      </div>` : '';
+    return `
+      <article class="card" data-side="${side}" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
+        <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
+        <div class="email-meta">
+          <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
+          <div><strong>To:</strong> ${escapeHtml(to)}</div>
+        </div>
+        ${att}
+        <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
+        <div class="btn-row"><button class="btn js-pick">Phish</button></div>
+      </article>`;
+  };
 
+  const render = () => {
+    const root = $('content'); if (!root) return;
     const TOTAL = ORDER.length;
-
     if (INDEX >= TOTAL){
       root.innerHTML = `
         <section class="card" style="padding:16px;">
           <h3>Score</h3>
           <p>You scored ${SCORE} / ${TOTAL}</p>
-          <div class="btn-row">
-            <button class="btn js-restart">Restart</button>
-          </div>
-        </section>
-      `;
+          <div class="btn-row"><button class="btn js-restart">Restart</button></div>
+        </section>`;
       return;
     }
-
-    const pair = ORDER[INDEX];
-    const left = pair[0];
-    const right = pair[1];
-
-    function cardHTML(e, side){
-      const to = Array.isArray(e.to) ? e.to.join(', ') : (e.to || '');
-      const att = e.attachment ? `
-        <div class="attach">
-          <span class="paperclip"></span>
-          <span class="pill ${String(e.attachment).toLowerCase().endsWith('.exe') ? 'warn' : ''}">${escapeHtml(e.attachment)}</span>
-        </div>
-      ` : '';
-      return `
-        <article class="card" data-side="${side}" data-correct="${escapeHtml(String(e.correct||'').toLowerCase())}">
-          <h3>${escapeHtml(e.subject || '(no subject)')}</h3>
-          <div class="email-meta">
-            <div><strong>From:</strong> ${escapeHtml(e.from || '')}</div>
-            <div><strong>To:</strong> ${escapeHtml(to)}</div>
-          </div>
-          ${att}
-          <p class="desc">${escapeHtml(e.desc || e.body || '')}</p>
-          <div class="btn-row">
-            <button class="btn js-pick">Phish</button>
-          </div>
-        </article>
-      `;
-    }
-
+    const [left, right] = ORDER[INDEX];
     root.innerHTML = `
       <div class="grid">
         ${cardHTML(left, 'left')}
         ${cardHTML(right, 'right')}
       </div>
-      <p class="progress" style="opacity:.7;margin-top:8px;">
-        Pair ${INDEX + 1} of ${TOTAL}
-      </p>
-    `;
-  }
+      <p class="progress" style="opacity:.7;margin-top:8px;">Pair ${INDEX + 1} of ${TOTAL}</p>`;
+  };
 
-  function renderLoading(){
-    const root = document.getElementById('content');
-    if (root) root.innerHTML = `<p>Loading…</p>`;
-  }
+  const renderLoading = () => { const root = $('content'); if (root) root.innerHTML = '<p>Loading…</p>'; };
 
-  function pick(card){
-    if (!card || LOCK) return;
-    LOCK = true;
-
-    const correct = (card.getAttribute('data-correct')||'').toLowerCase();
-    const isRight = correct === 'phish';
-
+  const pick = (card) => {
+    if (!card || LOCK) return; LOCK = true;
+    const isRight = (card.getAttribute('data-correct')||'').toLowerCase() === 'phish';
     showToast(isRight, isRight ? 'Correct' : 'Incorrect');
     markCard(card, isRight);
-
     const side = card.getAttribute('data-side') === 'right' ? 1 : 0;
     const email = ORDER[INDEX][side];
     const explanation = email.explain || email.explanation || '';
-
     showModal(isRight ? 'Correct' : 'Incorrect', explanation, () => {
       if (isRight) SCORE++;
-      INDEX++;
-      LOCK = false;
-      render();
+      INDEX++; LOCK = false; render();
     });
-  }
+  };
 
-  function restart(){
-    SCORE = 0;
-    INDEX = 0;
-    LOCK = false;
-    ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
-    render();
-  }
+  const restart = () => { SCORE = 0; INDEX = 0; LOCK = false; ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE); render(); };
 
-  document.addEventListener('click', (e)=>{
+  document.addEventListener('click', (e) => {
     const pickBtn = e.target.closest('.js-pick');
-    if (pickBtn){
-      e.preventDefault();
-      e.stopPropagation();
-      const card = pickBtn.closest('.card');
-      pick(card);
-      return;
-    }
+    if (pickBtn){ e.preventDefault(); e.stopPropagation(); pick(pickBtn.closest('.card')); return; }
     const restartBtn = e.target.closest('.js-restart');
-    if (restartBtn){
-      e.preventDefault();
-      e.stopPropagation();
-      restart();
-      return;
-    }
+    if (restartBtn){ e.preventDefault(); e.stopPropagation(); restart(); }
   });
 
-  document.addEventListener('DOMContentLoaded', async ()=>{
+  document.addEventListener('DOMContentLoaded', async () => {
     renderLoading();
     try {
-      const data = await loadData();
+      const res = await fetch(DATA_URL, { cache: 'no-store' });
+      if (!res.ok) throw 0;
+      const data = await res.json();
       ALL_PAIRS = preparePairs(data);
       ORDER = shuffle([...ALL_PAIRS]).slice(0, ROUND_SIZE);
       render();
     } catch {
-      const root = document.getElementById('content');
-      if (root) root.innerHTML = `<p style="color:#b91c1c;">Failed to load data.</p>`;
+      const root = $('content');
+      if (root) root.innerHTML = '<p style="color:#b91c1c;">Failed to load data.</p>';
     }
   });
 }
