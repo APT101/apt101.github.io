@@ -1,7 +1,6 @@
 name: Generate & Append Email Pairs
 
 on:
-  # Manual run with inputs
   workflow_dispatch:
     inputs:
       topics:
@@ -12,9 +11,9 @@ on:
         description: "How many PAIRS (default 10). 10 pairs = 20 emails."
         required: false
         type: number
-  # (Optional) nightly schedule — delete this block if you don't want auto-runs
+  # Weekly auto-run (Mon 03:23 UTC) — change if you prefer a different schedule
   schedule:
-    - cron: "23 3 * * 6"  # every Saturday at 03:23 UTC
+    - cron: "23 3 * * 1"
 
 permissions:
   contents: write
@@ -31,7 +30,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
+      - name: Install dependencies (no repo pollution)
         run: |
           npm init -y
           npm i openai
@@ -46,13 +45,29 @@ jobs:
       - name: Validate result (validate_email_pairs.mjs)
         run: node scripts/validate_email_pairs.mjs
 
+      # NEW: move run artifacts into archive/ so root stays clean
+      - name: Move artifacts into archive
+        shell: bash
+        run: |
+          mkdir -p archive
+          shopt -s nullglob
+          # move any generated_email_pairs_*.json created by old runs or by script
+          for f in generated_email_pairs_*.json; do
+            mv "$f" "archive/$f"
+          done
+          # move npm metadata created during the run
+          if [[ -f package.json ]]; then mv package.json archive/package.json; fi
+          if [[ -f package-lock.json ]]; then mv package-lock.json archive/package-lock.json; fi
+          # ensure we don't ever commit node_modules
+          rm -rf node_modules
+
       - name: Commit & push results
         run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore(emails): archive old, generate new pairs, validate, append to emails.json"
+            git commit -m "chore(emails): archive old, generate new pairs, validate; move artifacts to archive/"
             git push
           else
             echo "No changes to commit."
