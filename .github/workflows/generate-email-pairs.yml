@@ -1,0 +1,56 @@
+name: Generate & Append Email Pairs
+
+on:
+  # Manual run with inputs
+  workflow_dispatch:
+    inputs:
+      topics:
+        description: "Optional topics hint (e.g., HR|Payroll|MFA|VPN|Okta)"
+        required: false
+        type: string
+      pairs:
+        description: "How many PAIRS (default 10). 10 pairs = 20 emails."
+        required: false
+        type: number
+  # (Optional) nightly schedule — delete this block if you don't want auto-runs
+  schedule:
+    - cron: "23 3 * * *"  # every day at 03:23 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          npm init -y
+          npm i openai
+
+      - name: Run generator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EMAIL_TOPICS: ${{ github.event.inputs.topics }}
+          PAIRS_COUNT: ${{ github.event.inputs.pairs }}
+        run: node scripts/build_email_pairs.mjs
+
+      - name: Commit & push results
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(emails): archive old, generate new pairs, append to emails.json"
+            git push
+          else
+            echo "No changes to commit."
+          fi
