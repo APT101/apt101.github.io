@@ -4,41 +4,45 @@
   <meta charset="utf-8" />
   <title>AI Phish Training Tool - APTT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="resources\favicons\favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="resources\favicons\favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="resources\favicons\favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="resources\favicons\favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="resources\favicons\favicon-192x192.png">
+
+  <!-- Favicons (kept as in your repo) -->
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="resources/favicons/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="resources/favicons/favicon-192x192.png">
 </head>
+
 <body>
+  <!-- Simple top nav (styling comes from your CSS) -->
   <nav class="nav">
     <div class="nav-inner container">
-      <div class="logo">
-        <span><img src="resources\header_icon.png"></span>
+      <div class="brand">
+        <strong>APTT</strong> — AI Phish Training Tool
       </div>
-      <div class="nav-links">
-        <a href="learn.html">Learn</a>
-        <a href="resources.html">Resources</a>
-        <a href="tools.html">Tools</a>
-        <a href="about.html">About Us</a>
+      <!-- Add any links you want here -->
+      <div class="nav-actions">
+        <!-- placeholder for future controls (kept minimal on purpose) -->
       </div>
     </div>
   </nav>
 
+  <!-- Main app area -->
   <main class="container" id="main">
+    <!-- The game renders into this section -->
     <section class="grid" id="content" aria-live="polite"></section>
   </main>
 
-  <div class="toast" id="toast">
-    <span class="dot" id="toast-dot"></span>
-    <span id="toast-text">Feedback…</span>
-  </div>
+  <!-- No toast here (intentionally removed) -->
 
   <footer>
-    <span> APTT LLC. © 2025</span> 
+    <span>APTT LLC. © 2025</span>
   </footer>
 
-  <script src="script.js?v=pairs-1to10-guard"></script>
+  <!-- Cache-bust so browsers fetch your latest JS (toast removed, attachments supported) -->
+  <script src="script.js?v=remove-toast-attachments"></script>
 </body>
 </html>
