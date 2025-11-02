@@ -1,1058 +1,367 @@
 {
   "email_group_1": [
     {
-      "subject": "Urgent: reset your account now",
-      "from": "it-support@companny.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We detected a login from an unknown device. Click the link to verify immediately.",
-      "correct": "phish",
-      "explain": "Fake domain and urgency. IT will never ask you to verify through email links."
+      "subject": "Updated Benefits Handbook Attached",
+      "from": "hr@globalworkplace.com",
+      "to": ["employee@globalworkplace.com"],
+      "attachment": "Benefits_Handbook.pdf",
+      "desc": "Hello team, as part of our annual policy review, we have released the updated Benefits Handbook outlining revisions to healthcare, leave, and reimbursement options. Please review the document at your earliest convenience to familiarize yourself with the upcoming changes. The updated version emphasizes flexible spending accounts, expanded dental coverage, and the new parental leave structure. Your acknowledgment is not required, but staying informed will help ensure a smooth benefits transition.",
+      "correct": "safe",
+      "explain": "HR update from internal address, proper formatting, legitimate content and filename."
     },
     {
-      "subject": "Weekly update from HR",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Here’s the HR weekly digest with upcoming events and training reminders.",
-      "correct": "safe",
-      "explain": "Legitimate HR update from your company domain, no odd links."
+      "subject": "Important: HR Compliance Document Needed ASAP",
+      "from": "hr-compliance@globaiworkplace.com",
+      "to": ["employee@globalworkplace.com"],
+      "attachment": "Compliance_Document.pdf.exe",
+      "desc": "Dear employee, we detected that your HR compliance verification has expired. Please open the attached document immediately and confirm your data to avoid account deactivation. The document must be signed digitally within 24 hours to meet company regulations. Failure to comply could result in temporary account suspension.",
+      "correct": "phish",
+      "explain": "Uses urgency, suspicious misspelled domain, and malicious double extension file."
     }
   ],
+
   "email_group_2": [
     {
-      "subject": "Invoice due today",
-      "from": "billing@vend0r.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your invoice is overdue. Please process the attached file immediately.",
-      "correct": "phish",
-      "explain": "Vendor name misspelled and urgency tactic. Avoid unexpected invoice attachments."
+      "subject": "Payroll Adjustment Confirmation",
+      "from": "finance@enterprisecorp.com",
+      "to": ["employee@enterprisecorp.com"],
+      "desc": "Hello, this message confirms that your recent payroll adjustment for overtime hours in June has been processed successfully. The update will reflect in your next pay slip. No action is required on your part. For more details, you can log into your payroll portal.",
+      "correct": "safe",
+      "explain": "Legitimate payroll message; informational only, no links or attachments."
     },
     {
-      "subject": "Lunch order form",
-      "from": "office@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Choose your lunch preference for Friday’s team meeting.",
-      "correct": "safe",
-      "explain": "Internal office email with a casual tone and predictable context."
+      "subject": "Payroll Review Document Attached",
+      "from": "finance@enterprlsecorp.com",
+      "to": ["employee@enterprisecorp.com"],
+      "attachment": "Payroll_Adjustment_Report.pdf.exe",
+      "desc": "Dear user, we encountered discrepancies in your salary disbursement. Please download the attached file and confirm your payroll details immediately to avoid payment interruption. Once reviewed, send confirmation via reply email.",
+      "correct": "phish",
+      "explain": "Spoofed domain and malicious file; urgent tone requesting direct file execution."
     }
   ],
+
   "email_group_3": [
     {
-      "subject": "DocuSign signature request",
-      "from": "sign@docusign-secure.co",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please review and sign this document within 2 hours.",
-      "correct": "phish",
-      "explain": "Look-alike DocuSign domain (‘.co’) and fake urgency."
+      "subject": "Team Offsite Logistics Update",
+      "from": "admin@operationshub.com",
+      "to": ["employee@operationshub.com"],
+      "attachment": "Travel_Agenda.pdf",
+      "desc": "Hello all, the attached document includes updated travel schedules and hotel arrangements for our upcoming team offsite. Please check your flight timings, hotel confirmation numbers, and emergency contact details listed in the agenda. If you have dietary or travel concerns, contact operations by end of week.",
+      "correct": "safe",
+      "explain": "Internal logistics document; legitimate sender and valid attachment type."
     },
     {
-      "subject": "System maintenance notice",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We’ll perform scheduled maintenance tonight from 11 PM to 1 AM.",
-      "correct": "safe",
-      "explain": "Routine IT maintenance from your official company domain."
+      "subject": "Urgent Travel Invoice Error",
+      "from": "admin@operati0nshub.com",
+      "to": ["employee@operationshub.com"],
+      "attachment": "Invoice_Details.pdf.exe",
+      "desc": "Dear employee, your recent travel claim was flagged with errors. Please verify and resubmit immediately using the attached invoice file. Failure to act within 12 hours may lead to reimbursement delay.",
+      "correct": "phish",
+      "explain": "Fake urgency, lookalike domain with number substitution, and executable attachment."
     }
   ],
+
   "email_group_4": [
     {
-      "subject": "CEO request",
-      "from": "ceo@companny.co",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Are you available? I need a quick favor—please reply now.",
-      "correct": "phish",
-      "explain": "CEO impersonation and urgency. Genuine executives use internal channels."
+      "subject": "Quarterly Security Awareness Session",
+      "from": "it@securemailing.com",
+      "to": ["employee@securemailing.com"],
+      "desc": "As part of our continuous security training, you are invited to attend the upcoming awareness session this Friday at 2 PM. The meeting will cover multi-factor authentication best practices, password hygiene, and recognizing social engineering attacks.",
+      "correct": "safe",
+      "explain": "Official IT communication inviting to session; no suspicious links or files."
     },
     {
-      "subject": "Quarterly results deck",
-      "from": "fpna@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the final deck for tomorrow’s quarterly meeting.",
-      "correct": "safe",
-      "explain": "Expected report from a known finance team member."
+      "subject": "Password Policy Violation Detected",
+      "from": "it-security@securemailling.com",
+      "to": ["employee@securemailing.com"],
+      "desc": "Your password policy compliance failed due to weak credential detection. Click the below link to reset immediately, or your account will be suspended. http://securemailling.com/reset-now",
+      "correct": "phish",
+      "explain": "Fake link to spoofed domain; uses fear tactics for password reset."
     }
   ],
+
   "email_group_5": [
     {
-      "subject": "Mailbox full: increase storage",
-      "from": "support@it-helpdesk.co",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your mailbox is 98% full. Click here to increase your quota.",
-      "correct": "phish",
-      "explain": "External domain pretending to be IT helpdesk. Never click links like these."
+      "subject": "Office Maintenance Schedule Update",
+      "from": "facilities@metrocorp.com",
+      "to": ["employee@metrocorp.com"],
+      "desc": "Facilities will conduct scheduled maintenance on all HVAC units this weekend. Please ensure personal items are cleared from your desk and that computers are powered down before leaving Friday. Maintenance will complete by Sunday evening.",
+      "correct": "safe",
+      "explain": "Routine maintenance announcement, standard tone, no threat indicators."
     },
     {
-      "subject": "Printer maintenance",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Printer maintenance scheduled for 4 PM. Please use the north wing printer until then.",
-      "correct": "safe",
-      "explain": "Regular internal maintenance update."
+      "subject": "Facility Report Form Required",
+      "from": "facilites@metrocorp-support.com",
+      "to": ["employee@metrocorp.com"],
+      "attachment": "Facility_Report_Form.pdf.exe",
+      "desc": "Hello employee, you must complete the attached facility report to maintain building access. Failure to return this file will block your ID card on Monday.",
+      "correct": "phish",
+      "explain": "Misspelled sender domain and dangerous executable attachment."
     }
   ],
+
   "email_group_6": [
     {
-      "subject": "Payment details changed",
-      "from": "finance@pay-updates.co",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "New banking details are attached. Update your records immediately.",
-      "correct": "phish",
-      "explain": "Unfamiliar domain and urgency to update payment info."
+      "subject": "Client Appreciation Webinar",
+      "from": "marketing@brightlane.com",
+      "to": ["employee@brightlane.com"],
+      "desc": "We’re excited to announce a new client engagement webinar next week. Join us as we showcase upcoming product launches, customer success stories, and networking opportunities. Please RSVP by Thursday.",
+      "correct": "safe",
+      "explain": "Promotional internal email, clear purpose, no risky content."
     },
     {
-      "subject": "Holiday schedule",
-      "from": "people@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the upcoming holiday calendar for Q2.",
-      "correct": "safe",
-      "explain": "Expected internal HR message with predictable timing."
+      "subject": "Gift Voucher for Webinar Attendance",
+      "from": "marketing@bright1ane.com",
+      "to": ["employee@brightlane.com"],
+      "attachment": "Voucher_Details.pdf.exe",
+      "desc": "Congratulations! You’ve won a $100 voucher for attending our webinar. Open the attached file for redemption instructions.",
+      "correct": "phish",
+      "explain": "Spoofed domain (1 instead of l) and suspicious reward attachment."
     }
   ],
+
   "email_group_7": [
     {
-      "subject": "VPN suspended",
-      "from": "it-secure@vpnreset-login.net",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your VPN has been disabled. Re-activate by logging in here.",
-      "correct": "phish",
-      "explain": "External domain with fake VPN login prompt."
+      "subject": "VPN Access Renewal Notice",
+      "from": "it@maintech.com",
+      "to": ["employee@maintech.com"],
+      "desc": "Your VPN access token will renew automatically this Friday. No action is required unless you recently changed devices.",
+      "correct": "safe",
+      "explain": "Standard IT renewal notice, no clickable content."
     },
     {
-      "subject": "Team meeting invite",
-      "from": "manager@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please accept the recurring meeting invite for project updates.",
-      "correct": "safe",
-      "explain": "Normal calendar request from a known internal address."
+      "subject": "Immediate VPN Token Renewal Required",
+      "from": "it-support@mainteech.com",
+      "to": ["employee@maintech.com"],
+      "attachment": "VPN_Token_Update.pdf.exe",
+      "desc": "Your VPN access will expire within 24 hours. Open the attached file and follow the instructions to reauthenticate your credentials.",
+      "correct": "phish",
+      "explain": "Spoofed domain, urgency, and malicious attachment."
     }
   ],
+
   "email_group_8": [
     {
-      "subject": "CSR event signup",
-      "from": "csr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Join our monthly volunteering drive. Reply if interested.",
+      "subject": "Internal Audit Reminder",
+      "from": "audit@fintrack.com",
+      "to": ["employee@fintrack.com"],
+      "desc": "Reminder: The quarterly internal audit begins Monday. Please have all transaction records and reconciliations up to date by end of week.",
       "correct": "safe",
-      "explain": "Internal CSR request with simple instructions."
+      "explain": "Legitimate reminder from audit; clear and procedural."
     },
     {
-      "subject": "Payroll verification",
-      "from": "payroll@compayroll.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We couldn’t process your payment. Click here to verify details.",
+      "subject": "Action Needed: Audit Reconciliation Document",
+      "from": "audit-team@f1ntrack.com",
+      "to": ["employee@fintrack.com"],
+      "attachment": "Reconciliation_Details.pdf.exe",
+      "desc": "Dear team, we found discrepancies in your department’s Q2 statements. Kindly open the attached document and verify line items immediately.",
       "correct": "phish",
-      "explain": "Misspelled payroll domain asking to verify through email link."
+      "explain": "Uses lookalike domain with numeral substitution and malicious file."
     }
   ],
+
   "email_group_9": [
     {
-      "subject": "Wellness webinar",
-      "from": "benefits@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Register for next week’s 30-minute wellness session.",
+      "subject": "Performance Review Meeting",
+      "from": "manager@nextvision.com",
+      "to": ["employee@nextvision.com"],
+      "attachment": "Review_Agenda.pdf",
+      "desc": "This is your formal invitation for your annual performance review. The agenda is attached with talking points and self-assessment questions.",
       "correct": "safe",
-      "explain": "Internal benefits team communication."
+      "explain": "Typical HR process email; valid attachment, normal tone."
     },
     {
-      "subject": "Anti-virus alert",
-      "from": "scan@sys-guardscan.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your system is infected. Run the attached cleaner now.",
+      "subject": "Performance Review Alert",
+      "from": "manager@nextvislon.com",
+      "to": ["employee@nextvision.com"],
+      "attachment": "Performance_Summary.pdf.exe",
+      "desc": "Due to an internal system issue, please open the attached file and re-upload your self-assessment before the HR deadline.",
       "correct": "phish",
-      "explain": "External domain and attachment-based cleaner—classic malware delivery."
+      "explain": "Fake issue, urgent tone, lookalike domain substitution (l/I)."
     }
   ],
+
   "email_group_10": [
     {
-      "subject": "Office365 alert: password expires",
-      "from": "it@micro-soft-secure.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your password expires in 30 minutes. Click here to renew.",
-      "correct": "phish",
-      "explain": "Spoofed Microsoft domain and urgency—do not click."
+      "subject": "Updated Cybersecurity Handbook",
+      "from": "security@infotask.com",
+      "to": ["employee@infotask.com"],
+      "attachment": "Cybersecurity_Handbook.pdf",
+      "desc": "The attached handbook outlines the new corporate cybersecurity framework and must-read sections on incident reporting and device management.",
+      "correct": "safe",
+      "explain": "Official communication, valid document, expected context."
     },
     {
-      "subject": "Desk booking reminder",
-      "from": "workplace@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please reserve your desk for next week by Friday 5 PM.",
-      "correct": "safe",
-      "explain": "Routine internal reminder, no external links."
+      "subject": "Mandatory Security Upgrade File",
+      "from": "security@infotask-upgrade.com",
+      "to": ["employee@infotask.com"],
+      "attachment": "Security_Update_Tool.pdf.exe",
+      "desc": "Critical update! IT requires all employees to run the attached upgrade file to maintain security compliance. Execute immediately.",
+      "correct": "phish",
+      "explain": "Executable disguised as PDF; external domain; unrealistic IT procedure."
     }
   ],
+
   "email_group_11": [
     {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "hr-update@payroll-secure.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please click the link to verify your payroll details to avoid delays in your next payment.",
-      "correct": "phish",
-      "explain": "The sender's domain is suspiciously similar to a legitimate one, and it creates a sense of urgency."
+      "subject": "Diversity and Inclusion Survey",
+      "from": "hr@cityconnect.com",
+      "to": ["employee@cityconnect.com"],
+      "desc": "We invite you to complete our annual diversity survey to help us create a more inclusive workplace. Participation is anonymous and takes under five minutes.",
+      "correct": "safe",
+      "explain": "HR initiative, internal, safe content."
     },
     {
-      "subject": "Quarterly Performance Review Schedule",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your performance review is scheduled for next week. Please check the calendar for details.",
-      "correct": "safe",
-      "explain": "The email is from a legitimate company domain and contains no urgent requests or suspicious links."
+      "subject": "New Diversity Report File",
+      "from": "hr@c1tyconnect.com",
+      "to": ["employee@cityconnect.com"],
+      "attachment": "Diversity_Report.pdf.exe",
+      "desc": "Kindly review the attached report and confirm receipt before 5 PM today.",
+      "correct": "phish",
+      "explain": "Fake urgency, suspicious attachment, numeric domain substitution."
     }
   ],
+
   "email_group_12": [
     {
-      "subject": "Action Required: Invoice Payment Overdue",
-      "from": "billing@secure-invoice.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your invoice is overdue. Please download the attached invoice and process the payment immediately.",
-      "correct": "phish",
-      "explain": "The domain is not recognized, and the attachment could contain malware."
+      "subject": "Expense Claim Update",
+      "from": "finance@broadfield.com",
+      "to": ["employee@broadfield.com"],
+      "desc": "Your expense claim submitted on July 10th has been approved. Reimbursement will reflect in the next payroll cycle.",
+      "correct": "safe",
+      "explain": "Routine finance email, no attachments or urgent tone."
     },
     {
-      "subject": "Team Lunch Invitation",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Join us for a team lunch on Friday! RSVP by Thursday.",
-      "correct": "safe",
-      "explain": "The email is from a recognized domain and contains no suspicious requests or attachments."
+      "subject": "Expense Review Required",
+      "from": "finance@broadfieId.com",
+      "to": ["employee@broadfield.com"],
+      "attachment": "Expense_Review.pdf.exe",
+      "desc": "We noticed inconsistencies in your last claim. Please open the attached file and confirm your details.",
+      "correct": "phish",
+      "explain": "Lookalike domain (I/l) and malicious attachment."
     }
   ],
+
   "email_group_13": [
     {
-      "subject": "Security Alert: Unusual Login Attempt",
-      "from": "security-alert@company-secure.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We've detected a login attempt from an unrecognized device. Click here to secure your account.",
-      "correct": "phish",
-      "explain": "The sender's domain is a lookalike, and it prompts the recipient to click a link."
+      "subject": "Team Event Photos",
+      "from": "hr@northwave.com",
+      "to": ["employee@northwave.com"],
+      "attachment": "Event_Photos.pdf",
+      "desc": "Hi everyone, we’ve compiled photos from last week’s team outing in the attached PDF album. Enjoy and feel free to share!",
+      "correct": "safe",
+      "explain": "Friendly HR content; proper sender, safe file."
     },
     {
-      "subject": "Monthly IT Maintenance Schedule",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please be informed of the upcoming IT maintenance scheduled for this weekend.",
-      "correct": "safe",
-      "explain": "The email is from the official IT department and contains no urgent or suspicious requests."
+      "subject": "Photo Access Alert",
+      "from": "hr@northw4ve.com",
+      "to": ["employee@northwave.com"],
+      "attachment": "Photos_Access_File.pdf.exe",
+      "desc": "To access your photos securely, download the attached encrypted file and log in using your company credentials.",
+      "correct": "phish",
+      "explain": "Spoofed domain and credential-harvesting intent."
     }
   ],
+
   "email_group_14": [
     {
-      "subject": "Congratulations! You've Won a Gift Card!",
-      "from": "promo@company-gifts.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You've been selected to receive a $100 gift card! Claim it now by clicking the link.",
-      "correct": "phish",
-      "explain": "The email is from an unrecognized domain and offers an unsolicited prize, which is a common phishing tactic."
+      "subject": "Office Parking Renewal Notice",
+      "from": "admin@centralcorp.com",
+      "to": ["employee@centralcorp.com"],
+      "desc": "Your parking permit expires next month. Please renew online via the employee portal before the 25th to avoid disruptions.",
+      "correct": "safe",
+      "explain": "Standard facility notice; no attachments or urgency."
     },
     {
-      "subject": "Project Update Meeting",
-      "from": "manager@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Let's discuss the project updates in our meeting scheduled for Wednesday.",
-      "correct": "safe",
-      "explain": "The email is from a known company address and pertains to a legitimate work-related meeting."
+      "subject": "Parking Violation Fee Notice",
+      "from": "admin@centralcorppay.com",
+      "to": ["employee@centralcorp.com"],
+      "attachment": "Parking_Invoice.pdf.exe",
+      "desc": "A violation fee has been issued to your vehicle. Open the attached invoice immediately to settle and prevent escalation.",
+      "correct": "phish",
+      "explain": "Fake fine and external payment domain."
     }
   ],
+
   "email_group_15": [
     {
-      "subject": "Immediate Action Required: Account Verification",
-      "from": "verify@account-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account needs verification to prevent suspension. Click here to verify now.",
-      "correct": "phish",
-      "explain": "The domain is suspicious, and it creates urgency to click a link without proper context."
+      "subject": "Internal Knowledge Base Refresh",
+      "from": "it@knowledgelink.com",
+      "to": ["employee@knowledgelink.com"],
+      "desc": "We’ve reorganized the internal knowledge base for easier navigation. You can access it at the usual link via the intranet portal.",
+      "correct": "safe",
+      "explain": "Informational IT message, internal link, safe."
     },
     {
-      "subject": "New Policy Update",
-      "from": "compliance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please review the attached document regarding the new company policy updates.",
-      "correct": "safe",
-      "explain": "The email is from a legitimate department and includes an attachment relevant to company policies."
+      "subject": "Knowledge Portal Login Required",
+      "from": "it@knowledgelink-support.com",
+      "to": ["employee@knowledgelink.com"],
+      "desc": "Your portal access expired. Click the following link to revalidate: http://knowledgelink-support.com/login",
+      "correct": "phish",
+      "explain": "Fake support subdomain with credential-stealing link."
     }
   ],
+
   "email_group_16": [
     {
-      "subject": "Your Account Has Been Compromised",
-      "from": "support@secure-login.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We suspect your account has been compromised. Please reset your password immediately.",
-      "correct": "phish",
-      "explain": "The sender's domain is not recognized, and the email urges immediate action without verification."
+      "subject": "New Company Newsletter",
+      "from": "communications@everline.com",
+      "to": ["employee@everline.com"],
+      "attachment": "August_Newsletter.pdf",
+      "desc": "This month’s newsletter highlights new sustainability goals, employee achievements, and upcoming events. The attached version includes visuals and extended interviews.",
+      "correct": "safe",
+      "explain": "Standard internal communication, safe attachment type."
     },
     {
-      "subject": "Weekly Team Check-In",
-      "from": "teamlead@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Reminder for our weekly check-in meeting. Looking forward to your updates!",
-      "correct": "safe",
-      "explain": "The email is from a known address and relates to a regular team meeting with no red flags."
+      "subject": "Company Update File",
+      "from": "comm@everIine.com",
+      "to": ["employee@everline.com"],
+      "attachment": "Company_Update.pdf.exe",
+      "desc": "Dear colleague, management requires all employees to open and acknowledge the attached update document today.",
+      "correct": "phish",
+      "explain": "Lookalike domain with capital I, false mandatory claim."
     }
   ],
+
   "email_group_17": [
     {
-      "subject": "Important: Update Your Security Settings",
-      "from": "admin@secure-settings.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "To enhance security, please update your settings by clicking the link below.",
-      "correct": "phish",
-      "explain": "The domain is suspicious, and it requests sensitive actions without proper context."
+      "subject": "Helpdesk Ticket Resolved",
+      "from": "support@helpmatrix.com",
+      "to": ["employee@helpmatrix.com"],
+      "desc": "Your reported printer issue (ticket #4872) has been resolved. Please reply if problems persist.",
+      "correct": "safe",
+      "explain": "Legitimate IT resolution message; references existing ticket."
     },
     {
-      "subject": "Office Supplies Order Confirmation",
-      "from": "supplies@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your order for office supplies has been confirmed. Expected delivery is next week.",
-      "correct": "safe",
-      "explain": "The email is from a legitimate company address and contains standard order confirmation details."
+      "subject": "Ticket Closure Confirmation",
+      "from": "support@heIp-matrix.com",
+      "to": ["employee@helpmatrix.com"],
+      "attachment": "Ticket_Log.pdf.exe",
+      "desc": "Please confirm closure by opening the attached ticket log. This action is mandatory to finalize the issue.",
+      "correct": "phish",
+      "explain": "Fake domain using uppercase 'I' substitution; dangerous file."
     }
   ],
+
   "email_group_18": [
     {
-      "subject": "Final Notice: Payment Required",
-      "from": "billing@urgent-notice.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "This is your final notice regarding payment. Please pay immediately to avoid penalties.",
-      "correct": "phish",
-      "explain": "The sender's domain is not recognized, and it uses scare tactics to prompt immediate action."
+      "subject": "Holiday Party RSVP",
+      "from": "events@pacificone.com",
+      "to": ["employee@pacificone.com"],
+      "desc": "We’re delighted to invite you to our annual holiday celebration! RSVP by Friday to help us plan catering and seating.",
+      "correct": "safe",
+      "explain": "Friendly internal event; safe and expected tone."
     },
     {
-      "subject": "Training Session Reminder",
-      "from": "training@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Don't forget about the training session scheduled for Thursday. See you there!",
-      "correct": "safe",
-      "explain": "The email is from a recognized domain and pertains to a scheduled training session."
+      "subject": "Gift Card Program Enrollment",
+      "from": "events@pacif1cone.com",
+      "to": ["employee@pacificone.com"],
+      "attachment": "GiftCard_Claim.pdf.exe",
+      "desc": "As part of our celebration, claim your $100 Amazon card by opening the attached file and submitting your details.",
+      "correct": "phish",
+      "explain": "Spoofed domain and incentive scam with executable."
     }
   ],
-  "email_group_19": [
+
+  
     {
-      "subject": "Verify Your Email for Security Purposes",
-      "from": "verify@secure-email.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please verify your email address by clicking the link to ensure your account's security.",
-      "correct": "phish",
-      "explain": "The domain is suspicious, and it requests verification through a link without context."
-    },
-    {
-      "subject": "Budget Review Meeting Scheduled",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "The budget review meeting is scheduled for next Monday. Please prepare your reports.",
-      "correct": "safe",
-      "explain": "The email is from a legitimate finance department and contains relevant meeting information."
-    }
-  ],
-  "email_group_20": [
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "hr-update@payroll-secure.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please update your payroll information immediately to avoid any delays in payment. Click the link below.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and asks for sensitive information urgently."
-    },
-    {
-      "subject": "Quarterly Payroll Update",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, please find attached the quarterly payroll update for your review.",
-      "correct": "safe",
-      "explain": "The email is from the official HR domain and contains a legitimate attachment."
-    }
-  ],
-  "email_group_21": [
-    {
-      "subject": "Action Required: Account Verification Needed",
-      "from": "support@secure-login.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account needs verification. Please click the link to verify your account to avoid suspension.",
-      "correct": "phish",
-      "explain": "The sender's domain is suspicious and the email creates a sense of urgency to click a link."
-    },
-    {
-      "subject": "Monthly IT Newsletter",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Check out the latest updates from the IT department in our monthly newsletter.",
-      "correct": "safe",
-      "explain": "This email is from the official IT department and contains no suspicious links."
-    }
-  ],
-  "email_group_22": [
-    {
-      "subject": "Your Invoice is Overdue",
-      "from": "billing@company-invoices.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your invoice is overdue. Please find the attached invoice and pay immediately to avoid penalties.",
-      "correct": "phish",
-      "explain": "The email comes from a lookalike domain and includes an attachment that could be harmful."
-    },
-    {
-      "subject": "Invoice for Recent Purchase",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the invoice for your recent purchase. Please review and let us know if you have any questions.",
-      "correct": "safe",
-      "explain": "This email is from the official billing department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_23": [
-    {
-      "subject": "Security Alert: Unusual Login Attempt",
-      "from": "alert@company-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We detected an unusual login attempt on your account. Please verify your identity immediately.",
-      "correct": "phish",
-      "explain": "The email uses a fake security domain and prompts for personal verification."
-    },
-    {
-      "subject": "IT Security Best Practices",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Learn about the latest IT security best practices in our new guide attached.",
-      "correct": "safe",
-      "explain": "This email is from the official IT department and contains a helpful attachment."
-    }
-  ],
-  "email_group_24": [
-    {
-      "subject": "Important: Update Your Email Password",
-      "from": "admin@secure-email.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You must update your email password immediately to ensure security. Click here to proceed.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and asks for sensitive information."
-    },
-    {
-      "subject": "Email System Maintenance Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We will perform maintenance on the email system this weekend. No action is required.",
-      "correct": "safe",
-      "explain": "This email is from the official IT department and provides information without requesting action."
-    }
-  ],
-  "email_group_25": [
-    {
-      "subject": "Claim Your Bonus Now!",
-      "from": "hr@bonus-claim.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Congratulations! You are eligible for a bonus. Click the link to claim it now!",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and offers a bonus that seems too good to be true."
-    },
-    {
-      "subject": "Employee Benefits Overview",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the overview of employee benefits for this year. Please review it.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_26": [
-    {
-      "subject": "Your Account Will Be Suspended",
-      "from": "admin@company-notifications.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account will be suspended unless you verify your information immediately. Click here.",
-      "correct": "phish",
-      "explain": "The email uses a lookalike domain and creates a false sense of urgency."
-    },
-    {
-      "subject": "Team Meeting Reminder",
-      "from": "manager@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Reminder: Team meeting scheduled for Thursday at 10 AM. Please be prepared.",
-      "correct": "safe",
-      "explain": "This email is from the official company domain and contains no suspicious content."
-    }
-  ],
-  "email_group_27": [
-    {
-      "subject": "Update Required: Verify Your Payment Method",
-      "from": "finance@payment-update.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your payment method needs verification. Click the link to update it now.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and requests sensitive payment information."
-    },
-    {
-      "subject": "Finance Department Update",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please find the latest updates from the Finance department attached.",
-      "correct": "safe",
-      "explain": "This email is from the official finance department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_28": [
-    {
-      "subject": "Immediate Action Required: Password Reset",
-      "from": "no-reply@secure-login.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your password has been compromised. Click here to reset it immediately.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Weekly Team Update",
-      "from": "team@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Here’s the weekly update for our team. No action required.",
-      "correct": "safe",
-      "explain": "This email is from the official team domain and provides information without requesting action."
-    }
-  ],
-  "email_group_29": [
-    {
-      "subject": "Congratulations! You’ve Won a Gift Card!",
-      "from": "info@giftcard-promotion.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You’ve won a $100 gift card! Click the link to claim your prize now.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and offers a prize that seems too good to be true."
-    },
-    {
-      "subject": "Company Holiday Schedule",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the holiday schedule for this year. Please review it.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_30": [
-    {
-      "subject": "Security Update: Verify Your Account",
-      "from": "security@update-notification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We need you to verify your account details to ensure security. Click here.",
-      "correct": "phish",
-      "explain": "The email uses a suspicious domain and requests sensitive information under the guise of security."
-    },
-    {
-      "subject": "IT System Upgrade Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We will be upgrading our IT systems this weekend. No action is required on your part.",
-      "correct": "safe",
-      "explain": "This email is from the official IT department and provides information without requesting action."
-    }
-  ],
-  "email_group_31": [
-    {
-      "subject": "Last Chance: Update Your Profile",
-      "from": "admin@profile-update.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "This is your last chance to update your profile information. Click here to update.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and pressures the recipient to act quickly."
-    },
-    {
-      "subject": "Employee Training Schedule",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the schedule for upcoming employee training sessions. Please review.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_32": [
-    {
-      "subject": "Your Subscription is Expiring",
-      "from": "info@subscription-renewal.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your subscription is about to expire. Click here to renew and avoid service interruption.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and creates urgency to click a link."
-    },
-    {
-      "subject": "Company Policy Update",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please find attached the updated company policies for your review.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_33": [
-    {
-      "subject": "Important: Verify Your Payment Information",
-      "from": "billing@payment-verification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We need you to verify your payment information immediately. Click here to proceed.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and requests sensitive payment information."
-    },
-    {
-      "subject": "Monthly Finance Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the monthly finance report for your review. Please let us know if you have questions.",
-      "correct": "safe",
-      "explain": "This email is from the official finance department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_34": [
-    {
-      "subject": "Your Account is at Risk!",
-      "from": "alert@account-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We detected suspicious activity on your account. Click here to secure it now.",
-      "correct": "phish",
-      "explain": "The email uses a fake security domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Team Building Event Details",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Join us for the upcoming team building event. Details are attached.",
-      "correct": "safe",
-      "explain": "This email is from the official events department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_35": [
-    {
-      "subject": "Final Notice: Update Your Account",
-      "from": "admin@account-update.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "This is your final notice to update your account information. Click here to avoid suspension.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and creates a false sense of urgency."
-    },
-    {
-      "subject": "New Employee Orientation Schedule",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the schedule for the new employee orientation. Please review.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_36": [
-    {
-      "subject": "Important: Update Your Security Settings",
-      "from": "security@update-notification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You must update your security settings immediately. Click here to proceed.",
-      "correct": "phish",
-      "explain": "The email uses a suspicious domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Annual Performance Review Reminder",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "This is a reminder for your upcoming performance review. No action required.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and provides information without requesting action."
-    }
-  ],
-  "email_group_37": [
-    {
-      "subject": "Your Feedback is Needed!",
-      "from": "feedback@company-survey.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We value your opinion! Click here to complete a quick survey and enter to win a prize.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and offers a prize for completing a survey."
-    },
-    {
-      "subject": "Company Survey Participation",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We are conducting a company survey. Your participation is appreciated.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and does not include suspicious offers."
-    }
-  ],
-  "email_group_38": [
-    {
-      "subject": "Your Account Has Been Compromised",
-      "from": "alert@account-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We have detected unauthorized access to your account. Click here to secure it.",
-      "correct": "phish",
-      "explain": "The email uses a fake security domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Weekly Team Meeting Agenda",
-      "from": "manager@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the agenda for our weekly team meeting. Please review it.",
-      "correct": "safe",
-      "explain": "This email is from the official company domain and contains a legitimate attachment."
-    }
-  ],
-  "email_group_39": [
-    {
-      "subject": "Important: Verify Your Email Address",
-      "from": "support@account-verification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Please verify your email address to continue using our services. Click here.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and requests sensitive information."
-    },
-    {
-      "subject": "Company Policy Review",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the document for the upcoming policy review. Please read it.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_40": [
-    {
-      "subject": "Urgent: Action Required for Your Account",
-      "from": "admin@account-alert.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account requires immediate action. Click here to resolve the issue.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and creates urgency to click a link."
-    },
-    {
-      "subject": "New Training Program Announcement",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We are excited to announce a new training program. Details are attached.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_41": [
-    {
-      "subject": "Your Subscription is About to Expire",
-      "from": "info@subscription-renewal.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your subscription will expire soon. Click here to renew and avoid service interruption.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and creates urgency to click a link."
-    },
-    {
-      "subject": "Company Event Invitation",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You are invited to our upcoming company event. Please RSVP.",
-      "correct": "safe",
-      "explain": "This email is from the official events department and contains no suspicious content."
-    }
-  ],
-  "email_group_42": [
-    {
-      "subject": "Important: Update Your Payment Information",
-      "from": "billing@payment-update.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We need you to update your payment information immediately to avoid service disruption.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and requests sensitive payment information."
-    },
-    {
-      "subject": "Monthly Budget Review",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the budget review for this month. Please let us know if you have any questions.",
-      "correct": "safe",
-      "explain": "This email is from the official finance department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_43": [
-    {
-      "subject": "Your Account Will Be Suspended",
-      "from": "admin@account-suspension.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account will be suspended unless you verify your information immediately. Click here.",
-      "correct": "phish",
-      "explain": "The email uses a lookalike domain and creates a false sense of urgency."
-    },
-    {
-      "subject": "Team Lunch Invitation",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You are invited to a team lunch next Friday. Please RSVP by Wednesday.",
-      "correct": "safe",
-      "explain": "This email is from the official events department and contains no suspicious content."
-    }
-  ],
-  "email_group_44": [
-    {
-      "subject": "Urgent: Verify Your Account Information",
-      "from": "support@account-verification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account information needs verification. Click here to verify now.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and requests sensitive information."
-    },
-    {
-      "subject": "New Policy Implementation",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the document regarding the new policy implementation. Please review.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_45": [
-    {
-      "subject": "Your Account Has Been Locked",
-      "from": "alert@account-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Your account has been locked due to suspicious activity. Click here to unlock it.",
-      "correct": "phish",
-      "explain": "The email uses a fake security domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Company Health Benefits Overview",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the overview of health benefits for this year. Please review it.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_46": [
-    {
-      "subject": "Important: Update Your Security Settings",
-      "from": "security@update-notification.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "You must update your security settings immediately. Click here to proceed.",
-      "correct": "phish",
-      "explain": "The email uses a suspicious domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Upcoming Training Session",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We have scheduled a training session next week. Details are attached.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and contains a legitimate attachment."
-    }
-  ],
-  "email_group_47": [
-    {
-      "subject": "Your Feedback is Needed!",
-      "from": "info@company-survey.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We value your opinion! Click here to complete a quick survey and enter to win a prize.",
-      "correct": "phish",
-      "explain": "The email comes from a suspicious domain and offers a prize for completing a survey."
-    },
-    {
-      "subject": "Company Survey Participation",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We are conducting a company survey. Your participation is appreciated.",
-      "correct": "safe",
-      "explain": "This email is from the official HR department and does not include suspicious offers."
-    }
-  ],
-  "email_group_48": [
-    {
-      "subject": "Your Account Has Been Compromised",
-      "from": "alert@account-security.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "We have detected unauthorized access to your account. Click here to secure it.",
-      "correct": "phish",
-      "explain": "The email uses a fake security domain and prompts for immediate action on sensitive information."
-    },
-    {
-      "subject": "Weekly Team Meeting Agenda",
-      "from": "manager@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attached is the agenda for our weekly team meeting. Please review it.",
-      "correct": "safe",
-      "explain": "This email is from the official company domain and contains a legitimate attachment."
-    }
-  ]
-}
