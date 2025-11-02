@@ -8,7 +8,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- Favicons (kept as in your repo) -->
+  <!-- Favicons (same paths as your repo) -->
   <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="resources/favicons/favicon-48x48.png">
@@ -17,32 +17,35 @@
 </head>
 
 <body>
-  <!-- Simple top nav (styling comes from your CSS) -->
+  <!-- Top navigation restored -->
   <nav class="nav">
     <div class="nav-inner container">
       <div class="brand">
-        <strong>APTT</strong> — AI Phish Training Tool
+        <a href="index.html" aria-label="APTT Home"><strong>APTT</strong></a>
+        <span class="brand-sub">AI Phish Training Tool</span>
       </div>
-      <!-- Add any links you want here -->
-      <div class="nav-actions">
-        <!-- placeholder for future controls (kept minimal on purpose) -->
-      </div>
+      <ul class="nav-links" role="menubar" aria-label="Primary">
+        <li role="none"><a role="menuitem" href="learn.html">Learn</a></li>
+        <li role="none"><a role="menuitem" href="resources.html">Resources</a></li>
+        <li role="none"><a role="menuitem" href="tools.html">Tools</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About</a></li>
+      </ul>
     </div>
   </nav>
 
   <!-- Main app area -->
   <main class="container" id="main">
-    <!-- The game renders into this section -->
+    <!-- The quiz UI renders into this section -->
     <section class="grid" id="content" aria-live="polite"></section>
   </main>
 
-  <!-- No toast here (intentionally removed) -->
+  <!-- No toast markup (intentionally removed) -->
 
   <footer>
     <span>APTT LLC. © 2025</span>
   </footer>
 
   <!-- Cache-bust so browsers fetch your latest JS (toast removed, attachments supported) -->
-  <script src="script.js?v=remove-toast-attachments"></script>
+  <script src="script.js?v=nav-restored-remove-toast"></script>
 </body>
 </html>
