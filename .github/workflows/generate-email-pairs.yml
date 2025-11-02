@@ -11,7 +11,19 @@ on:
         description: "How many PAIRS (default 10). 10 pairs = 20 emails."
         required: false
         type: number
-  # Weekly auto-run (Mon 03:23 UTC) — change if you prefer a different schedule
+      min_words:
+        description: "Minimum words per email body (default 50)."
+        required: false
+        type: number
+      max_words:
+        description: "Maximum words per email body (default 400)."
+        required: false
+        type: number
+      attachment_rate:
+        description: "Approx. percent of emails with attachments (default 50)."
+        required: false
+        type: number
+  # Weekly auto-run (Mon 03:23 UTC) — adjust if you want
   schedule:
     - cron: "23 3 * * 1"
 
@@ -40,25 +52,25 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EMAIL_TOPICS: ${{ github.event.inputs.topics }}
           PAIRS_COUNT: ${{ github.event.inputs.pairs }}
+          MIN_WORDS: ${{ github.event.inputs.min_words }}
+          MAX_WORDS: ${{ github.event.inputs.max_words }}
+          ATTACHMENT_RATE: ${{ github.event.inputs.attachment_rate }}
         run: node scripts/build_email_pairs.mjs
 
       - name: Validate result (validate_email_pairs.mjs)
         run: node scripts/validate_email_pairs.mjs
 
-      # NEW: move run artifacts into archive/ so root stays clean
+      # keep repo root clean
       - name: Move artifacts into archive
         shell: bash
         run: |
           mkdir -p archive
           shopt -s nullglob
-          # move any generated_email_pairs_*.json created by old runs or by script
           for f in generated_email_pairs_*.json; do
             mv "$f" "archive/$f"
           done
-          # move npm metadata created during the run
           if [[ -f package.json ]]; then mv package.json archive/package.json; fi
           if [[ -f package-lock.json ]]; then mv package-lock.json archive/package-lock.json; fi
-          # ensure we don't ever commit node_modules
           rm -rf node_modules
 
       - name: Commit & push results
@@ -67,7 +79,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore(emails): archive old, generate new pairs, validate; move artifacts to archive/"
+            git commit -m "chore(emails): archive old, generate new pairs (len/attachments), validate; move artifacts to archive/"
             git push
           else
             echo "No changes to commit."
