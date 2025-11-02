@@ -5,13 +5,26 @@ const FILE = "emails.json";
 const data = JSON.parse(fs.readFileSync(FILE, "utf8"));
 
 function isEmail(o){
-  return o
-    && typeof o.subject === "string" && o.subject.trim()
-    && typeof o.from === "string" && o.from.trim()
-    && Array.isArray(o.to) && o.to.length && o.to.every(s => typeof s === "string" && s.trim())
-    && typeof o.desc === "string" && o.desc.trim()
-    && (o.correct === "phish" || o.correct === "safe")
-    && typeof o.explain === "string" && o.explain.trim();
+  if (!o) return false;
+  const base =
+    typeof o.subject === "string" && o.subject.trim() &&
+    typeof o.from === "string" && o.from.trim() &&
+    (
+      (Array.isArray(o.to) && o.to.length && o.to.every(s => typeof s === "string" && s.trim())) ||
+      (typeof o.to === "string" && o.to.trim())
+    ) &&
+    (
+      (typeof o.desc === "string" && o.desc.trim()) ||
+      (typeof o.body === "string" && o.body.trim())
+    ) &&
+    (o.correct === "phish" || o.correct === "safe") &&
+    typeof o.explain === "string" && o.explain.trim();
+
+  if (!base) return false;
+  if (o.attachment !== undefined && o.attachment !== null && o.attachment !== "") {
+    if (typeof o.attachment !== "string") return false;
+  }
+  return true;
 }
 
 const groupKeys = Object.keys(data).filter(k => /^email_group_\d+$/.test(k));
