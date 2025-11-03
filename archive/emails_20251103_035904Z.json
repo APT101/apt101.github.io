@@ -504,7 +504,7 @@
       "explain": "Lookalike domain and credential-harvesting executable."
     }
   ],
-  "last_updated_emails": "2025-11-03T03:59:32.963Z",
+  "last_updated_emails": "2025-11-02T21:41:02.493Z",
   "email_group_21": [
     {
       "subject": "Annual Performance Review Schedule",
@@ -623,126 +623,6 @@
       "correct": "phish",
       "explain": "The email promises a bonus and includes a harmful executable attachment.",
       "attachment": "bonus_claim.pdf.exe"
-    }
-  ],
-  "email_group_26": [
-    {
-      "subject": "Important Update on Your Benefits",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We are excited to inform you about some updates to our benefits package that will take effect next month. Please review the attached document for detailed information. If you have any questions, feel free to reach out to the HR department. Best regards, HR Team.",
-      "correct": "safe",
-      "explain": "The email provides relevant information about employee benefits and includes a legitimate attachment.",
-      "attachment": "benefits_overview.pdf"
-    },
-    {
-      "subject": "Urgent: Action Required on Your Account",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity on your account. To secure your information, please download the attached file and follow the instructions. Failure to do so may result in account suspension. Regards, Support Team.",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and includes a suspicious executable attachment, indicating a phishing attempt.",
-      "attachment": "account_verification.pdf.exe"
-    }
-  ],
-  "email_group_27": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Attached is the quarterly financial report for your review. Please take a moment to go through it and let me know if you have any questions. Thank you, Finance Department.",
-      "correct": "safe",
-      "explain": "The email shares a standard financial report with a safe PDF attachment.",
-      "attachment": "Q3_report.pdf"
-    },
-    {
-      "subject": "Invoice Due: Immediate Payment Required",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Customer, Your invoice is overdue. Please find the attached document and make the payment immediately to avoid late fees. Thank you, Billing Department.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes a dangerous executable attachment.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_28": [
-    {
-      "subject": "New Training Session Available",
-      "from": "training@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Team, We are pleased to announce a new training session on professional development. Please find the schedule attached. We encourage everyone to participate. Best, Training Team.",
-      "correct": "safe",
-      "explain": "The email promotes a training session with a legitimate PDF attachment.",
-      "attachment": "training_schedule.pdf"
-    },
-    {
-      "subject": "Security Alert: Update Required",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Our security system has identified a potential threat. Please download the attached file to update your credentials immediately. Failure to comply may lead to account lockout. Regards, Security Team.",
-      "correct": "phish",
-      "explain": "The email uses fear tactics and includes a harmful executable attachment, indicating a phishing attempt.",
-      "attachment": "security_update.pdf.exe"
-    }
-  ],
-  "email_group_29": [
-    {
-      "subject": "Facilities Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear All, Attached is the maintenance schedule for the upcoming month. Please review it and let us know if you have any concerns. Thank you, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email shares a maintenance schedule with a safe PDF attachment.",
-      "attachment": "maintenance_schedule.pdf"
-    },
-    {
-      "subject": "Your Account Has Been Compromised",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected that your account may have been compromised. Please download the attached file to secure your account. Failure to do so will result in permanent deletion. Sincerely, Admin Team.",
-      "correct": "phish",
-      "explain": "The email creates panic and includes a malicious executable attachment, which is typical of phishing.",
-      "attachment": "compromise_alert.pdf.exe"
-    }
-  ],
-  "email_group_30": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello, Your travel itinerary for the upcoming business trip is attached. Please review it and let me know if you have any questions. Safe travels! Regards, Travel Department.",
-      "correct": "safe",
-      "explain": "The email confirms travel arrangements and includes a legitimate PDF attachment.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Payment Required for Your Travel Booking",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Traveler, There is an outstanding payment for your recent travel booking. Please download the attached file and complete the payment to avoid cancellation. Best, Travel Team.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient for payment and includes a harmful executable attachment.",
-      "attachment": "payment_request.pdf.exe"
     }
   ]
 }
