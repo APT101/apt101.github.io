@@ -111,7 +111,7 @@
     const warn = String(filename).toLowerCase().endsWith(".exe");
     return `
       <div class="attach">
-        <span class="paperclip"</span>
+        <span class="paperclip"></span>
         <span class="pill ${warn ? "warn" : ""}">${escapeHtml(filename)}</span>
       </div>`;
   };
