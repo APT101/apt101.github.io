@@ -37,7 +37,7 @@
       <h3 style="margin:0 0 8px 0;">${escapeHtml(title)}</h3>
       <p style="margin:0 0 16px 0;line-height:1.5;white-space:pre-wrap;">${escapeHtml(text || "")}</p>
       <div style="display:flex;justify-content:flex-end;gap:8px;">
-        <button id="aptt-ok" class="btn" style="min-width:88px">OK</button>
+        <button id="aptt-ok" class="btn link" style="min-width:88px">OK</button>
       </div>`;
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
@@ -111,7 +111,7 @@
     const warn = String(filename).toLowerCase().endsWith(".exe");
     return `
       <div class="attach">
-        <span class="paperclip" aria-hidden="true">📎</span>
+        <span class="paperclip"</span>
         <span class="pill ${warn ? "warn" : ""}">${escapeHtml(filename)}</span>
       </div>`;
   };
@@ -129,7 +129,7 @@
         ${attachmentHTML(email.attachment)}
         <p class="desc">${escapeHtml(desc)}</p>
         <div class="btn-row">
-          <button class="btn js-pick">Phish</button>
+          <button class="btn phish js-pick">Phish</button>
         </div>
       </article>`;
   };

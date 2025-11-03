@@ -4,48 +4,41 @@
   <meta charset="utf-8" />
   <title>AI Phish Training Tool - APTT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css"/>
 
-  <!-- Favicons (same paths as your repo) -->
-  <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="resources/favicons/favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="resources/favicons/favicon-192x192.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="resources\favicons\favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources\favicons\favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="resources\favicons\favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="resources\favicons\favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="resources\favicons\favicon-192x192.png">
 </head>
 
 <body>
-  <!-- Top navigation restored -->
+  <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner container">
-      <div class="brand">
-        <a href="index.html" aria-label="APTT Home"><strong>APTT</strong></a>
-        <span class="brand-sub">AI Phish Training Tool</span>
+      <div class="logo">
+        <span><img src="resources\header_icon.png"></span>
       </div>
-      <ul class="nav-links" role="menubar" aria-label="Primary">
-        <li role="none"><a role="menuitem" href="learn.html">Learn</a></li>
-        <li role="none"><a role="menuitem" href="resources.html">Resources</a></li>
-        <li role="none"><a role="menuitem" href="tools.html">Tools</a></li>
-        <li role="none"><a role="menuitem" href="about.html">About</a></li>
-      </ul>
+      <div class="nav-links">
+        <a href="learn.html">Learn</a>
+        <a href="resources.html">Resources</a>
+        <a href="tools.html">Tools</a>
+        <a href="about.html">About Us</a>
+      </div>
     </div>
   </nav>
 
   <!-- Main app area -->
   <main class="container" id="main">
-    <!-- The quiz UI renders into this section -->
-    <section class="grid" id="content" aria-live="polite"></section>
+    <section id="content"></section>
   </main>
-
-  <!-- No toast markup (intentionally removed) -->
 
   <footer>
     <span>APTT LLC. © 2025</span>
   </footer>
 
-  <!-- Cache-bust so browsers fetch your latest JS (toast removed, attachments supported) -->
   <script src="script.js?v=nav-restored-remove-toast"></script>
 </body>
 </html>
