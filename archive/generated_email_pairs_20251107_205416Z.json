@@ -1,0 +1,126 @@
+{
+  "generated_at": "2025-11-07T20:54:43.736Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Quarterly Performance Review",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nAs we approach the end of the quarter, I wanted to remind everyone about the upcoming performance reviews. Please find attached the performance report that outlines key metrics and areas for improvement. Make sure to review it thoroughly before your one-on-one meetings.\n\nBest,\nHR Team",
+        "correct": "safe",
+        "explain": "The email comes from the HR department and contains a legitimate attachment related to performance review.",
+        "attachment": "performance_report.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your Payroll Information",
+        "from": "payroll@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Attention Employee,\n\nWe have noticed some discrepancies in your payroll information. Please download the attached form, fill it out, and return it to us as soon as possible to avoid any delays in your next paycheck.\n\nThank you,\nPayroll Department",
+        "correct": "phish",
+        "explain": "The email requests sensitive information and includes an executable attachment, which is a common phishing tactic.",
+        "attachment": "update_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "New IT Security Protocols",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAs part of our ongoing efforts to enhance security, we have implemented new IT protocols. Attached is a document outlining these changes and what you need to do to comply. Please read it carefully and reach out if you have questions.\n\nBest,\nIT Department",
+        "correct": "safe",
+        "explain": "The email is from the IT department with a relevant attachment discussing security protocols.",
+        "attachment": "security_protocols.pdf"
+      },
+      {
+        "subject": "Immediate Action Required: Account Verification",
+        "from": "support@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear User,\n\nWe need you to verify your account immediately to prevent suspension. Please download the attached verification form and follow the instructions. Failure to do so will result in account restrictions.\n\nRegards,\nSupport Team",
+        "correct": "phish",
+        "explain": "The email creates a sense of urgency and contains an executable attachment, which is indicative of phishing.",
+        "attachment": "verification_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi,\n\nYour travel itinerary has been confirmed for the upcoming conference. Please find the attached document for all details regarding flights and accommodations. Let us know if you have any questions.\n\nSafe travels,\nTravel Team",
+        "correct": "safe",
+        "explain": "The email is from the travel department and includes a standard itinerary attachment.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Invoice Due: Immediate Payment Required",
+        "from": "billing@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nThis is a reminder that your invoice is overdue. Please find the attached invoice and make payment immediately to avoid penalties. If you have already paid, please disregard this message.\n\nThank you,\nBilling Department",
+        "correct": "phish",
+        "explain": "The email pressures the recipient to act quickly and contains an executable attachment, which is a red flag.",
+        "attachment": "invoice.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Annual Compliance Training Reminder",
+        "from": "compliance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nThis is a friendly reminder that the annual compliance training is coming up next month. Attached is the schedule for the training sessions. Please ensure you attend the session assigned to your department.\n\nBest,\nCompliance Team",
+        "correct": "safe",
+        "explain": "The email is from the compliance department with a relevant training schedule attached.",
+        "attachment": "training_schedule.pdf"
+      },
+      {
+        "subject": "Security Alert: Account Access Attempt",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Attention,\n\nWe detected an unauthorized access attempt on your account. Please review the attached details and follow the instructions to secure your account immediately.\n\nRegards,\nSecurity Team",
+        "correct": "phish",
+        "explain": "The email instills fear and includes an executable attachment, which is a common phishing tactic.",
+        "attachment": "alert_details.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "New Policy Changes Effective Next Month",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employees,\n\nWe want to inform you about some important policy changes that will take effect next month. Please review the attached document for full details. It is crucial that everyone understands these changes.\n\nThank you,\nLegal Department",
+        "correct": "safe",
+        "explain": "The email is from the legal department and contains a legitimate document regarding policy changes.",
+        "attachment": "policy_changes.pdf"
+      },
+      {
+        "subject": "Your Account Has Been Compromised",
+        "from": "alert@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear User,\n\nWe have detected suspicious activity on your account. Please download the attached alert and follow the steps to secure your account immediately. Failing to do so may result in permanent loss of access.\n\nSincerely,\nAlert Team",
+        "correct": "phish",
+        "explain": "The email creates urgency and includes an executable attachment, which indicates phishing.",
+        "attachment": "compromise_alert.pdf.exe"
+      }
+    ]
+  ]
+}
