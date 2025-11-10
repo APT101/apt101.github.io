@@ -504,7 +504,7 @@
       "explain": "Lookalike domain and credential-harvesting executable."
     }
   ],
-  "last_updated_emails": "2025-11-10T03:59:28.724Z",
+  "last_updated_emails": "2025-11-07T20:54:43.737Z",
   "email_group_21": [
     {
       "subject": "Annual Performance Review Schedule",
@@ -863,126 +863,6 @@
       "correct": "phish",
       "explain": "The email creates urgency and includes an executable attachment, which indicates phishing.",
       "attachment": "compromise_alert.pdf.exe"
-    }
-  ],
-  "email_group_36": [
-    {
-      "subject": "Quarterly Budget Review",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, Please find attached the budget report for the last quarter. We will be discussing this in our upcoming meeting. Make sure to review it thoroughly. If you have any questions, feel free to reach out. Best, Finance Team.",
-      "correct": "safe",
-      "explain": "The email is from the finance department and contains a legitimate attachment related to work.",
-      "attachment": "budget_report.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have noticed some discrepancies in your payroll information. Please download the attached form and fill it out to ensure your payments are accurate. This is urgent! Regards, HR Team.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and the attachment is an executable file, which is suspicious.",
-      "attachment": "update_form.pdf.exe"
-    }
-  ],
-  "email_group_37": [
-    {
-      "subject": "IT Security Training Reminder",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, This is a reminder for the upcoming IT security training scheduled for next week. Attached is the training material you will need to review beforehand. Please ensure you complete this before the session. Thank you, IT Department.",
-      "correct": "safe",
-      "explain": "The email is from the IT department with a relevant attachment for training purposes.",
-      "attachment": "security_training.pdf"
-    },
-    {
-      "subject": "Your Account Has Been Compromised!",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity on your account. Please click the link below to secure your account immediately. Attached is a report detailing the activity. Regards, Support Team.",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and includes an executable attachment, which is a common phishing tactic.",
-      "attachment": "security_alert.pdf.exe"
-    }
-  ],
-  "email_group_38": [
-    {
-      "subject": "Facilities Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Everyone, Attached is the maintenance schedule for the upcoming month. Please review it and let us know if you have any questions or concerns. Best, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email is informative and contains a safe PDF attachment related to facilities management.",
-      "attachment": "maintenance_schedule.pdf"
-    },
-    {
-      "subject": "Important: Update Your Contact Information",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, To ensure we have the most current information, please download the attached form and update your contact details. This is very important for our records. Thank you! Admin Team.",
-      "correct": "phish",
-      "explain": "The email asks for personal information and includes a suspicious executable attachment.",
-      "attachment": "contact_update_form.pdf.exe"
-    }
-  ],
-  "email_group_39": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Your travel itinerary for the upcoming business trip is attached. Please review all details and let us know if you have any questions. Safe travels! Travel Department.",
-      "correct": "safe",
-      "explain": "The email is a standard travel confirmation with a PDF attachment, which is appropriate.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Action Required: Verify Your Travel Details",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi, We need you to verify your travel details as soon as possible. Please download the attached document and follow the instructions. This is urgent! Regards, Travel Team.",
-      "correct": "phish",
-      "explain": "The email creates urgency and includes an executable attachment, which is a red flag.",
-      "attachment": "travel_verification.pdf.exe"
-    }
-  ],
-  "email_group_40": [
-    {
-      "subject": "Legal Document Review",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello, Attached is the legal document for your review. Please read through it carefully and provide your feedback by the end of the week. Thank you, Legal Department.",
-      "correct": "safe",
-      "explain": "The email contains a legitimate PDF attachment for work-related legal review.",
-      "attachment": "contract_review.pdf"
-    },
-    {
-      "subject": "Immediate Action Required: Legal Compliance",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have updated our compliance policies and need you to review the attached document immediately. Failure to comply could result in penalties. Regards, Legal Team.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes an executable file, indicating a phishing attempt.",
-      "attachment": "compliance_update.pdf.exe"
     }
   ]
 }
