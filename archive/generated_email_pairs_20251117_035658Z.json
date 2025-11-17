@@ -1,0 +1,125 @@
+{
+  "generated_at": "2025-11-17T03:57:27.902Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee, We are implementing a new training program that is mandatory for all staff. Please find the training document attached. It outlines the schedule and topics to be covered. Make sure to review it thoroughly and prepare any questions you might have. The training will take place next week, and attendance will be monitored. Thank you for your cooperation. Best, HR Team.",
+        "correct": "safe",
+        "explain": "The email comes from the HR department and contains a legitimate training document.",
+        "attachment": "training.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your Payroll Information",
+        "from": "payroll@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee, We have noticed an issue with your payroll information. Please download the attached form and update your details immediately to avoid any delays in your salary. This is urgent! Failure to comply may result in payment issues. Regards, Payroll Department.",
+        "correct": "phish",
+        "explain": "The email requests sensitive information and includes a suspicious executable attachment.",
+        "attachment": "update_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Budget Review",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team, Attached is the budget report for the last quarter. Please review it before our meeting next week. Your insights will be valuable as we discuss our financial strategies moving forward. Let me know if you have any questions. Best, Finance Team.",
+        "correct": "safe",
+        "explain": "The email is from the Finance department and contains a standard report attachment.",
+        "attachment": "budget_report.pdf"
+      },
+      {
+        "subject": "Action Required: Security Update",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee, To ensure the safety of our systems, you must install the attached security update immediately. This is critical to protect your data and our network. Please follow the instructions in the attachment. Thank you for your prompt attention to this matter. Regards, Security Team.",
+        "correct": "phish",
+        "explain": "The email urges immediate action with a potentially harmful executable attachment.",
+        "attachment": "security_patch.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi, Your travel itinerary for the upcoming business trip has been finalized. Please find the details in the attached PDF. Make sure to check the flight times and hotel reservations. If you have any questions or need adjustments, feel free to reach out. Safe travels! Best, Travel Team.",
+        "correct": "safe",
+        "explain": "The email confirms travel arrangements with a legitimate PDF attachment.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Immediate Action Required: Account Verification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear User, We have detected unusual activity in your account. To secure it, please download the attached verification form and complete it immediately. Failure to do so may result in account suspension. Regards, IT Support.",
+        "correct": "phish",
+        "explain": "The email creates urgency for account verification and includes a suspicious executable attachment.",
+        "attachment": "verification_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "New Policy Update",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team, We have updated our company policies to reflect recent changes in legislation. Please review the attached document carefully. It is important that you understand these changes as they may affect your work. If you have any questions, do not hesitate to reach out. Best regards, Legal Department.",
+        "correct": "safe",
+        "explain": "The email is from the Legal department and contains a standard policy update.",
+        "attachment": "policy_update.pdf"
+      },
+      {
+        "subject": "Payment Required: Invoice Attached",
+        "from": "billing@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Customer, Attached is your invoice for the recent services. Please make the payment promptly to avoid late fees. Open the attachment for details. Thank you! Regards, Billing Team.",
+        "correct": "phish",
+        "explain": "The email includes a suspicious executable attachment disguised as an invoice.",
+        "attachment": "invoice.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Feedback Request",
+        "from": "facilities@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello, We are conducting a survey to gather feedback about the facilities in our office. Your input is valuable to us, and we would appreciate it if you could take a few minutes to respond. Thank you for your cooperation! Best, Facilities Team.",
+        "correct": "safe",
+        "explain": "The email is a standard feedback request with no attachments."
+      },
+      {
+        "subject": "Urgent: Confirm Your Account Details",
+        "from": "support@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear User, We need you to confirm your account details to ensure uninterrupted service. Please download the attached document and follow the instructions. This is urgent! Regards, Support Team.",
+        "correct": "phish",
+        "explain": "The email pressures the recipient to confirm details with a harmful executable attachment.",
+        "attachment": "account_details.pdf.exe"
+      }
+    ]
+  ]
+}
