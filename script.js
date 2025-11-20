@@ -133,16 +133,50 @@
       </article>`;
   };
 
+  // Feedback text based on percentage score
+  const getFeedback = (percent) => {
+    if (percent <= 30) {
+      return (
+        "Your score suggests you're at high risk of falling for phishing attacks.\n" +
+        "Go through our Learn and Resources sections carefully before attempting the quiz again.\n" +
+        "With practice, you’ll start spotting the obvious red flags much more easily."
+      );
+    } else if (percent <= 50) {
+      return (
+        "You have a basic understanding of phishing, but you’re still missing key warning signs.\n" +
+        "Review the questions you missed and study why those emails were phishing or safe.\n" +
+        "Spending some time in our Resources section will significantly tighten your defenses."
+      );
+    } else if (percent <= 80) {
+      return (
+        "You have a solid grasp of common phishing indicators.\n" +
+        "You caught most of the traps, but a few advanced tricks still slipped through.\n" +
+        "A bit more review and exposure to examples from our Resources will push you towards expert level."
+      );
+    } else {
+      return (
+        "Excellent work — your score shows strong phishing awareness.\n" +
+        "You’re catching subtle red flags that many users overlook.\n" +
+        "Keep your skills sharp by revisiting the quiz occasionally and staying updated with new attack patterns."
+      );
+    }
+  };
+
   // UPDATED: randomize which email goes left/right each time
   const render = () => {
     const root = $("content");
     if (!root) return;
 
     if (INDEX >= ORDER.length) {
+      const total = ORDER.length || 1;
+      const percent = Math.round((SCORE / total) * 100);
+      const feedback = getFeedback(percent);
+
       root.innerHTML = `
         <section class="card" style="padding:16px;">
           <h3>Score</h3>
-          <p>You scored ${SCORE} / ${ORDER.length}</p>
+          <p>You scored ${percent}% (${SCORE} / ${total})</p>
+          <p style="white-space:pre-wrap;margin-top:8px;">${escapeHtml(feedback)}</p>
           <div class="btn-row"><button class="btn js-restart">Restart</button></div>
         </section>`;
       return;
