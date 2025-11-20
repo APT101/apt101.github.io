@@ -1,4 +1,3 @@
-
 (() => {
   if (window.__APTT_INIT__) return;
   window.__APTT_INIT__ = true;
@@ -134,6 +133,7 @@
       </article>`;
   };
 
+  // UPDATED: randomize which email goes left/right each time
   const render = () => {
     const root = $("content");
     if (!root) return;
@@ -148,7 +148,10 @@
       return;
     }
 
-    const [left, right] = ORDER[INDEX];
+    const pair = ORDER[INDEX];
+    // Randomize layout: sometimes [a,b], sometimes [b,a]
+    const [left, right] = Math.random() < 0.5 ? pair : [pair[1], pair[0]];
+
     root.innerHTML = `
       <div class="grid">
         ${cardHTML(left, "left")}
