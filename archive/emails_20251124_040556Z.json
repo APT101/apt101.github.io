@@ -504,7 +504,7 @@
       "explain": "Lookalike domain and credential-harvesting executable."
     }
   ],
-  "last_updated_emails": "2025-11-24T04:06:23.231Z",
+  "last_updated_emails": "2025-11-17T03:57:27.903Z",
   "email_group_21": [
     {
       "subject": "Annual Performance Review Schedule",
@@ -1102,124 +1102,6 @@
       "correct": "phish",
       "explain": "The email pressures the recipient to confirm details with a harmful executable attachment.",
       "attachment": "account_details.pdf.exe"
-    }
-  ],
-  "email_group_46": [
-    {
-      "subject": "Important Update on Company Policies",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, We wanted to inform you about some important updates to our company policies that will take effect next month. Please review the attached document carefully as it includes changes to our remote work policy and vacation days. If you have any questions, feel free to reach out. Best, HR Team.",
-      "correct": "safe",
-      "explain": "The email is from HR and contains a legitimate attachment regarding company policy updates.",
-      "attachment": "company_policy_update.pdf"
-    },
-    {
-      "subject": "Action Required: Verify Your Account",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have detected unusual activity on your account. To ensure your security, please verify your account by clicking the link below or by opening the attached document. Failure to do so may result in account suspension. Thank you, Support Team.",
-      "correct": "phish",
-      "explain": "The email prompts the employee to open an executable file, which is a common phishing tactic.",
-      "attachment": "verify_account.pdf.exe"
-    }
-  ],
-  "email_group_47": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Attached you will find the quarterly financial report for Q3. Please review the document and prepare any questions for our upcoming meeting. Your insights are valuable as we discuss our financial strategy moving forward. Regards, Finance Department.",
-      "correct": "safe",
-      "explain": "The email is from the finance department and contains a legitimate PDF report.",
-      "attachment": "Q3_financial_report.pdf"
-    },
-    {
-      "subject": "Invoice Due Immediately",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, This is a reminder that your invoice is due immediately. Please find the attached invoice document and ensure that payment is made by the end of the day. Failure to comply may result in late fees. Thank you, Billing Department.",
-      "correct": "phish",
-      "explain": "The email includes an executable file disguised as an invoice, which is a phishing attempt.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_48": [
-    {
-      "subject": "Upcoming Team Building Event",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Everyone, We are excited to announce an upcoming team building event scheduled for next month! This will be a great opportunity to strengthen our team dynamics and have some fun. Please mark your calendars and stay tuned for more details. Best, Events Team.",
-      "correct": "safe",
-      "explain": "The email is an announcement about a team event with no suspicious content."
-    },
-    {
-      "subject": "Urgent: Update Your Payment Information",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We need you to update your payment information immediately to avoid any disruptions in your salary payments. Please find the attached document to complete this process. Thank you for your prompt attention to this matter. Regards, Admin.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and includes an executable attachment, which is a phishing red flag.",
-      "attachment": "update_payment_info.pdf.exe"
-    }
-  ],
-  "email_group_49": [
-    {
-      "subject": "New Training Module Available",
-      "from": "training@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, We are pleased to announce that a new training module is now available for all employees. Please find the attached document with details on how to access the training. We encourage everyone to complete it by the end of the month. Best, Training Department.",
-      "correct": "safe",
-      "explain": "The email promotes a legitimate training module with a safe PDF attachment.",
-      "attachment": "new_training_module.pdf"
-    },
-    {
-      "subject": "Security Alert: Account Verification Needed",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have noticed suspicious activity on your account. To ensure your security, please verify your account by opening the attached document. This is urgent and must be done within 24 hours. Thank you, Security Team.",
-      "correct": "phish",
-      "explain": "The email uses urgency and includes an executable file, which are common tactics in phishing attempts.",
-      "attachment": "account_verification.pdf.exe"
-    }
-  ],
-  "email_group_50": [
-    {
-      "subject": "Facility Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, Please be informed that facility maintenance is scheduled for this weekend. There may be some disruptions in services, but we will do our best to minimize the impact. Thank you for your understanding. Regards, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email provides information about maintenance without any suspicious attachments."
-    },
-    {
-      "subject": "Immediate Action Required: Account Update",
-      "from": "noreply@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We require you to update your account information immediately. Please open the attached document and follow the instructions. Failure to do so may result in account suspension. Regards, IT Support.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes an executable attachment, indicating a phishing attempt.",
-      "attachment": "account_update.pdf.exe"
     }
   ]
 }
