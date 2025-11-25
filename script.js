@@ -118,8 +118,15 @@
   const cardHTML = (email, side) => {
     const toText = Array.isArray(email.to) ? email.to.join(", ") : (email.to || "");
     const desc = email.desc || email.body || "";
+    const reason = email.explain || email.reason || ""; // <- use your JSON's "explain"
+
     return `
-      <article class="card" data-side="${side}" data-correct="${escapeHtml(String(email.correct || "").toLowerCase())}">
+      <article
+        class="card"
+        data-side="${side}"
+        data-correct="${escapeHtml(String(email.correct || "").toLowerCase())}"
+        data-explain="${escapeHtml(reason)}"
+      >
         <h3>${escapeHtml(email.subject || "(no subject)")}</h3>
         <div class="email-meta">
           <div><strong>From:</strong> ${escapeHtml(email.from || "")}</div>
@@ -128,7 +135,7 @@
         ${attachmentHTML(email.attachment)}
         <p class="desc">${escapeHtml(desc)}</p>
         <div class="btn-row">
-          <button class="btn phish js-pick">Phish</button>
+          <button class="btn phish js-pick">🗑️ Report as a Phish</button>
         </div>
       </article>`;
   };
@@ -162,7 +169,7 @@
     }
   };
 
-  // UPDATED: randomize which email goes left/right each time
+  // randomize which email goes left/right each time
   const render = () => {
     const root = $("content");
     if (!root) return;
@@ -203,14 +210,60 @@
     if (!card || LOCK) return;
     LOCK = true;
 
-    const isPhish = (card.getAttribute("data-correct") || "").toLowerCase() === "phish";
-    markCard(card, isPhish);
+    const selectedCorrect = (card.getAttribute("data-correct") || "").toLowerCase();
+    const isPhish = selectedCorrect === "phish";
+
+    // find both cards in the current grid so we can compare explanations
+    const grid = card.closest(".grid");
+    const cards = grid ? Array.from(grid.querySelectorAll(".card")) : [card];
+
+    const selectedExplain = card.getAttribute("data-explain") || "";
+
+    const phishCard = cards.find(c => (c.getAttribute("data-correct") || "").toLowerCase() === "phish");
+    const safeCard  = cards.find(c => (c.getAttribute("data-correct") || "").toLowerCase() === "safe");
+
+    const phishExplain = phishCard ? (phishCard.getAttribute("data-explain") || "") : "";
+    const safeExplain  = safeCard  ? (safeCard.getAttribute("data-explain")  || "") : "";
 
     let explainText = "";
-    try {
-      const descNode = card.querySelector(".desc");
-      explainText = descNode ? descNode.textContent : "";
-    } catch {}
+
+    if (isPhish) {
+      // user correctly clicked the phishing email
+      explainText = "Correct – this is the phishing email.\n\n";
+      if (selectedExplain) {
+        explainText += "What makes it suspicious:\n" + selectedExplain;
+      } else {
+        // fallback to body if no explanation
+        try {
+          const descNode = card.querySelector(".desc");
+          if (descNode) explainText += descNode.textContent;
+        } catch {}
+      }
+    } else {
+      // user clicked the safe email -> they are wrong
+      explainText = "Incorrect – this email is actually a legitimate, clean message.\n\n";
+
+      if (safeExplain) {
+        explainText += "Why this one is safe:\n" + safeExplain + "\n\n";
+      } else if (safeCard) {
+        const descNode = safeCard.querySelector(".desc");
+        if (descNode) explainText += "Why this one is safe:\n" + descNode.textContent + "\n\n";
+      }
+
+      if (phishCard) {
+        const phishSide = phishCard.getAttribute("data-side") || "";
+        const where = phishSide ? `the ${phishSide} card` : "the other card";
+        if (phishExplain) {
+          explainText += "The actual phishing email was " + where + ":\n" + phishExplain;
+        } else {
+          const descNode = phishCard.querySelector(".desc");
+          explainText += "The actual phishing email was " + where + ".";
+          if (descNode) explainText += "\n\nIt contained these red flags:\n" + descNode.textContent;
+        }
+      }
+    }
+
+    markCard(card, isPhish);
 
     showModal(isPhish ? "Correct" : "Incorrect", explainText, () => {
       if (isPhish) SCORE += 1;
