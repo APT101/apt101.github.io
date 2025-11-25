@@ -1,1225 +1,206 @@
 {
   "email_group_1": [
     {
-      "id": 1,
-      "subject": "Updated Benefits Handbook",
-      "from": "hr@globalworkplace.com",
-      "to": [
-        "employee@globalworkplace.com"
-      ],
-      "attachment": "Benefits_Handbook.pdf",
-      "desc": "Hello team, we have published the updated benefits handbook for the new plan year. It outlines medical, dental, FSA/HSA details, and the refreshed parental leave policy. Please review the attached PDF at your convenience and contact HR if any clarifications are needed. No acknowledgment is required.",
+      "subject": "Updated Benefits Package Overview",
+      "from": "hr@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Legitimate HR communication with a normal PDF and no undue urgency."
+      "attachment": "Benefits_Overview.pdf",
+      "desc": "Dear Employee,\n\nAs part of our continuing efforts to improve our employee wellness and support programs, we have updated the company benefits package for the upcoming fiscal year. This update includes adjustments to our medical coverage options, enhancements to mental-health support services, improvements to parental leave policies, and expanded reimbursement categories for learning and development.\n\nYou will find the complete breakdown of these updates in the attached PDF. We encourage all employees to review the document carefully so you are fully aware of the new changes and the resources available to you and your family.\n\nThere is no action required at this time. If you have questions after reviewing the attachment, feel free to contact the HR Services Desk.\n\nBest regards,\nHuman Resources Team",
+      "explain": "This is a normal HR email with a legitimate PDF, calm tone, and no requests for sensitive data."
     },
     {
-      "id": 2,
-      "subject": "Action Required: Benefits Verification",
-      "from": "hr@globaiworkplace.com",
-      "to": [
-        "employee@globalworkplace.com"
-      ],
-      "attachment": "Benefits_Verification.pdf.exe",
-      "desc": "Your benefits enrollment needs urgent verification. Open the attached file and run the verification tool. Failure to do so within 24 hours may result in loss of coverage.",
+      "subject": "URGENT: Benefits Verification Required Immediately",
+      "from": "hr-support@compaany-benefits.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Lookalike domain and executable disguised as PDF; false urgency."
+      "attachment": "Benefits_Update.pdf.exe",
+      "desc": "Dear Employee,\n\nOur system has identified that your benefits information cannot be verified for the upcoming enrollment cycle. This issue may result in an interruption or cancellation of your medical and payroll-linked services if not resolved within the next several hours.\n\nTo avoid disruption, you must open the attached document titled “Benefits_Update.pdf.exe” and complete the verification steps. The tool will confirm your eligibility and reauthenticate your benefits profile. Failure to complete this process promptly may result in loss of access to key HR systems.\n\nPlease note that this is an automated message, and HR cannot assist you until the verification is complete.\n\nRegards,\nBenefits Security Team",
+      "explain": "Fake domain, urgency, and a malicious executable attachment disguised as a PDF indicate phishing."
     }
   ],
+
   "email_group_2": [
     {
-      "id": 3,
-      "subject": "Payroll Adjustment Confirmed",
-      "from": "payroll@enterprisecorp.com",
-      "to": [
-        "employee@enterprisecorp.com"
-      ],
-      "desc": "This confirms your approved payroll adjustment for last cycle. The change will reflect on your next payslip. No further action is required.",
+      "subject": "Payroll Adjustment Confirmation",
+      "from": "payroll@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Informational payroll update with no links or attachments."
+      "desc": "Dear Employee,\n\nThis message is to confirm that the payroll adjustment from your previous cycle has been reviewed and approved by the Compensation Review Board. The updated figures will be reflected in your forthcoming payslip accessible through the Employee Portal.\n\nThere is no further action required. If you believe the updated figures do not align with your time reports or submitted documentation, please reach out to Payroll Support with the relevant details.\n\nThank you,\nPayroll Department",
+      "explain": "A standard payroll message without dangerous attachments or sensitive requests."
     },
     {
-      "id": 4,
-      "subject": "Salary Discrepancy Report",
-      "from": "payroll@enterprlsecorp.com",
-      "to": [
-        "employee@enterprisecorp.com"
-      ],
-      "attachment": "Salary_Discrepancy_Report.pdf.exe",
-      "desc": "We detected a discrepancy in your salary disbursement. Download and open the attached file to confirm your bank details immediately.",
+      "subject": "Immediate Payroll Verification Needed",
+      "from": "payroll-alert@companny-pay.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Spoofed domain and malicious attachment requesting sensitive action."
+      "attachment": "Payroll_Verification_Tool.pdf.exe",
+      "desc": "Dear Employee,\n\nYour most recent payroll submission could not be verified by our automated processing system. To prevent delays in your upcoming deposit, you must download the attached verification tool and confirm your bank details.\n\nThis process should only take a few minutes, and failure to complete it may result in payroll suspension.\n\nRegards,\nPayroll Automated Services",
+      "explain": "Urgent language, lookalike domain, and executable attachment indicate a phishing attempt."
     }
   ],
+
   "email_group_3": [
     {
-      "id": 5,
-      "subject": "Team Offsite Travel Agenda",
-      "from": "admin@operationshub.com",
-      "to": [
-        "employee@operationshub.com"
-      ],
-      "attachment": "Offsite_Agenda.pdf",
-      "desc": "Attached is the finalized travel agenda and hotel information for next week’s offsite. Please verify your flight times and reach out with any conflicts.",
+      "subject": "IT Security Awareness Session",
+      "from": "it@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Legitimate internal travel details with a normal PDF."
+      "desc": "Hi Team,\n\nThis is a reminder about the quarterly IT Security Awareness Session scheduled for this Friday at 3 PM in Conference Room B. We will review password hygiene, MFA updates, recent phishing trends, and best practices for internal system security.\n\nIf you cannot attend, please notify your supervisor so we can provide you with alternative training materials.\n\nRegards,\nIT Department",
+      "explain": "Legitimate internal IT message with no suspicious elements."
     },
     {
-      "id": 6,
-      "subject": "Urgent Travel Invoice Issue",
-      "from": "admin@operati0nshub.com",
-      "to": [
-        "employee@operationshub.com"
-      ],
-      "attachment": "Invoice_Fix.pdf.exe",
-      "desc": "Your recent travel invoice could not be processed. Open the attached tool to correct the invoice immediately to avoid non-reimbursement.",
+      "subject": "Password Violation – Immediate Reset Required",
+      "from": "it-security@compaany-reset.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Lookalike domain and executable masked as a PDF."
+      "desc": "Dear User,\n\nOur systems have marked your password for a violation due to suspicious login attempts. You must reset your password immediately using the link below:\n\nhttp://compaany-reset.com/reset\n\nIf you do not complete the reset within the next hour, your account will be suspended automatically.\n\nSecurity Team",
+      "explain": "Suspicious non-company domain and forced urgency indicate phishing."
     }
   ],
+
   "email_group_4": [
     {
-      "id": 7,
-      "subject": "Security Awareness Session Invitation",
-      "from": "it@securemailing.com",
-      "to": [
-        "employee@securemailing.com"
-      ],
-      "desc": "You are invited to the quarterly security awareness session on Friday at 2:00 PM. Topics include MFA best practices, phishing patterns, and reporting procedures.",
+      "subject": "Office Maintenance Notice",
+      "from": "facilities@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Expected IT notice; no suspicious links or files."
+      "desc": "Hello Everyone,\n\nFacilities Management will perform scheduled HVAC maintenance this weekend. Please shut down your workstation and secure personal belongings before leaving Friday.\n\nThank you,\nFacilities Management",
+      "explain": "Normal facilities notice, no risky attachments or requests."
     },
     {
-      "id": 8,
-      "subject": "Password Policy Violation",
-      "from": "it-security@securemailling.com",
-      "to": [
-        "employee@securemailing.com"
-      ],
-      "desc": "Your password violates our policy. Click this link to reset immediately: http://securemailling.com/reset-now",
+      "subject": "Building Access Suspension Warning",
+      "from": "access-support@compaany-facilities.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Spoofed domain and unsafe HTTP link urging immediate reset."
+      "attachment": "Access_Form_Update.pdf.exe",
+      "desc": "Dear Employee,\n\nYour building badge is scheduled for automatic suspension due to unverified employee credentials. Please download the attached form and complete the verification process immediately.\n\nRegards,\nAccess Control Team",
+      "explain": "Fake domain and malicious executable attachment indicate phishing."
     }
   ],
+
   "email_group_5": [
     {
-      "id": 9,
-      "subject": "Office Maintenance Schedule",
-      "from": "facilities@metrocorp.com",
-      "to": [
-        "employee@metrocorp.com"
-      ],
-      "desc": "Facilities will perform routine HVAC maintenance this weekend. Please shut down workstations and secure personal items before leaving Friday.",
+      "subject": "Travel Itinerary Confirmation",
+      "from": "travel@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Routine facilities notice with no risky asks."
+      "attachment": "Itinerary.pdf",
+      "desc": "Dear Employee,\n\nYour travel itinerary for next week's conference has been finalized. Please review the attached PDF, which includes flight details, accommodation arrangements, and ground transportation instructions.\n\nSafe travels,\nTravel Department",
+      "explain": "Legitimate PDF attachment and normal communication."
     },
     {
-      "id": 10,
-      "subject": "Building Access Confirmation Needed",
-      "from": "facilites@metrocorp-support.com",
-      "to": [
-        "employee@metrocorp.com"
-      ],
-      "attachment": "Access_Form.pdf.exe",
-      "desc": "To keep your badge active, open the attached access form and complete the verification today.",
+      "subject": "Travel Booking Needs Immediate Verification",
+      "from": "travel-secure@companny-trips.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Misspelled sender and executable file; false urgency."
+      "attachment": "Booking_Update.pdf.exe",
+      "desc": "Dear Traveler,\n\nWe are unable to finalize your travel booking due to missing verification data. Download the attached document and complete the required authentication.\n\nFailure to do so may result in cancellation of your travel arrangements.\n\nSupport Team",
+      "explain": "Executable disguised as PDF and urgency indicate phishing."
     }
   ],
+
   "email_group_6": [
     {
-      "id": 11,
-      "subject": "Client Webinar Invitation",
-      "from": "marketing@brightlane.com",
-      "to": [
-        "employee@brightlane.com"
-      ],
-      "desc": "Join us next week for a client webinar covering product updates and customer success stories. Please RSVP by Thursday.",
+      "subject": "Performance Review Details",
+      "from": "manager@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Standard internal event invite; no dangerous content."
+      "attachment": "Review_Agenda.pdf",
+      "desc": "Hi,\n\nAttached is the agenda for your upcoming performance review. Please review the topics and be prepared to discuss your recent accomplishments.\n\nThanks,\nYour Manager",
+      "explain": "Harmless agenda PDF and legitimate tone."
     },
     {
-      "id": 12,
-      "subject": "Claim Your Webinar Reward",
-      "from": "marketing@bright1ane.com",
-      "to": [
-        "employee@brightlane.com"
-      ],
-      "attachment": "Reward_Voucher.pdf.exe",
-      "desc": "Congratulations! You have earned a reward. Open the attached file and follow the instructions to redeem.",
+      "subject": "Self-Assessment Overdue – Immediate Action",
+      "from": "manager@companny-evals.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Lookalike domain substitution and malicious attachment."
+      "attachment": "Assessment_Form.pdf.exe",
+      "desc": "Dear Employee,\n\nYour self-assessment is overdue. Download the attached form and complete the required verification now.\n\nFailure may affect your review status.\n\nReview Board",
+      "explain": "Lookalike domain + executable attachment = phishing."
     }
   ],
+
   "email_group_7": [
     {
-      "id": 13,
-      "subject": "VPN Token Auto-Renewal",
-      "from": "it@maintech.com",
-      "to": [
-        "employee@maintech.com"
-      ],
-      "desc": "Your VPN token will renew automatically on Friday. No action is required unless you changed devices recently.",
+      "subject": "Finance Report for Quarter-End Review",
+      "from": "finance@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Informational IT notice; no links or files."
+      "attachment": "Q4_Report.pdf",
+      "desc": "Dear Team,\n\nAttached is the Q4 financial report for review ahead of next week's meeting.\n\nRegards,\nFinance Team",
+      "explain": "Standard finance communication with safe PDF attachment."
     },
     {
-      "id": 14,
-      "subject": "Immediate VPN Token Update",
-      "from": "it-support@mainteech.com",
-      "to": [
-        "employee@maintech.com"
-      ],
-      "attachment": "VPN_Update.pdf.exe",
-      "desc": "Your VPN token expires today. Open the attached update tool and reauthenticate now to avoid access loss.",
+      "subject": "Invoice Issue—Action Required",
+      "from": "finance-secure@compaany-finance.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Spoofed domain and executable attachment."
+      "attachment": "Invoice_Update.pdf.exe",
+      "desc": "Dear Employee,\n\nYour invoice appears invalid. You must open the attached document and confirm the details to avoid late fees.\n\nRegards,\nFinance Security Unit",
+      "explain": "Executable disguised as invoice = phishing."
     }
   ],
+
   "email_group_8": [
     {
-      "id": 15,
-      "subject": "Internal Audit Reminder",
-      "from": "audit@fintrack.com",
-      "to": [
-        "employee@fintrack.com"
-      ],
-      "desc": "Reminder: The quarterly internal audit begins Monday. Ensure statements and reconciliations are up to date by end of week.",
+      "subject": "New Learning & Development Resources",
+      "from": "training@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Normal audit reminder with no dangerous asks."
+      "desc": "Hi Team,\n\nWe've added new training modules to our learning portal. You can access them through the internal LMS.\n\nRegards,\nTraining Department",
+      "explain": "No suspicious content or attachments."
     },
     {
-      "id": 16,
-      "subject": "Audit Discrepancy Notice",
-      "from": "audit-team@f1ntrack.com",
-      "to": [
-        "employee@fintrack.com"
-      ],
-      "attachment": "Reconciliation_Details.pdf.exe",
-      "desc": "We found mismatches in your Q2 account. Open the attached file and verify line items immediately.",
+      "subject": "Mandatory Training Verification",
+      "from": "training-secure@companny-lms.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Lookalike domain and executable attachment pushing urgency."
+      "attachment": "Training_Verification.pdf.exe",
+      "desc": "Dear Employee,\n\nWe could not verify your training completion status. Download and open the attached verification tool to re-register your progress.\n\nCompliance Team",
+      "explain": "Executable file and urgency indicate phishing."
     }
   ],
+
   "email_group_9": [
     {
-      "id": 17,
-      "subject": "Performance Review Meeting",
-      "from": "manager@nextvision.com",
-      "to": [
-        "employee@nextvision.com"
-      ],
-      "attachment": "Review_Agenda.pdf",
-      "desc": "Please find the attached agenda for your upcoming performance review. Come prepared with your accomplishments and goals.",
+      "subject": "Legal Policy Update",
+      "from": "legal@company.com",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "Internal review agenda with a benign PDF."
+      "attachment": "Policy_Update.pdf",
+      "desc": "Dear Employee,\n\nAttached is the latest legal policy update for your review.\n\nSincerely,\nLegal Department",
+      "explain": "Legitimate update with safe PDF."
     },
     {
-      "id": 18,
-      "subject": "Review Self-Assessment Required",
-      "from": "manager@nextvislon.com",
-      "to": [
-        "employee@nextvision.com"
-      ],
-      "attachment": "Self_Assessment.pdf.exe",
-      "desc": "Your self-assessment is overdue. Open the attached file, complete it, and send back by end of day.",
+      "subject": "Compliance Breach Notification",
+      "from": "legal-alert@compaany-legal.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "Lookalike domain and fake executable ‘PDF’."
+      "attachment": "Compliance_Fix.pdf.exe",
+      "desc": "Dear Employee,\n\nWe identified a compliance breach linked to your records. Download the attached file to resolve the issue.\n\nLegal Compliance Team",
+      "explain": "Fake domain, urgency, and executable indicate phishing."
     }
   ],
+
   "email_group_10": [
     {
-      "id": 19,
-      "subject": "Updated Cybersecurity Handbook",
-      "from": "security@infotask.com",
-      "to": [
-        "employee@infotask.com"
-      ],
-      "attachment": "Cybersecurity_Handbook.pdf",
-      "desc": "We have updated the cybersecurity handbook to include new guidance on phishing and device hardening. Please review the attached PDF.",
-      "correct": "safe",
-      "explain": "Legitimate security guidance with a normal PDF."
-    },
-    {
-      "id": 20,
-      "subject": "Mandatory Security Upgrade",
-      "from": "security@infotask-upgrade.com",
-      "to": [
-        "employee@infotask.com"
-      ],
-      "attachment": "Security_Upgrade_Tool.pdf.exe",
-      "desc": "IT requires all staff to run the attached upgrade tool immediately to stay compliant. Execute the file and confirm completion.",
-      "correct": "phish",
-      "explain": "External domain and executable attachment; unrealistic IT request."
-    }
-  ],
-  "email_group_11": [
-    {
-      "id": 21,
-      "subject": "Diversity & Inclusion Survey",
-      "from": "hr@cityconnect.com",
-      "to": [
-        "employee@cityconnect.com"
-      ],
-      "desc": "Please consider completing the annual D&I survey. Your anonymous feedback helps us improve programs and policies.",
-      "correct": "safe",
-      "explain": "Routine HR survey invite."
-    },
-    {
-      "id": 22,
-      "subject": "New D&I Report Attached",
-      "from": "hr@c1tyconnect.com",
-      "to": [
-        "employee@cityconnect.com"
-      ],
-      "attachment": "Diversity_Report.pdf.exe",
-      "desc": "Open the attached report and confirm receipt before 5 PM today.",
-      "correct": "phish",
-      "explain": "Numeric substitution in domain and malicious attachment."
-    }
-  ],
-  "email_group_12": [
-    {
-      "id": 23,
-      "subject": "Expense Claim Approved",
-      "from": "finance@broadfield.com",
-      "to": [
-        "employee@broadfield.com"
-      ],
-      "desc": "Your expense claim from July 10 has been approved. Reimbursement will be included in the next payroll cycle.",
-      "correct": "safe",
-      "explain": "Straightforward finance notice."
-    },
-    {
-      "id": 24,
-      "subject": "Expense Review Needed",
-      "from": "finance@broadfieId.com",
-      "to": [
-        "employee@broadfield.com"
-      ],
-      "attachment": "Expense_Review.pdf.exe",
-      "desc": "We noticed inconsistencies in your recent claim. Download the attached file to confirm your details.",
-      "correct": "phish",
-      "explain": "Lookalike domain (I/l) and executable disguised as a PDF."
-    }
-  ],
-  "email_group_13": [
-    {
-      "id": 25,
-      "subject": "Team Event Photos",
-      "from": "hr@northwave.com",
-      "to": [
-        "employee@northwave.com"
-      ],
-      "attachment": "Event_Photos.pdf",
-      "desc": "We compiled photos from last week’s outing. Enjoy the attached PDF album and share your favorites.",
-      "correct": "safe",
-      "explain": "Benign internal share with safe PDF."
-    },
-    {
-      "id": 26,
-      "subject": "Access Your Photos Securely",
-      "from": "hr@northw4ve.com",
-      "to": [
-        "employee@northwave.com"
-      ],
-      "attachment": "Photo_Access.pdf.exe",
-      "desc": "To access your photos, open the attached encrypted file and log in with your company credentials.",
-      "correct": "phish",
-      "explain": "Lookalike domain and credential-stealing attempt via executable."
-    }
-  ],
-  "email_group_14": [
-    {
-      "id": 27,
-      "subject": "Parking Permit Renewal",
-      "from": "admin@centralcorp.com",
-      "to": [
-        "employee@centralcorp.com"
-      ],
-      "desc": "Your parking permit expires next month. Please renew via the employee portal before the 25th to avoid disruption.",
-      "correct": "safe",
-      "explain": "Expected facilities reminder with proper process."
-    },
-    {
-      "id": 28,
-      "subject": "Parking Violation Fee",
-      "from": "admin@centralcorppay.com",
-      "to": [
-        "employee@centralcorp.com"
-      ],
-      "attachment": "Parking_Invoice.pdf.exe",
-      "desc": "A fee has been issued to your vehicle. Open the attached invoice and pay immediately to prevent escalation.",
-      "correct": "phish",
-      "explain": "External pay domain and executable attachment."
-    }
-  ],
-  "email_group_15": [
-    {
-      "id": 29,
-      "subject": "Knowledge Base Refresh",
-      "from": "it@knowledgelink.com",
-      "to": [
-        "employee@knowledgelink.com"
-      ],
-      "desc": "We reorganized the internal knowledge base for easier navigation. Access it via the intranet as usual.",
-      "correct": "safe",
-      "explain": "Internal announcement; no risky elements."
-    },
-    {
-      "id": 30,
-      "subject": "Portal Login Needed",
-      "from": "it@knowledgelink-support.com",
-      "to": [
-        "employee@knowledgelink.com"
-      ],
-      "desc": "Your portal access expired. Click this link to revalidate immediately: http://knowledgelink-support.com/login",
-      "correct": "phish",
-      "explain": "Fake support domain and insecure link requesting login."
-    }
-  ],
-  "email_group_16": [
-    {
-      "id": 31,
-      "subject": "August Company Newsletter",
-      "from": "communications@everline.com",
-      "to": [
-        "employee@everline.com"
-      ],
-      "attachment": "August_Newsletter.pdf",
-      "desc": "The latest newsletter covers sustainability progress, customer wins, and upcoming events. See attached PDF for the full issue.",
-      "correct": "safe",
-      "explain": "Usual comms with a benign attachment."
-    },
-    {
-      "id": 32,
-      "subject": "Company Update File (Mandatory)",
-      "from": "comm@everIine.com",
-      "to": [
-        "employee@everline.com"
-      ],
-      "attachment": "Company_Update.pdf.exe",
-      "desc": "Management requires that all employees open and acknowledge the attached update today.",
-      "correct": "phish",
-      "explain": "Lookalike domain and malicious double extension."
-    }
-  ],
-  "email_group_17": [
-    {
-      "id": 33,
-      "subject": "Helpdesk Ticket Closed",
-      "from": "support@helpmatrix.com",
-      "to": [
-        "employee@helpmatrix.com"
-      ],
-      "desc": "Your ticket regarding the printer queue has been resolved. Reply if you still experience issues.",
-      "correct": "safe",
-      "explain": "Normal ticket closure notice."
-    },
-    {
-      "id": 34,
-      "subject": "Confirm Ticket Closure",
-      "from": "support@heIp-matrix.com",
-      "to": [
-        "employee@helpmatrix.com"
-      ],
-      "attachment": "Ticket_Log.pdf.exe",
-      "desc": "Open the attached log to confirm closure. This action is mandatory to finalize the ticket.",
-      "correct": "phish",
-      "explain": "Lookalike domain using uppercase I and executable attachment."
-    }
-  ],
-  "email_group_18": [
-    {
-      "id": 35,
-      "subject": "Holiday Party RSVP",
-      "from": "events@pacificone.com",
-      "to": [
-        "employee@pacificone.com"
-      ],
-      "desc": "You’re invited to our annual holiday celebration! Please RSVP by Friday so we can finalize catering.",
-      "correct": "safe",
-      "explain": "Standard internal invite."
-    },
-    {
-      "id": 36,
-      "subject": "Gift Card Enrollment",
-      "from": "events@pacif1cone.com",
-      "to": [
-        "employee@pacificone.com"
-      ],
-      "attachment": "GiftCard_Claim.pdf.exe",
-      "desc": "Claim your $100 gift card by opening the attached file and submitting your details.",
-      "correct": "phish",
-      "explain": "Lookalike domain and incentive-based malware."
-    }
-  ],
-  "email_group_19": [
-    {
-      "id": 37,
-      "subject": "Okta MFA Tips",
-      "from": "security@intranet.example",
-      "to": [
-        "employee@intranet.example"
-      ],
-      "desc": "Reminder: Use the Okta Verify app for MFA. If you switch phones, enroll your new device immediately from the security portal.",
-      "correct": "safe",
-      "explain": "Legitimate security hygiene reminder."
-    },
-    {
-      "id": 38,
-      "subject": "Okta Credential Reset File",
-      "from": "security@intranet-reset.example",
-      "to": [
-        "employee@intranet.example"
-      ],
-      "attachment": "Okta_Reset_Helper.pdf.exe",
-      "desc": "Your Okta credentials have been locked. Run the attached helper to restore access.",
-      "correct": "phish",
-      "explain": "Unusual file execution requirement and external helper."
-    }
-  ],
-  "email_group_20": [
-    {
-      "id": 39,
-      "subject": "Q3 Goals & Metrics",
-      "from": "manager@summitsoft.com",
-      "to": [
-        "employee@summitsoft.com"
-      ],
-      "attachment": "Q3_Goals.pdf",
-      "desc": "Attached are your updated Q3 goals, priorities, and success metrics. Please review and come prepared to discuss in our 1:1 next week.",
-      "correct": "safe",
-      "explain": "Manager communication with a benign PDF."
-    },
-    {
-      "id": 40,
-      "subject": "Immediate KPI Review Required",
-      "from": "manager@summitsofft.com",
-      "to": [
-        "employee@summitsoft.com"
-      ],
-      "attachment": "KPI_Review_Tool.pdf.exe",
-      "desc": "Open the attached KPI review tool and submit your credentials to confirm your performance metrics today.",
-      "correct": "phish",
-      "explain": "Lookalike domain and credential-harvesting executable."
-    }
-  ],
-  "last_updated_emails": "2025-11-24T04:06:23.231Z",
-  "email_group_21": [
-    {
-      "subject": "Annual Performance Review Schedule",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We are pleased to inform you that the annual performance review process will begin next month. Please find attached the schedule for your review. Make sure to prepare your self-assessment by the due date. If you have any questions, feel free to reach out. Best, HR Team.",
-      "correct": "safe",
-      "explain": "The email is from HR with a legitimate attachment regarding performance reviews.",
-      "attachment": "schedule.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "payroll@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We need you to update your payroll information immediately to avoid any disruptions in your payments. Click the link below to access the update form. Thank you, Payroll Department.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and contains an executable attachment, which is a red flag.",
-      "attachment": "update_form.pdf.exe"
-    }
-  ],
-  "email_group_22": [
-    {
-      "subject": "Quarterly Budget Review Meeting",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Please find attached the budget report for the upcoming quarterly review meeting. Review the document before our meeting next week. Let's ensure we are all prepared to discuss the key points. Regards, Finance Team.",
-      "correct": "safe",
-      "explain": "The email is from the finance department with a relevant attachment for a meeting.",
-      "attachment": "budget_report.pdf"
-    },
-    {
-      "subject": "Your Invoice is Ready",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Your latest invoice is ready for download. Please find the attachment and make sure to review it as soon as possible. Failure to do so may result in late fees. Regards, Billing Department.",
-      "correct": "phish",
-      "explain": "The email includes an executable attachment disguised as an invoice, which is suspicious.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_23": [
-    {
-      "subject": "IT Security Awareness Training",
+      "subject": "Internal Security Handbook Update",
       "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, As part of our ongoing efforts to enhance security awareness, we are conducting a training session next month. Attached is the training material for your review. Please read through it before the session. Best, Security Team.",
+      "to": ["employee@company.com"],
       "correct": "safe",
-      "explain": "The email promotes a training session with a legitimate PDF attachment.",
-      "attachment": "training.pdf"
+      "attachment": "Security_Handbook.pdf",
+      "desc": "Hello,\n\nWe’ve updated the internal security handbook. Please review the attached PDF.\n\nSecurity Team",
+      "explain": "Safe PDF and proper domain."
     },
     {
-      "subject": "Important: Verify Your Account Now",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity on your account. To secure your information, please verify your account by downloading the attached form. Thank you, Support Team.",
+      "subject": "URGENT: Security Patch Required",
+      "from": "security-alert@compaany-secure.com",
+      "to": ["employee@company.com"],
       "correct": "phish",
-      "explain": "The email creates urgency and includes a malicious executable attachment.",
-      "attachment": "verification_form.pdf.exe"
-    }
-  ],
-  "email_group_24": [
-    {
-      "subject": "Facilities Maintenance Update",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Everyone, We have scheduled maintenance for several facilities next week. Attached is the maintenance schedule. Please plan accordingly and let us know if you have any questions. Regards, Facilities Team.",
-      "correct": "safe",
-      "explain": "The email provides information about maintenance with a relevant attachment.",
-      "attachment": "maintenance_schedule.pdf"
-    },
-    {
-      "subject": "Action Required: Confirm Your Details",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We need you to confirm your personal details to keep our records up to date. Please download the attached document and follow the instructions. Thank you, Admin.",
-      "correct": "phish",
-      "explain": "The email requests personal information and has a suspicious executable attachment.",
-      "attachment": "details_update.pdf.exe"
-    }
-  ],
-  "email_group_25": [
-    {
-      "subject": "Travel Policy Update",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, We have updated our travel policy to better accommodate our employees. Please find the updated policy attached for your review. If you have any questions, feel free to reach out. Best, Travel Department.",
-      "correct": "safe",
-      "explain": "The email contains a legitimate attachment regarding company policy.",
-      "attachment": "travel_policy.pdf"
-    },
-    {
-      "subject": "Claim Your Bonus Now!",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Congratulations! You have been selected for a bonus. Claim it by downloading the attached form and submitting it immediately. Regards, HR Team.",
-      "correct": "phish",
-      "explain": "The email promises a bonus and includes a harmful executable attachment.",
-      "attachment": "bonus_claim.pdf.exe"
-    }
-  ],
-  "email_group_26": [
-    {
-      "subject": "Important Update on Your Benefits",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We are excited to inform you about some updates to our benefits package that will take effect next month. Please review the attached document for detailed information. If you have any questions, feel free to reach out to the HR department. Best regards, HR Team.",
-      "correct": "safe",
-      "explain": "The email provides relevant information about employee benefits and includes a legitimate attachment.",
-      "attachment": "benefits_overview.pdf"
-    },
-    {
-      "subject": "Urgent: Action Required on Your Account",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity on your account. To secure your information, please download the attached file and follow the instructions. Failure to do so may result in account suspension. Regards, Support Team.",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and includes a suspicious executable attachment, indicating a phishing attempt.",
-      "attachment": "account_verification.pdf.exe"
-    }
-  ],
-  "email_group_27": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Attached is the quarterly financial report for your review. Please take a moment to go through it and let me know if you have any questions. Thank you, Finance Department.",
-      "correct": "safe",
-      "explain": "The email shares a standard financial report with a safe PDF attachment.",
-      "attachment": "Q3_report.pdf"
-    },
-    {
-      "subject": "Invoice Due: Immediate Payment Required",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Customer, Your invoice is overdue. Please find the attached document and make the payment immediately to avoid late fees. Thank you, Billing Department.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes a dangerous executable attachment.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_28": [
-    {
-      "subject": "New Training Session Available",
-      "from": "training@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Team, We are pleased to announce a new training session on professional development. Please find the schedule attached. We encourage everyone to participate. Best, Training Team.",
-      "correct": "safe",
-      "explain": "The email promotes a training session with a legitimate PDF attachment.",
-      "attachment": "training_schedule.pdf"
-    },
-    {
-      "subject": "Security Alert: Update Required",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Our security system has identified a potential threat. Please download the attached file to update your credentials immediately. Failure to comply may lead to account lockout. Regards, Security Team.",
-      "correct": "phish",
-      "explain": "The email uses fear tactics and includes a harmful executable attachment, indicating a phishing attempt.",
-      "attachment": "security_update.pdf.exe"
-    }
-  ],
-  "email_group_29": [
-    {
-      "subject": "Facilities Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear All, Attached is the maintenance schedule for the upcoming month. Please review it and let us know if you have any concerns. Thank you, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email shares a maintenance schedule with a safe PDF attachment.",
-      "attachment": "maintenance_schedule.pdf"
-    },
-    {
-      "subject": "Your Account Has Been Compromised",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected that your account may have been compromised. Please download the attached file to secure your account. Failure to do so will result in permanent deletion. Sincerely, Admin Team.",
-      "correct": "phish",
-      "explain": "The email creates panic and includes a malicious executable attachment, which is typical of phishing.",
-      "attachment": "compromise_alert.pdf.exe"
-    }
-  ],
-  "email_group_30": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello, Your travel itinerary for the upcoming business trip is attached. Please review it and let me know if you have any questions. Safe travels! Regards, Travel Department.",
-      "correct": "safe",
-      "explain": "The email confirms travel arrangements and includes a legitimate PDF attachment.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Payment Required for Your Travel Booking",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Traveler, There is an outstanding payment for your recent travel booking. Please download the attached file and complete the payment to avoid cancellation. Best, Travel Team.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient for payment and includes a harmful executable attachment.",
-      "attachment": "payment_request.pdf.exe"
-    }
-  ],
-  "email_group_31": [
-    {
-      "subject": "Quarterly Performance Review",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nAs we approach the end of the quarter, I wanted to remind everyone about the upcoming performance reviews. Please find attached the performance report that outlines key metrics and areas for improvement. Make sure to review it thoroughly before your one-on-one meetings.\n\nBest,\nHR Team",
-      "correct": "safe",
-      "explain": "The email comes from the HR department and contains a legitimate attachment related to performance review.",
-      "attachment": "performance_report.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "payroll@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attention Employee,\n\nWe have noticed some discrepancies in your payroll information. Please download the attached form, fill it out, and return it to us as soon as possible to avoid any delays in your next paycheck.\n\nThank you,\nPayroll Department",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and includes an executable attachment, which is a common phishing tactic.",
-      "attachment": "update_form.pdf.exe"
-    }
-  ],
-  "email_group_32": [
-    {
-      "subject": "New IT Security Protocols",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nAs part of our ongoing efforts to enhance security, we have implemented new IT protocols. Attached is a document outlining these changes and what you need to do to comply. Please read it carefully and reach out if you have questions.\n\nBest,\nIT Department",
-      "correct": "safe",
-      "explain": "The email is from the IT department with a relevant attachment discussing security protocols.",
-      "attachment": "security_protocols.pdf"
-    },
-    {
-      "subject": "Immediate Action Required: Account Verification",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User,\n\nWe need you to verify your account immediately to prevent suspension. Please download the attached verification form and follow the instructions. Failure to do so will result in account restrictions.\n\nRegards,\nSupport Team",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and contains an executable attachment, which is indicative of phishing.",
-      "attachment": "verification_form.pdf.exe"
-    }
-  ],
-  "email_group_33": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi,\n\nYour travel itinerary has been confirmed for the upcoming conference. Please find the attached document for all details regarding flights and accommodations. Let us know if you have any questions.\n\nSafe travels,\nTravel Team",
-      "correct": "safe",
-      "explain": "The email is from the travel department and includes a standard itinerary attachment.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Invoice Due: Immediate Payment Required",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nThis is a reminder that your invoice is overdue. Please find the attached invoice and make payment immediately to avoid penalties. If you have already paid, please disregard this message.\n\nThank you,\nBilling Department",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and contains an executable attachment, which is a red flag.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_34": [
-    {
-      "subject": "Annual Compliance Training Reminder",
-      "from": "compliance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nThis is a friendly reminder that the annual compliance training is coming up next month. Attached is the schedule for the training sessions. Please ensure you attend the session assigned to your department.\n\nBest,\nCompliance Team",
-      "correct": "safe",
-      "explain": "The email is from the compliance department with a relevant training schedule attached.",
-      "attachment": "training_schedule.pdf"
-    },
-    {
-      "subject": "Security Alert: Account Access Attempt",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Attention,\n\nWe detected an unauthorized access attempt on your account. Please review the attached details and follow the instructions to secure your account immediately.\n\nRegards,\nSecurity Team",
-      "correct": "phish",
-      "explain": "The email instills fear and includes an executable attachment, which is a common phishing tactic.",
-      "attachment": "alert_details.pdf.exe"
-    }
-  ],
-  "email_group_35": [
-    {
-      "subject": "New Policy Changes Effective Next Month",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employees,\n\nWe want to inform you about some important policy changes that will take effect next month. Please review the attached document for full details. It is crucial that everyone understands these changes.\n\nThank you,\nLegal Department",
-      "correct": "safe",
-      "explain": "The email is from the legal department and contains a legitimate document regarding policy changes.",
-      "attachment": "policy_changes.pdf"
-    },
-    {
-      "subject": "Your Account Has Been Compromised",
-      "from": "alert@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User,\n\nWe have detected suspicious activity on your account. Please download the attached alert and follow the steps to secure your account immediately. Failing to do so may result in permanent loss of access.\n\nSincerely,\nAlert Team",
-      "correct": "phish",
-      "explain": "The email creates urgency and includes an executable attachment, which indicates phishing.",
-      "attachment": "compromise_alert.pdf.exe"
-    }
-  ],
-  "email_group_36": [
-    {
-      "subject": "Quarterly Budget Review",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, Please find attached the budget report for the last quarter. We will be discussing this in our upcoming meeting. Make sure to review it thoroughly. If you have any questions, feel free to reach out. Best, Finance Team.",
-      "correct": "safe",
-      "explain": "The email is from the finance department and contains a legitimate attachment related to work.",
-      "attachment": "budget_report.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have noticed some discrepancies in your payroll information. Please download the attached form and fill it out to ensure your payments are accurate. This is urgent! Regards, HR Team.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and the attachment is an executable file, which is suspicious.",
-      "attachment": "update_form.pdf.exe"
-    }
-  ],
-  "email_group_37": [
-    {
-      "subject": "IT Security Training Reminder",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, This is a reminder for the upcoming IT security training scheduled for next week. Attached is the training material you will need to review beforehand. Please ensure you complete this before the session. Thank you, IT Department.",
-      "correct": "safe",
-      "explain": "The email is from the IT department with a relevant attachment for training purposes.",
-      "attachment": "security_training.pdf"
-    },
-    {
-      "subject": "Your Account Has Been Compromised!",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity on your account. Please click the link below to secure your account immediately. Attached is a report detailing the activity. Regards, Support Team.",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and includes an executable attachment, which is a common phishing tactic.",
-      "attachment": "security_alert.pdf.exe"
-    }
-  ],
-  "email_group_38": [
-    {
-      "subject": "Facilities Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Everyone, Attached is the maintenance schedule for the upcoming month. Please review it and let us know if you have any questions or concerns. Best, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email is informative and contains a safe PDF attachment related to facilities management.",
-      "attachment": "maintenance_schedule.pdf"
-    },
-    {
-      "subject": "Important: Update Your Contact Information",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, To ensure we have the most current information, please download the attached form and update your contact details. This is very important for our records. Thank you! Admin Team.",
-      "correct": "phish",
-      "explain": "The email asks for personal information and includes a suspicious executable attachment.",
-      "attachment": "contact_update_form.pdf.exe"
-    }
-  ],
-  "email_group_39": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, Your travel itinerary for the upcoming business trip is attached. Please review all details and let us know if you have any questions. Safe travels! Travel Department.",
-      "correct": "safe",
-      "explain": "The email is a standard travel confirmation with a PDF attachment, which is appropriate.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Action Required: Verify Your Travel Details",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi, We need you to verify your travel details as soon as possible. Please download the attached document and follow the instructions. This is urgent! Regards, Travel Team.",
-      "correct": "phish",
-      "explain": "The email creates urgency and includes an executable attachment, which is a red flag.",
-      "attachment": "travel_verification.pdf.exe"
-    }
-  ],
-  "email_group_40": [
-    {
-      "subject": "Legal Document Review",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello, Attached is the legal document for your review. Please read through it carefully and provide your feedback by the end of the week. Thank you, Legal Department.",
-      "correct": "safe",
-      "explain": "The email contains a legitimate PDF attachment for work-related legal review.",
-      "attachment": "contract_review.pdf"
-    },
-    {
-      "subject": "Immediate Action Required: Legal Compliance",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have updated our compliance policies and need you to review the attached document immediately. Failure to comply could result in penalties. Regards, Legal Team.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes an executable file, indicating a phishing attempt.",
-      "attachment": "compliance_update.pdf.exe"
-    }
-  ],
-  "email_group_41": [
-    {
-      "subject": "Mandatory Training Session",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We are implementing a new training program that is mandatory for all staff. Please find the training document attached. It outlines the schedule and topics to be covered. Make sure to review it thoroughly and prepare any questions you might have. The training will take place next week, and attendance will be monitored. Thank you for your cooperation. Best, HR Team.",
-      "correct": "safe",
-      "explain": "The email comes from the HR department and contains a legitimate training document.",
-      "attachment": "training.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Payroll Information",
-      "from": "payroll@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have noticed an issue with your payroll information. Please download the attached form and update your details immediately to avoid any delays in your salary. This is urgent! Failure to comply may result in payment issues. Regards, Payroll Department.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and includes a suspicious executable attachment.",
-      "attachment": "update_form.pdf.exe"
-    }
-  ],
-  "email_group_42": [
-    {
-      "subject": "Quarterly Budget Review",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Attached is the budget report for the last quarter. Please review it before our meeting next week. Your insights will be valuable as we discuss our financial strategies moving forward. Let me know if you have any questions. Best, Finance Team.",
-      "correct": "safe",
-      "explain": "The email is from the Finance department and contains a standard report attachment.",
-      "attachment": "budget_report.pdf"
-    },
-    {
-      "subject": "Action Required: Security Update",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, To ensure the safety of our systems, you must install the attached security update immediately. This is critical to protect your data and our network. Please follow the instructions in the attachment. Thank you for your prompt attention to this matter. Regards, Security Team.",
-      "correct": "phish",
-      "explain": "The email urges immediate action with a potentially harmful executable attachment.",
-      "attachment": "security_patch.exe"
-    }
-  ],
-  "email_group_43": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi, Your travel itinerary for the upcoming business trip has been finalized. Please find the details in the attached PDF. Make sure to check the flight times and hotel reservations. If you have any questions or need adjustments, feel free to reach out. Safe travels! Best, Travel Team.",
-      "correct": "safe",
-      "explain": "The email confirms travel arrangements with a legitimate PDF attachment.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Immediate Action Required: Account Verification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have detected unusual activity in your account. To secure it, please download the attached verification form and complete it immediately. Failure to do so may result in account suspension. Regards, IT Support.",
-      "correct": "phish",
-      "explain": "The email creates urgency for account verification and includes a suspicious executable attachment.",
-      "attachment": "verification_form.pdf.exe"
-    }
-  ],
-  "email_group_44": [
-    {
-      "subject": "New Policy Update",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, We have updated our company policies to reflect recent changes in legislation. Please review the attached document carefully. It is important that you understand these changes as they may affect your work. If you have any questions, do not hesitate to reach out. Best regards, Legal Department.",
-      "correct": "safe",
-      "explain": "The email is from the Legal department and contains a standard policy update.",
-      "attachment": "policy_update.pdf"
-    },
-    {
-      "subject": "Payment Required: Invoice Attached",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Customer, Attached is your invoice for the recent services. Please make the payment promptly to avoid late fees. Open the attachment for details. Thank you! Regards, Billing Team.",
-      "correct": "phish",
-      "explain": "The email includes a suspicious executable attachment disguised as an invoice.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_45": [
-    {
-      "subject": "Feedback Request",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello, We are conducting a survey to gather feedback about the facilities in our office. Your input is valuable to us, and we would appreciate it if you could take a few minutes to respond. Thank you for your cooperation! Best, Facilities Team.",
-      "correct": "safe",
-      "explain": "The email is a standard feedback request with no attachments."
-    },
-    {
-      "subject": "Urgent: Confirm Your Account Details",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We need you to confirm your account details to ensure uninterrupted service. Please download the attached document and follow the instructions. This is urgent! Regards, Support Team.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to confirm details with a harmful executable attachment.",
-      "attachment": "account_details.pdf.exe"
-    }
-  ],
-  "email_group_46": [
-    {
-      "subject": "Important Update on Company Policies",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, We wanted to inform you about some important updates to our company policies that will take effect next month. Please review the attached document carefully as it includes changes to our remote work policy and vacation days. If you have any questions, feel free to reach out. Best, HR Team.",
-      "correct": "safe",
-      "explain": "The email is from HR and contains a legitimate attachment regarding company policy updates.",
-      "attachment": "company_policy_update.pdf"
-    },
-    {
-      "subject": "Action Required: Verify Your Account",
-      "from": "support@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We have detected unusual activity on your account. To ensure your security, please verify your account by clicking the link below or by opening the attached document. Failure to do so may result in account suspension. Thank you, Support Team.",
-      "correct": "phish",
-      "explain": "The email prompts the employee to open an executable file, which is a common phishing tactic.",
-      "attachment": "verify_account.pdf.exe"
-    }
-  ],
-  "email_group_47": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, Attached you will find the quarterly financial report for Q3. Please review the document and prepare any questions for our upcoming meeting. Your insights are valuable as we discuss our financial strategy moving forward. Regards, Finance Department.",
-      "correct": "safe",
-      "explain": "The email is from the finance department and contains a legitimate PDF report.",
-      "attachment": "Q3_financial_report.pdf"
-    },
-    {
-      "subject": "Invoice Due Immediately",
-      "from": "billing@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, This is a reminder that your invoice is due immediately. Please find the attached invoice document and ensure that payment is made by the end of the day. Failure to comply may result in late fees. Thank you, Billing Department.",
-      "correct": "phish",
-      "explain": "The email includes an executable file disguised as an invoice, which is a phishing attempt.",
-      "attachment": "invoice.pdf.exe"
-    }
-  ],
-  "email_group_48": [
-    {
-      "subject": "Upcoming Team Building Event",
-      "from": "events@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Everyone, We are excited to announce an upcoming team building event scheduled for next month! This will be a great opportunity to strengthen our team dynamics and have some fun. Please mark your calendars and stay tuned for more details. Best, Events Team.",
-      "correct": "safe",
-      "explain": "The email is an announcement about a team event with no suspicious content."
-    },
-    {
-      "subject": "Urgent: Update Your Payment Information",
-      "from": "admin@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We need you to update your payment information immediately to avoid any disruptions in your salary payments. Please find the attached document to complete this process. Thank you for your prompt attention to this matter. Regards, Admin.",
-      "correct": "phish",
-      "explain": "The email requests sensitive information and includes an executable attachment, which is a phishing red flag.",
-      "attachment": "update_payment_info.pdf.exe"
-    }
-  ],
-  "email_group_49": [
-    {
-      "subject": "New Training Module Available",
-      "from": "training@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team, We are pleased to announce that a new training module is now available for all employees. Please find the attached document with details on how to access the training. We encourage everyone to complete it by the end of the month. Best, Training Department.",
-      "correct": "safe",
-      "explain": "The email promotes a legitimate training module with a safe PDF attachment.",
-      "attachment": "new_training_module.pdf"
-    },
-    {
-      "subject": "Security Alert: Account Verification Needed",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear User, We have noticed suspicious activity on your account. To ensure your security, please verify your account by opening the attached document. This is urgent and must be done within 24 hours. Thank you, Security Team.",
-      "correct": "phish",
-      "explain": "The email uses urgency and includes an executable file, which are common tactics in phishing attempts.",
-      "attachment": "account_verification.pdf.exe"
-    }
-  ],
-  "email_group_50": [
-    {
-      "subject": "Facility Maintenance Schedule",
-      "from": "facilities@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team, Please be informed that facility maintenance is scheduled for this weekend. There may be some disruptions in services, but we will do our best to minimize the impact. Thank you for your understanding. Regards, Facilities Management.",
-      "correct": "safe",
-      "explain": "The email provides information about maintenance without any suspicious attachments."
-    },
-    {
-      "subject": "Immediate Action Required: Account Update",
-      "from": "noreply@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee, We require you to update your account information immediately. Please open the attached document and follow the instructions. Failure to do so may result in account suspension. Regards, IT Support.",
-      "correct": "phish",
-      "explain": "The email pressures the recipient to act quickly and includes an executable attachment, indicating a phishing attempt.",
-      "attachment": "account_update.pdf.exe"
+      "attachment": "Security_Patch.exe",
+      "desc": "Dear User,\n\nYour system is out of compliance. Run the attached security patch immediately.\n\nSecurity Automation",
+      "explain": "Executable attachment + spoofed domain = phishing."
     }
   ]
 }
