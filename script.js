@@ -3,14 +3,26 @@
   window.__APTT_INIT__ = true;
 
   const $ = (id) => document.getElementById(id);
+
   const escapeHtml = (s) => String(s ?? "")
-    .replaceAll("&","&amp;").replaceAll("<","&lt;")
-    .replaceAll(">","&gt;").replaceAll('"',"&quot;")
-    .replaceAll("'","&#39;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+  // turn \n into <br> for email body rendering
+  const formatDesc = (s) => {
+    const safe = escapeHtml(String(s ?? ""));
+    return safe
+      .replace(/\r\n/g, "\n")
+      .replace(/\r/g, "\n")
+      .replace(/\n/g, "<br>");
+  };
 
   const shuffle = (arr) => {
     const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--){
+    for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
@@ -22,21 +34,27 @@
     try {
       el.style.outline = `2px solid ${ok ? "#16a34a" : "#b91c1c"}`;
       el.style.outlineOffset = "3px";
-      setTimeout(() => { el.style.outline = "none"; }, 2000);
+      setTimeout(() => {
+        el.style.outline = "none";
+      }, 2000);
     } catch {}
   };
 
   // modal: advances ONLY on OK
-  function showModal(title, text, onOk){
+  function showModal(title, text, onOk) {
     const overlay = document.createElement("div");
-    overlay.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9999;";
+    overlay.style.cssText =
+      "position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9999;";
     const modal = document.createElement("div");
-    modal.style.cssText = "max-width:640px;width:min(92vw,640px);background:#fff;border-radius:14px;box-shadow:0 20px 30px rgba(0,0,0,.25);padding:16px 18px;font:inherit;color:#111;";
+    modal.style.cssText =
+      "max-width:640px;width:min(92vw,640px);background:#fff;border-radius:14px;box-shadow:0 20px 30px rgba(0,0,0,.25);padding:16px 18px;font:inherit;color:#111;";
     modal.innerHTML = `
       <h3 style="margin:0 0 8px 0;">${escapeHtml(title)}</h3>
-      <p style="margin:0 0 16px 0;line-height:1.5;white-space:pre-wrap;">${escapeHtml(text || "")}</p>
+      <p style="margin:0 0 16px 0;line-height:1.5;white-space:pre-wrap;">${escapeHtml(
+        text || ""
+      )}</p>
       <div style="display:flex;justify-content:flex-end;gap:8px;">
-        <button id="aptt-ok" class="btn link" style="min-width:88px">OK</button>
+        <button id="aptt-ok" class="btn link" style="min-width:88px;">OK</button>
       </div>`;
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
@@ -44,14 +62,16 @@
     const ok = modal.querySelector("#aptt-ok");
     let done = false;
     const accept = () => {
-      if (done) return; done = true;
+      if (done) return;
+      done = true;
       document.removeEventListener("keydown", onKey, true);
       overlay.remove();
       if (typeof onOk === "function") onOk();
     };
     const onKey = (e) => {
       if ((e.key === "Enter" || e.key === " ") && document.activeElement === ok) {
-        e.preventDefault(); accept();
+        e.preventDefault();
+        accept();
       }
     };
     ok.addEventListener("click", accept);
@@ -62,30 +82,31 @@
   // data / game state
   const DATA_URL = "./emails.json";
   const ROUND_SIZE = 10;
-  let ALL_PAIRS = [];
-  let REMAINING = [];
-  let ORDER = [];
+  let ALL_PAIRS = [];   // each: [emailA, emailB] (one safe, one phish)
+  let REMAINING = [];   // pool we draw from so we don't repeat until exhausted
+  let ORDER = [];       // for current round: [leftEmail, rightEmail]
   let INDEX = 0;
   let SCORE = 0;
   let LOCK = false;
 
   const preparePairs = (data) => {
     const keys = Object.keys(data)
-      .filter(k => /^email_group_\d+$/.test(k))
-      .sort((a, b) => Number(a.split("_").pop()) - Number(b.split("_").pop()));
+      .filter((k) => /^email_group_\d+$/.test(k))
+      .sort(
+        (a, b) => Number(a.split("_").pop()) - Number(b.split("_").pop())
+      );
     const out = [];
-    for (const k of keys){
+    for (const k of keys) {
       const pair = data[k];
       if (!Array.isArray(pair) || pair.length !== 2) continue;
       const [a, b] = pair;
 
       const okShape = (e) =>
-        e && typeof e.subject === "string" &&
+        e &&
+        typeof e.subject === "string" &&
         typeof e.from === "string" &&
-        (
-          (Array.isArray(e.to) && e.to.length) ||
-          (typeof e.to === "string" && e.to)
-        ) &&
+        ((Array.isArray(e.to) && e.to.length) ||
+          (typeof e.to === "string" && e.to)) &&
         (typeof e.desc === "string" || typeof e.body === "string") &&
         (e.correct === "phish" || e.correct === "safe");
 
@@ -99,9 +120,14 @@
     return out;
   };
 
+  // build a new round, with orientation randomized per pair
   const dealNextRound = () => {
     if (REMAINING.length === 0) REMAINING = shuffle([...ALL_PAIRS]);
-    ORDER = REMAINING.splice(0, Math.min(ROUND_SIZE, REMAINING.length));
+    const take = Math.min(ROUND_SIZE, REMAINING.length);
+    const batch = REMAINING.splice(0, take);
+    ORDER = batch.map((pair) =>
+      Math.random() < 0.5 ? pair : [pair[1], pair[0]]
+    ); // [left,right]
     INDEX = 0;
   };
 
@@ -111,29 +137,28 @@
     return `
       <div class="attach">
         <span class="paperclip"></span>
-        <span class="pill ${warn ? "warn" : ""}">${escapeHtml(filename)}</span>
+        <span class="pill ${warn ? "warn" : ""}">${escapeHtml(
+          filename
+        )}</span>
       </div>`;
   };
 
   const cardHTML = (email, side) => {
-    const toText = Array.isArray(email.to) ? email.to.join(", ") : (email.to || "");
+    const toText = Array.isArray(email.to)
+      ? email.to.join(", ")
+      : email.to || "";
     const desc = email.desc || email.body || "";
-    const reason = email.explain || email.reason || ""; // <- use your JSON's "explain"
-
     return `
-      <article
-        class="card"
-        data-side="${side}"
-        data-correct="${escapeHtml(String(email.correct || "").toLowerCase())}"
-        data-explain="${escapeHtml(reason)}"
-      >
+      <article class="card" data-side="${side}" data-correct="${escapeHtml(
+      String(email.correct || "").toLowerCase()
+    )}">
         <h3>${escapeHtml(email.subject || "(no subject)")}</h3>
         <div class="email-meta">
           <div><strong>From:</strong> ${escapeHtml(email.from || "")}</div>
           <div><strong>To:</strong> ${escapeHtml(toText)}</div>
         </div>
         ${attachmentHTML(email.attachment)}
-        <p class="desc">${escapeHtml(desc)}</p>
+        <div class="desc">${formatDesc(desc)}</div>
         <div class="btn-row">
           <button class="btn phish js-pick">🗑️ Report as a Phish</button>
         </div>
@@ -169,7 +194,6 @@
     }
   };
 
-  // randomize which email goes left/right each time
   const render = () => {
     const root = $("content");
     if (!root) return;
@@ -183,22 +207,26 @@
         <section class="card" style="padding:16px;">
           <h3>Score</h3>
           <p>You scored ${percent}% (${SCORE} / ${total})</p>
-          <p style="white-space:pre-wrap;margin-top:8px;">${escapeHtml(feedback)}</p>
-          <div class="btn-row"><button class="btn js-restart">Restart</button></div>
+          <p style="white-space:pre-wrap;margin-top:8px;">${escapeHtml(
+            feedback
+          )}</p>
+          <div class="btn-row">
+            <button class="btn link js-restart" style="min-width:88px;">Restart</button>
+          </div>
         </section>`;
       return;
     }
 
-    const pair = ORDER[INDEX];
-    // Randomize layout: sometimes [a,b], sometimes [b,a]
-    const [left, right] = Math.random() < 0.5 ? pair : [pair[1], pair[0]];
+    const [left, right] = ORDER[INDEX];
 
     root.innerHTML = `
       <div class="grid">
         ${cardHTML(left, "left")}
         ${cardHTML(right, "right")}
       </div>
-      <p class="progress" style="opacity:.7;margin-top:8px;">Pair ${INDEX + 1} of ${ORDER.length}</p>`;
+      <p class="progress" style="opacity:.7;margin-top:8px;">
+        Pair ${INDEX + 1} of ${ORDER.length}
+      </p>`;
   };
 
   const renderLoading = () => {
@@ -210,63 +238,45 @@
     if (!card || LOCK) return;
     LOCK = true;
 
-    const selectedCorrect = (card.getAttribute("data-correct") || "").toLowerCase();
-    const isPhish = selectedCorrect === "phish";
-
-    // find both cards in the current grid so we can compare explanations
-    const grid = card.closest(".grid");
-    const cards = grid ? Array.from(grid.querySelectorAll(".card")) : [card];
-
-    const selectedExplain = card.getAttribute("data-explain") || "";
-
-    const phishCard = cards.find(c => (c.getAttribute("data-correct") || "").toLowerCase() === "phish");
-    const safeCard  = cards.find(c => (c.getAttribute("data-correct") || "").toLowerCase() === "safe");
-
-    const phishExplain = phishCard ? (phishCard.getAttribute("data-explain") || "") : "";
-    const safeExplain  = safeCard  ? (safeCard.getAttribute("data-explain")  || "") : "";
-
-    let explainText = "";
-
-    if (isPhish) {
-      // user correctly clicked the phishing email
-      explainText = "Correct – this is the phishing email.\n\n";
-      if (selectedExplain) {
-        explainText += "What makes it suspicious:\n" + selectedExplain;
-      } else {
-        // fallback to body if no explanation
-        try {
-          const descNode = card.querySelector(".desc");
-          if (descNode) explainText += descNode.textContent;
-        } catch {}
-      }
-    } else {
-      // user clicked the safe email -> they are wrong
-      explainText = "Incorrect – this email is actually a legitimate, clean message.\n\n";
-
-      if (safeExplain) {
-        explainText += "Why this one is safe:\n" + safeExplain + "\n\n";
-      } else if (safeCard) {
-        const descNode = safeCard.querySelector(".desc");
-        if (descNode) explainText += "Why this one is safe:\n" + descNode.textContent + "\n\n";
-      }
-
-      if (phishCard) {
-        const phishSide = phishCard.getAttribute("data-side") || "";
-        const where = phishSide ? `the ${phishSide} card` : "the other card";
-        if (phishExplain) {
-          explainText += "The actual phishing email was " + where + ":\n" + phishExplain;
-        } else {
-          const descNode = phishCard.querySelector(".desc");
-          explainText += "The actual phishing email was " + where + ".";
-          if (descNode) explainText += "\n\nIt contained these red flags:\n" + descNode.textContent;
-        }
-      }
+    const pair = ORDER[INDEX];
+    if (!pair) {
+      LOCK = false;
+      return;
     }
 
+    const side = (card.getAttribute("data-side") || "").toLowerCase();
+    const chosen = side === "left" ? pair[0] : pair[1];
+    const other = side === "left" ? pair[1] : pair[0];
+
+    const isPhish = String(chosen.correct || "").toLowerCase() === "phish";
     markCard(card, isPhish);
 
-    showModal(isPhish ? "Correct" : "Incorrect", explainText, () => {
-      if (isPhish) SCORE += 1;
+    const chosenExplain = chosen.explain || "";
+    const otherExplain = other.explain || "";
+
+    let title;
+    let message;
+
+    if (isPhish) {
+      title = "Correct";
+      message =
+        "You correctly reported the phishing email.\n\n" +
+        "Why this email is phish:\n" +
+        chosenExplain +
+        "\n\nWhy the other email is clean:\n" +
+        otherExplain;
+      SCORE += 1;
+    } else {
+      title = "Incorrect";
+      message =
+        "This email is actually clean.\n\n" +
+        "Why this email is safe:\n" +
+        chosenExplain +
+        "\n\nWhy the other one is phish:\n" +
+        otherExplain;
+    }
+
+    showModal(title, message, () => {
       INDEX += 1;
       LOCK = false;
       render();
@@ -283,13 +293,15 @@
   document.addEventListener("click", (e) => {
     const pickBtn = e.target.closest(".js-pick");
     if (pickBtn) {
-      e.preventDefault(); e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
       pick(pickBtn.closest(".card"));
       return;
     }
     const restartBtn = e.target.closest(".js-restart");
     if (restartBtn) {
-      e.preventDefault(); e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
       restart();
     }
   });
@@ -302,14 +314,18 @@
       const data = await res.json();
 
       ALL_PAIRS = preparePairs(data);
-      if (ALL_PAIRS.length === 0) throw new Error("No valid pairs found in emails.json");
+      if (ALL_PAIRS.length === 0)
+        throw new Error("No valid pairs found in emails.json");
 
       REMAINING = shuffle([...ALL_PAIRS]);
       dealNextRound();
       render();
     } catch (err) {
       const root = $("content");
-      if (root) root.innerHTML = `<p style="color:#b91c1c;">Failed to load data. ${escapeHtml(err?.message || "")}</p>`;
+      if (root)
+        root.innerHTML = `<p style="color:#b91c1c;">Failed to load data. ${escapeHtml(
+          err?.message || ""
+        )}</p>`;
     }
   });
 })();
