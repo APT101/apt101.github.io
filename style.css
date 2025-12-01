@@ -103,6 +103,7 @@ a, a:link, a:visited {
   margin: 0 0 10px;
   font-size: 20px;
   line-height: 1.25;
+  font-weight: bold;
 }
 
 .card .card-content-row {
@@ -125,6 +126,15 @@ a, a:link, a:visited {
 .card img.card-image {
   width: auto;
   height: 100%;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  display: block;
+}
+
+.card iframe.card-video {
+  width: auto;
+  height: 25%;
   object-fit: cover;
   flex: 0 0 auto;
   border-radius: 6px;
