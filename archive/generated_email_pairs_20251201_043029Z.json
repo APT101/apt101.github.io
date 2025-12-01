@@ -1,0 +1,150 @@
+{
+  "generated_at": "2025-12-01T04:31:03.477Z",
+  "count_pairs": 6,
+  "pairs": [
+    [
+      {
+        "subject": "Important: Update Your Benefits Information",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe would like to remind you to review your benefits information to ensure everything is up to date. Please find the attached document that outlines your current benefits and any changes that may have occurred.\n\nIf you have any questions or need assistance, feel free to reach out.\n\nBest regards,\nMaria Thompson\nHR Manager",
+        "correct": "safe",
+        "explain": "This email is safe as it comes from the official HR department and contains a legitimate attachment regarding benefits information.",
+        "attachment": "benefits_overview.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your Benefits Information Now",
+        "from": "hr-update@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have detected an issue with your benefits information that requires immediate attention. Please download the attached file and follow the instructions to update your information.\n\nFailure to comply may result in loss of benefits. Act now!\n\nBest,\nHR Team",
+        "correct": "phish",
+        "explain": "This email is a phishing attempt due to the urgent language, suspicious email address, and an executable attachment that could harm the system.",
+        "attachment": "benefits_overview.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Performance Review Schedule",
+        "from": "manager@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi Team,\n\nI hope this message finds you well. Attached is the schedule for the upcoming quarterly performance reviews. Please make sure to prepare accordingly and reach out if you have any questions.\n\nLooking forward to our discussions!\n\nBest,\nJohn Smith\nTeam Lead",
+        "correct": "safe",
+        "explain": "This email is safe as it includes a legitimate attachment and is sent from the correct company domain with a professional tone.",
+        "attachment": "performance_review_schedule.pdf"
+      },
+      {
+        "subject": "Immediate Action Required: Performance Review Details",
+        "from": "hr@company-security.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour performance review is scheduled for tomorrow, and we need you to confirm your details immediately. Download the attached file to verify your information.\n\nFailure to respond will result in a negative review.\n\nThanks,\nHR Department",
+        "correct": "phish",
+        "explain": "This email is phishing due to the threatening tone, an unrecognized sender address, and an executable attachment that poses a security risk.",
+        "attachment": "performance_review_schedule.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Upcoming Training Session on Cybersecurity",
+        "from": "training@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nWe are excited to announce an upcoming training session focused on cybersecurity best practices. Please find the training materials attached for your review before the session.\n\nLooking forward to seeing everyone there!\n\nBest,\nEmily Carter\nTraining Coordinator",
+        "correct": "safe",
+        "explain": "This email is safe as it is from the official training department and contains a relevant PDF attachment for an upcoming training session.",
+        "attachment": "training_materials.pdf"
+      },
+      {
+        "subject": "Urgent: Confirm Your Attendance for Cybersecurity Training",
+        "from": "confirm@training-update.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou are required to confirm your attendance for the upcoming cybersecurity training. Download the attached file and reply with your confirmation.\n\nFailure to attend may lead to disciplinary action.\n\nRegards,\nTraining Team",
+        "correct": "phish",
+        "explain": "This email is a phishing attempt due to the use of a suspicious email address, urgent language, and an executable attachment.",
+        "attachment": "training_materials.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "New Security Policy Implementation",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe are implementing a new security policy that all employees must adhere to. The details are outlined in the attached document. Please read it carefully and ensure compliance.\n\nIf you have any questions, please contact the security team.\n\nBest regards,\nTom Johnson\nSecurity Officer",
+        "correct": "safe",
+        "explain": "This email is safe as it is from the official security department and contains a legitimate PDF attachment regarding a new policy.",
+        "attachment": "security_policy.pdf"
+      },
+      {
+        "subject": "Immediate Action Required: Security Policy Update",
+        "from": "alert@company-security.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello,\n\nDue to a recent breach, you must update your security settings immediately. Download the attached file to proceed with the update.\n\nFailure to do so may compromise your account.\n\nThanks,\nSecurity Team",
+        "correct": "phish",
+        "explain": "This email is phishing due to the alarming language, a suspicious sender address, and an executable attachment that could harm the system.",
+        "attachment": "security_update.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary for Upcoming Conference",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi Team,\n\nAttached is your travel itinerary for the upcoming conference. Please review the details and let us know if you have any questions or need adjustments.\n\nSafe travels!\n\nBest,\nLaura White\nTravel Coordinator",
+        "correct": "safe",
+        "explain": "This email is safe as it is from the official travel department and contains a legitimate PDF attachment with travel details.",
+        "attachment": "travel_itinerary.pdf"
+      },
+      {
+        "subject": "Urgent: Confirm Your Travel Itinerary",
+        "from": "confirm@travel-alert.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel itinerary is attached. You must confirm your details immediately to avoid cancellation. Download the file and reply with your confirmation.\n\nBest,\nTravel Team",
+        "correct": "phish",
+        "explain": "This email is a phishing attempt due to the urgency, a suspicious sender address, and an executable attachment that poses a security risk.",
+        "attachment": "travel_itinerary.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Monthly Expense Report Submission",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi Team,\n\nPlease find attached the template for the monthly expense report. Make sure to fill it out and submit it by the end of the week.\n\nLet me know if you have any questions!\n\nBest,\nAlex Brown\nFinance Manager",
+        "correct": "safe",
+        "explain": "This email is safe as it includes a legitimate Excel attachment from the official finance department with clear instructions.",
+        "attachment": "expense_report_template.xlsx"
+      },
+      {
+        "subject": "Immediate Action Required: Expense Report Submission",
+        "from": "urgent@finance-update.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou must submit your expense report immediately to avoid penalties. Download the attached file and follow the instructions.\n\nFailure to comply may result in financial consequences.\n\nRegards,\nFinance Team",
+        "correct": "phish",
+        "explain": "This email is phishing due to the threatening tone, an unrecognized sender address, and an executable attachment that could harm the system.",
+        "attachment": "expense_report_template.xlsx.exe"
+      }
+    ]
+  ]
+}
