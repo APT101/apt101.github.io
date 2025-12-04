@@ -135,6 +135,9 @@ For EACH email:
 - Include an "attachment" field in about ${ATTACHMENT_RATE}% of emails overall:
   - Safe examples: "benefits_overview.pdf", "meeting_agenda.pdf", "training_materials.pdf".
   - Phish examples: "benefits_overview.pdf.exe", "invoice_details.pdf.exe", "security_update.exe".
+  -
+Bad Extensions - .scr, .bat , .exe ... other extensions which disguises itself like somethhing else like a document or picture but installs malware
+Good Extensions - .docx, .doc, pub , pdf, xlsx, other normal files
 - Ensure each "pair" has ONE "phish" and ONE "safe" email, both clearly about the SAME scenario.
 - Return ONLY a JSON array of objects in the exact format specified in the system message (no wrapping object, no prose).`;
 
