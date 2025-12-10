@@ -202,6 +202,7 @@ Rules:
   }
 For EACH email:
 - Choose a random body length between ${MIN_WORDS} and ${MAX_WORDS} words (approx).
+- Each email must be well formatted like a real email, well spaced, header, body, signature , all well spaced like a formal mail
 - Include an "attachment" field in ~${ATTACHMENT_RATE}% of emails (overall), with realistic filenames.
   - Safe examples: "training.pdf", "report.pdf".
   - Phish examples: "training.pdf.exe", "invoice.pdf.exe/.src/.bat".
