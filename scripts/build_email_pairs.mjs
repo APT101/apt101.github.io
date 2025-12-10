@@ -113,6 +113,7 @@ For EACH email:
 - Include an "attachment" field in ~${ATTACHMENT_RATE}% of emails (overall), with realistic filenames.
   - Safe examples: "training.pdf", "report.pdf".
   - Phish examples: "training.pdf.exe", "invoice.pdf.exe/.src/.bat".
+  - attachment field left empty when not needed. attachment to be included only in the specified % of emails, not all emails.
 - Ensure each pair has ONE "phish" and ONE "safe". Return JSON array of { "pair": [emailA, emailB] } only.`;
 
   const resp = await client.chat.completions.create({
