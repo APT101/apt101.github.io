@@ -17,7 +17,7 @@ const PAIRS_COUNT = Number(process.env.PAIRS_COUNT || "10");
 const EMAIL_TOPICS = process.env.EMAIL_TOPICS || "";
 const MIN_WORDS = Number(process.env.MIN_WORDS || "50");
 const MAX_WORDS = Number(process.env.MAX_WORDS || "400");
-const ATTACHMENT_RATE = Number(process.env.ATTACHMENT_RATE || "50"); // percentage
+const ATTACHMENT_RATE = Number(process.env.ATTACHMENT_RATE || "50"); // percentage of PAIRS
 const MODEL = "gpt-4o-mini";
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -73,6 +73,97 @@ function normalizeEmail(x) {
   if (attachment !== undefined) out.attachment = attachment;
   return out;
 }
+
+// -------- NEW: enforce strict ATTACHMENT_RATE on PAIRS ----------
+function enforceAttachmentRateOnPairs(pairs) {
+  const totalPairs = pairs.length;
+  if (!totalPairs) return pairs;
+
+  const targetAttachedPairs = Math.round((ATTACHMENT_RATE / 100) * totalPairs);
+
+  // Find which pairs currently have attachments (both emails considered as one unit)
+  const attachedPairIdx = [];
+  const noAttachmentPairIdx = [];
+
+  for (let i = 0; i < totalPairs; i++) {
+    const [a, b] = pairs[i];
+    const hasAttachment = !!(a.attachment || b.attachment);
+    if (hasAttachment) {
+      attachedPairIdx.push(i);
+    } else {
+      noAttachmentPairIdx.push(i);
+    }
+  }
+
+  let currentAttachedPairs = attachedPairIdx.length;
+
+  // Helper: simple array shuffle
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
+  // If we have too many attached pairs, remove attachments from some
+  if (currentAttachedPairs > targetAttachedPairs) {
+    const toRemoveCount = currentAttachedPairs - targetAttachedPairs;
+    shuffle(attachedPairIdx);
+    const idxToStrip = attachedPairIdx.slice(0, toRemoveCount);
+    for (const pairIndex of idxToStrip) {
+      const [a, b] = pairs[pairIndex];
+      delete a.attachment;
+      delete b.attachment;
+    }
+    currentAttachedPairs = targetAttachedPairs;
+  }
+
+  // If we have too few attached pairs, add attachments to some attachment-less pairs
+  if (currentAttachedPairs < targetAttachedPairs) {
+    const toAddCount = Math.min(targetAttachedPairs - currentAttachedPairs, noAttachmentPairIdx.length);
+    shuffle(noAttachmentPairIdx);
+    const idxToAdd = noAttachmentPairIdx.slice(0, toAddCount);
+
+    const safeNames = [
+      "training.pdf",
+      "report.pdf",
+      "benefits_overview.pdf",
+      "meeting_notes.pdf",
+      "policy_update.pdf"
+    ];
+    const phishNames = [
+      "invoice_details.pdf.exe",
+      "document_update.pdf.scr",
+      "security_patch.pdf.bat",
+      "payslip.pdf.exe",
+      "urgent_update.exe"
+    ];
+
+    function randomFrom(list) {
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    for (const pairIndex of idxToAdd) {
+      const [a, b] = pairs[pairIndex];
+
+      // Attach safe-looking files to safe emails, bad-looking to phish emails
+      if (a.correct === "safe") {
+        a.attachment = randomFrom(safeNames);
+      } else {
+        a.attachment = randomFrom(phishNames);
+      }
+
+      if (b.correct === "safe") {
+        b.attachment = randomFrom(safeNames);
+      } else {
+        b.attachment = randomFrom(phishNames);
+      }
+    }
+  }
+
+  return pairs;
+}
+// ---------------------------------------------------------------
 
 async function askPairsBatch(count, topicsHint) {
   const sys = `You generate realistic corporate emails for a phishing training game.
@@ -157,6 +248,9 @@ async function main() {
 
   // 2) generate
   let pairs = await generatePairs(PAIRS_COUNT, EMAIL_TOPICS);
+
+  // NEW: enforce strict attachment percentage at the PAIR level
+  pairs = enforceAttachmentRateOnPairs(pairs);
 
   // 3) write new-only snapshot (into archive/)
   const newOnlyFile = path.join(ARCHIVE_DIR, `generated_email_pairs_${stamp}.json`);
