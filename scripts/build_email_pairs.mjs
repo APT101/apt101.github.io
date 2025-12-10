@@ -75,71 +75,45 @@ function normalizeEmail(x) {
 }
 
 async function askPairsBatch(count, topicsHint) {
-  const sys = `You generate realistic INTERNAL corporate email pairs for a phishing training game.
-
-You MUST return ONLY a JSON array, where each element is an object with this exact shape:
-
+  const sys = `You generate realistic corporate emails for a phishing training game.
+Return ONLY a JSON array where EACH element is a PAIR object with this exact shape:
 {
   "pair": [
     {
       "subject": "string",
       "from": "name@domain.tld",
       "to": ["employee@company.com"],
-      "attachment": "string (optional, e.g. \\"training.pdf\\" or \\"invoice.pdf.exe\\")",
-      "desc": "full email body text",
+      "attachment": "string (optional, e.g. 'training.pdf' or 'training.pdf.exe')",
+      "desc": "email body text",
       "correct": "phish" | "safe",
-      "explain": "1–2 sentences explaining why this email is phishing or safe"
+      "explain": "reason why"
     },
     {
       "subject": "string",
       "from": "name@domain.tld",
       "to": ["employee@company.com"],
-      "attachment": "string (optional, e.g. \\"training.pdf\\" or \\"invoice.pdf.exe\\")",
-      "desc": "full email body text",
+      "attachment": "string (optional, e.g. 'training.pdf' or 'training.pdf.exe')",
+      "desc": "email body text",
       "correct": "phish" | "safe",
-      "explain": "1–2 sentences explaining why this email is phishing or safe"
+      "explain": "reason why"
     }
   ]
 }
+Rules:
+- Exactly ONE email in each pair must be "phish" and the other "safe".
+- Vary departments (HR, Finance, IT, Facilities, Travel, Legal, Security, etc.).
+- Use human, office-like language with realistic details.
+- Output pure JSON only (no code fences, no extra prose).`;
 
-STRICT rules:
-
-- EXACTLY one email in each "pair" must have "correct": "phish" and the other must have "correct": "safe".
-- BOTH emails in the same "pair" MUST share the same theme/scenario
-  (e.g., benefits update, payroll correction, travel itinerary, security notice, facilities update, legal policy, training invite, performance review, etc.).
-- Write the "desc" field as a realistic business email:
-  - Start with a greeting like "Dear Employee," or "Hi Team,".
-  - Use 1–3 short paragraphs separated with \\n\\n.
-  - End with a closing and signature, e.g. "Best regards,\\nMaria Thompson\\nHR Manager".
-- Do NOT use HTML; plain text only in "desc".
-- For SAFE emails:
-  - Use correct company domains and normal tone.
-  - No requests for passwords or sensitive personal data.
-  - If you include links, make them normal-looking HTTPS links on the correct company domain.
-- For PHISH emails:
-  - Use at least one clear red flag such as:
-    - lookalike or misspelled domains,
-    - executable attachment (like .pdf.exe or .exe /.scr, / .bat),
-    - urgent or threatening language,
-    - credential / payment / personal data requests,
-    - suspicious non-HTTPS links.
-- Output pure JSON only: no Markdown, no comments, no extra text before or after the JSON array.`;
-
-  const user = `Create ${count} PAIRS of internal corporate emails for phishing training.${
-    topicsHint ? ` Try to include these themes: ${topicsHint}.` : ""
+  const user = `Create ${count} PAIRS of corporate emails for training.${
+    topicsHint ? ` Focus on: ${topicsHint}.` : ""
   }
-
 For EACH email:
-- Choose an approximate body length between ${MIN_WORDS} and ${MAX_WORDS} words.
-- Write the body in the "desc" field as a full email (greeting, paragraphs, closing) using \\n\\n between paragraphs.
-- Include an "attachment" field in about ${ATTACHMENT_RATE}% of emails overall:
-  - Safe examples: "benefits_overview.pdf", "meeting_agenda.pdf", "training_materials.pdf".
-  - Phish examples: "benefits_overview.pdf.exe", "invoice_details.pdf.exe", "security_update.exe".
-  -
-Bad Extensions - .scr, .bat , .exe ... other extensions which disguises itself like somethhing else like a document or picture but installs malware
-Good Extensions - .docx, .doc, pub , pdf, xlsx, other normal files
-- Ensure each "pair" has ONE "phish" and ONE "safe" email, both clearly about the SAME scenario.
-- Return ONLY a JSON array of objects in the exact format specified in the system message (no wrapping object, no prose).`;
+- Choose a random body length between ${MIN_WORDS} and ${MAX_WORDS} words (approx).
+- Include an "attachment" field in ~${ATTACHMENT_RATE}% of emails (overall), with realistic filenames.
+  - Safe examples: "training.pdf", "report.pdf".
+  - Phish examples: "training.pdf.exe", "invoice.pdf.exe".
+- Ensure each pair has ONE "phish" and ONE "safe". Return JSON array of { "pair": [emailA, emailB] } only.`;
 
   const resp = await client.chat.completions.create({
     model: MODEL,
