@@ -101,7 +101,7 @@ Return ONLY a JSON array where EACH element is a PAIR object with this exact sha
 }
 Rules:
 - Exactly ONE email in each pair must be "phish" and the other "safe".
-- either both pairs have attachments or both dont. 
+- either both pairs in a group(Phish & safe) have attachments or both dont. 
 - Vary departments (HR, Finance, IT, Facilities, Travel, Legal, Security, etc.).
 - Use human, office-like language with realistic details.
 - Output pure JSON only (no code fences, no extra prose).`;
@@ -114,7 +114,6 @@ For EACH email:
 - Include an "attachment" field in ~${ATTACHMENT_RATE}% of emails (overall), with realistic filenames.
   - Safe examples: "training.pdf", "report.pdf".
   - Phish examples: "training.pdf.exe", "invoice.pdf.exe/.src/.bat".
-  - attachment field left empty when not needed. attachment to be included only in the specified % of emails, not all emails.
 - Ensure each pair has ONE "phish" and ONE "safe". Return JSON array of { "pair": [emailA, emailB] } only.`;
 
   const resp = await client.chat.completions.create({
