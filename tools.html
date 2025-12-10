@@ -5,17 +5,18 @@
   <title>Tools - APTT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="resources\favicons\favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="resources\favicons\favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="resources\favicons\favicon-48x48.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="resources\favicons\favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="resources\favicons\favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="resources/favicons/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="resources/favicons/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="resources/favicons/favicon-192x192.png">
 </head>
+
 <body>
   <nav class="nav">
     <div class="nav-inner container">
       <div class="logo">
-        <span><a href="index.html"><img src="resources\header_icon.png" alt="APTT Logo"> </a></span>
+        <span><a href="index.html"><img src="resources/header_icon.png" alt="APTT Logo"></a></span>
       </div>
       <div class="nav-links">
         <a href="learn.html">Learn</a>
@@ -25,44 +26,74 @@
       </div>
     </div>
   </nav>
+
   <main class="container" id="main">
     <section class="card" style="margin: 0 0 18px;">
       <h3>Tools</h3>
-      <p class="desc"> interactive demos and utilities here. The blocks below are placeholders.</p>
+      <p class="desc">Interactive security tools for checking links, emails, attachments, breaches, and phishing activity.</p>
     </section>
+
     <section class="grid">
+
+      <!-- Link Checker -->
       <article class="card">
-        <h3>URL Safety Checker</h3>
-        <p class="desc">Paste a link to preview and validate. (Placeholder UI)</p>
+        <h3>Link Checker</h3>
+        <p class="desc">NordVPN Link Checker scans URLs for phishing, scams, and unsafe content.</p>
         <div class="btn-row">
-          <a class="btn link" href="index.html">Go to Demo</a>
+          <a class="btn link" href="https://nordvpn.com/link-checker/" target="_blank">Open Tool</a>
         </div>
       </article>
+
+      <!-- Email Checker -->
       <article class="card">
-        <h3>Email Header Parser</h3>
-        <p class="desc">Upload headers to analyze routing and SPF/DKIM/DMARC. (Placeholder)</p>
+        <h3>Email Checker</h3>
+        <p class="desc">MXToolbox Header Analyzer checks email headers for spoofing and authentication failures.</p>
         <div class="btn-row">
-          <a class="btn link" href="index.html">Go to Demo</a>
+          <a class="btn link" href="https://mxtoolbox.com/EmailHeaders.aspx" target="_blank">Open Tool</a>
         </div>
       </article>
+
+      <!-- Attachment Scanner -->
       <article class="card">
         <h3>Attachment Scanner</h3>
-        <p class="desc">Drop a file to scan with your backend. (Placeholder)</p>
+        <p class="desc">VirusTotal scans uploaded files with multiple antivirus engines to detect malware.</p>
         <div class="btn-row">
-          <a class="btn link" href="index.html">Go to Demo</a>
+          <a class="btn link" href="https://www.virustotal.com/gui/home/upload" target="_blank">Open Tool</a>
         </div>
       </article>
+
+      <!-- Breach Checker -->
       <article class="card">
-        <h3>Training Quiz</h3>
-        <p class="desc">Link to thequiz (like the one on the home page) or a new scenario set.</p>
+        <h3>Breach Checker</h3>
+        <p class="desc">Have I Been Pwned checks whether your email or password appears in known data breaches.</p>
         <div class="btn-row">
-          <a class="btn link" href="index.html">Go to Demo</a>
+          <a class="btn link" href="https://haveibeenpwned.com/" target="_blank">Open Tool</a>
         </div>
       </article>
+
+      <!-- Site Malware Checker -->
+      <article class="card">
+        <h3>Site Malware Checker</h3>
+        <p class="desc">Sucuri SiteCheck scans websites for malware, blacklisting, and malicious injections.</p>
+        <div class="btn-row">
+          <a class="btn link" href="https://sitecheck.sucuri.net/" target="_blank">Open Tool</a>
+        </div>
+      </article>
+
+      <!-- Phish Checker -->
+      <article class="card">
+        <h3>Phish Checker</h3>
+        <p class="desc">PhishTank checks suspicious URLs against a global database of confirmed phishing sites.</p>
+        <div class="btn-row">
+          <a class="btn link" href="https://www.phishtank.com/" target="_blank">Open Tool</a>
+        </div>
+      </article>
+
     </section>
   </main>
+
   <footer>
-    <span> APTT LLC. © 2025</span>
+    <span>APTT LLC. © 2025</span>
   </footer>
 </body>
 </html>
