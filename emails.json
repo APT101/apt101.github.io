@@ -1,1 +1,147 @@
-
+{
+  "email_group_1": [
+    {
+      "subject": "Important: Update Your Benefits Information",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have noticed that your benefits information is incomplete. Please download the attached document and provide the required details as soon as possible to ensure your benefits are not interrupted.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\nMaria Thompson\nHR Manager",
+      "correct": "phish",
+      "explain": "This email is phishing because it contains an executable attachment disguised as a PDF, which could install malware.",
+      "attachment": "benefits_overview.pdf.exe"
+    },
+    {
+      "subject": "Update Your Benefits Information",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have updated our benefits information and encourage you to review the attached document. Please ensure all your details are current to avoid any issues.\n\nIf you have any questions, feel free to reach out.\n\nBest regards,\nMaria Thompson\nHR Manager",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information or contain any red flags.",
+      "attachment": "benefits_overview.pdf"
+    }
+  ],
+  "email_group_2": [
+    {
+      "subject": "Urgent: Action Required for Your Payroll",
+      "from": "payroll@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe have detected an issue with your payroll information that requires your immediate attention. Please find the attached document and follow the instructions to correct your details.\n\nFailure to act may result in delayed payments.\n\nSincerely,\nJohn Smith\nPayroll Department",
+      "correct": "phish",
+      "explain": "This email is phishing because it uses urgent language and includes an executable attachment, which is a common tactic in phishing attacks.",
+      "attachment": "payroll_update.pdf.exe"
+    },
+    {
+      "subject": "Payroll Update Confirmation",
+      "from": "payroll@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nThis is a confirmation of your payroll update. Please review the attached document for your records. If you notice any discrepancies, let us know.\n\nThank you for your attention.\n\nBest,\nJohn Smith\nPayroll Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a regular PDF attachment and does not pressure the recipient into taking immediate action.",
+      "attachment": "payroll_update.pdf"
+    }
+  ],
+  "email_group_3": [
+    {
+      "subject": "Security Alert: Immediate Action Required",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have detected suspicious activity on your account. To secure your information, please download the attached file and follow the instructions immediately.\n\nFailure to do so may result in account suspension.\n\nRegards,\nAlex Johnson\nIT Security",
+      "correct": "phish",
+      "explain": "This email is phishing because it creates a sense of urgency and includes an executable file that could compromise the recipient's system.",
+      "attachment": "security_update.exe"
+    },
+    {
+      "subject": "Security Update Notification",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe are conducting a routine security update. Attached is a PDF with important information about our security measures. Please review it at your convenience.\n\nIf you have any questions, feel free to reach out.\n\nBest,\nAlex Johnson\nIT Security",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a standard PDF attachment and does not request immediate action or sensitive information.",
+      "attachment": "security_update.pdf"
+    }
+  ],
+  "email_group_4": [
+    {
+      "subject": "Action Required: Update Your Account Information",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe need you to update your account information to continue using our services. Please download the attached file and follow the instructions.\n\nThis is urgent, and failure to comply may lead to account deactivation.\n\nThanks,\nCustomer Support",
+      "correct": "phish",
+      "explain": "This email is phishing because it contains a suspicious attachment with a harmful extension and pressures the recipient to act quickly.",
+      "attachment": "account_update.pdf.scr"
+    },
+    {
+      "subject": "Account Information Update Reminder",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nThis is a friendly reminder to review your account information. Attached is a PDF document with instructions on how to do so.\n\nIf you have any questions, please reach out.\n\nBest,\nCustomer Support",
+      "correct": "safe",
+      "explain": "This email is safe as it provides a regular PDF attachment and does not contain any urgency or requests for sensitive information.",
+      "attachment": "account_update.pdf"
+    }
+  ],
+  "email_group_5": [
+    {
+      "subject": "Immediate Update Required for Your Training Materials",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have updated the training materials and require you to download the attached file to ensure you are up to date. Please do this immediately to avoid missing out on important information.\n\nThank you,\nTraining Department",
+      "correct": "phish",
+      "explain": "This email is phishing because it includes an executable attachment disguised as a PDF and pressures the recipient to act immediately.",
+      "attachment": "training_materials.pdf.exe"
+    },
+    {
+      "subject": "Updated Training Materials Available",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have updated the training materials. Please find the attached PDF for your review. Make sure to familiarize yourself with the new content before the next training session.\n\nBest regards,\nTraining Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request urgent action or sensitive information.",
+      "attachment": "training_materials.pdf"
+    }
+  ],
+  "email_group_6": [
+    {
+      "subject": "Final Notice: Your Subscription Will Be Cancelled",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nThis is your final notice regarding your subscription. To avoid cancellation, please download the attached invoice and follow the instructions within.\n\nFailure to respond will result in immediate cancellation of your account.\n\nSincerely,\nBilling Department",
+      "correct": "phish",
+      "explain": "This email is phishing because it uses threatening language and includes an executable attachment that could harm the recipient's device.",
+      "attachment": "invoice_details.pdf.exe"
+    },
+    {
+      "subject": "Subscription Renewal Reminder",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nThis is a reminder that your subscription is up for renewal. Attached is your invoice for review. Please let us know if you have any questions.\n\nThank you,\nBilling Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a standard PDF attachment and does not create a false sense of urgency or request sensitive information.",
+      "attachment": "invoice_details.pdf"
+    }
+  ],
+  "last_updated_emails": "2025-12-10T07:25:31.738Z"
+}
