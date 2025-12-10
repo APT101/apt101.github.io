@@ -25,7 +25,7 @@ const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 function ts() {
   const d = new Date();
   const pad = (n) => String(n).padStart(2, "0");
-  return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}_${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
+  return `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}_${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
 }
 
 function ensureArchiveDir() {
@@ -57,8 +57,9 @@ function normalizeEmail(x) {
   if (!x) return null;
   const subject = String(x.subject || "").trim();
   const from = String(x.from || "").trim();
-  const toArr = Array.isArray(x.to) ? x.to.map(s=>String(s).trim()).filter(Boolean)
-            : (x.to ? [String(x.to).trim()] : []);
+  const toArr = Array.isArray(x.to)
+    ? x.to.map(s => String(s).trim()).filter(Boolean)
+    : (x.to ? [String(x.to).trim()] : []);
   const desc = String(x.desc || x.body || "").trim();
   const correct = String(x.correct || "").toLowerCase();
   const explain = String(x.explain || x.explanation || "").trim();
@@ -72,6 +73,41 @@ function normalizeEmail(x) {
   const out = { subject, from, to: toArr, desc, correct, explain };
   if (attachment !== undefined) out.attachment = attachment;
   return out;
+}
+
+// --- NEW: enforce ~ATTACHMENT_RATE% attachments ---
+function enforceAttachmentRate(pairs) {
+  // pairs: [ [emailA, emailB], ... ]
+  const allEmails = [];
+  for (const pair of pairs) {
+    for (const email of pair) {
+      allEmails.push(email);
+    }
+  }
+
+  const total = allEmails.length;
+  if (!total) return pairs;
+
+  const target = Math.round((ATTACHMENT_RATE / 100) * total);
+  const withAttachmentIdx = allEmails
+    .map((e, idx) => (e.attachment !== undefined ? idx : -1))
+    .filter(idx => idx !== -1);
+
+  // If we already have <= target attachments, don't mess with it.
+  if (withAttachmentIdx.length <= target) return pairs;
+
+  // Randomly remove attachments until we hit target
+  for (let i = withAttachmentIdx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [withAttachmentIdx[i], withAttachmentIdx[j]] = [withAttachmentIdx[j], withAttachmentIdx[i]];
+  }
+
+  const toRemove = withAttachmentIdx.length - target;
+  for (let i = 0; i < toRemove; i++) {
+    delete allEmails[withAttachmentIdx[i]].attachment;
+  }
+
+  return pairs;
 }
 
 async function askPairsBatch(count, topicsHint) {
@@ -119,11 +155,11 @@ STRICT rules:
 - For PHISH emails:
   - Use at least one clear red flag such as:
     - lookalike or misspelled domains,
-    - executable attachment (like .pdf.exe or .scr, .bat , .exe),
+    - executable attachment (like .pdf.exe or .scr, .bat, .exe),
     - urgent or threatening language,
     - credential / payment / personal data requests,
     - suspicious non-HTTPS links.
-- Output pure JSON only: no Markdown, no comments, no extra text before or after the JSON array.`;
+- The "attachment" property is OPTIONAL and MUST NOT appear on every email.`;
 
   const user = `Create ${count} PAIRS of internal corporate emails for phishing training.${
     topicsHint ? ` Try to include these themes: ${topicsHint}.` : ""
@@ -135,9 +171,7 @@ For EACH email:
 - Include an "attachment" field in about ${ATTACHMENT_RATE}% of emails overall:
   - Safe examples: "benefits_overview.pdf", "meeting_agenda.pdf", "training_materials.pdf".
   - Phish examples: "benefits_overview.pdf.exe", "invoice_details.pdf.exe", "security_update.exe".
-  -
-Bad Extensions - .scr, .bat , .exe ... other extensions which disguises itself like somethhing else like a document or picture but installs malware
-Good Extensions - .docx, .doc, pub , pdf, xlsx, other normal files
+- For the remaining emails, OMIT the "attachment" property completely.
 - Ensure each "pair" has ONE "phish" and ONE "safe" email, both clearly about the SAME scenario.
 - Return ONLY a JSON array of objects in the exact format specified in the system message (no wrapping object, no prose).`;
 
@@ -183,6 +217,9 @@ async function main() {
   // 2) generate
   let pairs = await generatePairs(PAIRS_COUNT, EMAIL_TOPICS);
 
+  // enforce attachment rate AFTER generation
+  pairs = enforceAttachmentRate(pairs);
+
   // 3) write new-only snapshot (into archive/)
   const newOnlyFile = path.join(ARCHIVE_DIR, `generated_email_pairs_${stamp}.json`);
   fs.writeFileSync(newOnlyFile, JSON.stringify({
@@ -203,7 +240,7 @@ async function main() {
 
   console.log(`Archived -> ${path.relative(ROOT, archiveFile)}`);
   console.log(`New-only -> ${path.relative(ROOT, newOnlyFile)} (${pairs.length} pairs)`);
-  console.log(`Merged  -> ${path.relative(ROOT, MAIN_FILE)} (now up to email_group_${next-1})`);
+  console.log(`Merged  -> ${path.relative(ROOT, MAIN_FILE)} (now up to email_group_${next - 1})`);
 }
 
 await main();
