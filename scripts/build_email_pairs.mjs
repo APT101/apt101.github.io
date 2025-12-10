@@ -193,7 +193,7 @@ Return ONLY a JSON array where EACH element is a PAIR object with this exact sha
 Rules:
 - Exactly ONE email in each pair must be "phish" and the other "safe".
 - either both pairs in a group(Phish & safe) have attachments or both dont. 
-- Vary departments (HR, Finance, IT, Facilities, Travel, Legal, Security, etc.).
+- Vary departments (HR, Finance, IT, Facilities, Travel, Legal, Security, etc.) and both emails in a pair must be of the same theme, that is the phish and the real email must be of the same theme, so that the user can differentiate between a real and a phish clearly.
 - Use human, office-like language with realistic details.
 - Output pure JSON only (no code fences, no extra prose).`;
 
