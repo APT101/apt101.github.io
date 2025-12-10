@@ -85,7 +85,7 @@ You MUST return ONLY a JSON array, where each element is an object with this exa
       "subject": "string",
       "from": "name@domain.tld",
       "to": ["employee@company.com"],
-      "attachment": "string (optional, e.g. \\"training.pdf\\" or \\"invoice.pdf.exe\\")",
+      "attachment": "string (optional, e.g. \\"training.pdf\\" or \\"invoice.pdf.exe/.scr /.bat / \\")",
       "desc": "full email body text",
       "correct": "phish" | "safe",
       "explain": "1–2 sentences explaining why this email is phishing or safe"
@@ -119,7 +119,7 @@ STRICT rules:
 - For PHISH emails:
   - Use at least one clear red flag such as:
     - lookalike or misspelled domains,
-    - executable attachment (like .pdf.exe or .exe),
+    - executable attachment (like .pdf.exe or .scr, .bat , .exe),
     - urgent or threatening language,
     - credential / payment / personal data requests,
     - suspicious non-HTTPS links.
