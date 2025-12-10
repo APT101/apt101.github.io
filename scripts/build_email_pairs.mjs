@@ -101,6 +101,7 @@ Return ONLY a JSON array where EACH element is a PAIR object with this exact sha
 }
 Rules:
 - Exactly ONE email in each pair must be "phish" and the other "safe".
+- either both pairs have attachments or both dont. 
 - Vary departments (HR, Finance, IT, Facilities, Travel, Legal, Security, etc.).
 - Use human, office-like language with realistic details.
 - Output pure JSON only (no code fences, no extra prose).`;
