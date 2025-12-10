@@ -112,7 +112,7 @@ For EACH email:
 - Choose a random body length between ${MIN_WORDS} and ${MAX_WORDS} words (approx).
 - Include an "attachment" field in ~${ATTACHMENT_RATE}% of emails (overall), with realistic filenames.
   - Safe examples: "training.pdf", "report.pdf".
-  - Phish examples: "training.pdf.exe", "invoice.pdf.exe".
+  - Phish examples: "training.pdf.exe", "invoice.pdf.exe/.src/.bat".
 - Ensure each pair has ONE "phish" and ONE "safe". Return JSON array of { "pair": [emailA, emailB] } only.`;
 
   const resp = await client.chat.completions.create({
