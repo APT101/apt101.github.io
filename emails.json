@@ -1,1 +1,363 @@
-
+{
+  "email_group_1": [
+    {
+      "subject": "Important Update on Employee Benefits",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe are reaching out to inform you about an important update regarding your employee benefits. It is crucial that you review the attached document to ensure you are aware of the changes that will take effect next month.\n\nPlease make sure to open the attachment as soon as possible to avoid any disruptions in your benefits. If you have any questions, feel free to reach out.\n\nBest regards,\nMaria Thompson\nHR Manager",
+      "correct": "phish",
+      "explain": "This email is phishing because it includes an executable attachment disguised as a PDF, which could install malware.",
+      "attachment": "benefits_overview.pdf.exe"
+    },
+    {
+      "subject": "Important Update on Employee Benefits",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe are reaching out to inform you about an important update regarding your employee benefits. It is crucial that you review the attached document to ensure you are aware of the changes that will take effect next month.\n\nIf you have any questions, feel free to reach out. Thank you for your attention to this matter.\n\nBest regards,\nMaria Thompson\nHR Manager",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "benefits_overview.pdf"
+    }
+  ],
+  "email_group_2": [
+    {
+      "subject": "Urgent: Action Required for Your Payroll",
+      "from": "payroll@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe have detected an issue with your payroll information that requires immediate attention. Please download the attached file and follow the instructions to rectify the problem.\n\nFailure to act promptly may result in a delay in your next paycheck. We appreciate your swift response to this matter.\n\nBest,\nJohn Smith\nPayroll Department",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the urgent tone, which pressures the recipient to act quickly.",
+      "attachment": "payroll_update.pdf.scr"
+    },
+    {
+      "subject": "Payroll Update Notification",
+      "from": "payroll@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe are sending you the latest payroll update for your review. Please find the attached document that outlines the details of your upcoming paycheck.\n\nIf you have any questions or concerns, do not hesitate to reach out to the payroll department. Thank you for your attention.\n\nBest,\nJohn Smith\nPayroll Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not contain any urgent or threatening language.",
+      "attachment": "payroll_update.pdf"
+    }
+  ],
+  "email_group_3": [
+    {
+      "subject": "Security Alert: Immediate Action Required",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have detected suspicious activity on your account and need you to verify your identity immediately. Please download the attached file and follow the instructions provided.\n\nFailure to do so may result in your account being suspended. Act now to secure your information!\n\nSincerely,\nAlice Johnson\nSecurity Team",
+      "correct": "phish",
+      "explain": "This email is phishing because it contains an executable attachment and uses threatening language to create urgency.",
+      "attachment": "security_update.exe"
+    },
+    {
+      "subject": "Security Update Notification",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe would like to inform you about the latest security updates that have been implemented to protect your account. Please find the attached document for more details.\n\nIf you have any questions or concerns, feel free to reach out to the security team. Thank you for your cooperation.\n\nSincerely,\nAlice Johnson\nSecurity Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "security_update.pdf"
+    }
+  ],
+  "email_group_4": [
+    {
+      "subject": "Urgent: Update Your Account Information",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe have noticed that your account information is outdated. To ensure uninterrupted service, please download the attached file and update your details as soon as possible.\n\nThis is a critical update, and your prompt action is needed to avoid any issues with your account.\n\nBest,\nSupport Team",
+      "correct": "phish",
+      "explain": "This email is phishing as it requests the recipient to download a suspicious executable attachment and update sensitive information.",
+      "attachment": "account_verification.pdf.bat"
+    },
+    {
+      "subject": "Account Information Update Reminder",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nThis is a friendly reminder to review your account information. Please find the attached document for your reference.\n\nIf you have any questions, feel free to reach out to our support team. Thank you for your attention to this matter.\n\nBest,\nSupport Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not pressure the recipient for immediate action.",
+      "attachment": "account_verification.pdf"
+    }
+  ],
+  "email_group_5": [
+    {
+      "subject": "Action Required: Update Your Payment Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have encountered an issue with your payment information. To prevent any disruption in service, please download the attached file and follow the instructions to update your information.\n\nIt is imperative that you take action immediately to avoid any service interruptions.\n\nRegards,\nBilling Department",
+      "correct": "phish",
+      "explain": "This email is phishing as it includes an executable attachment and creates a sense of urgency for the recipient to act.",
+      "attachment": "invoice_details.pdf.exe"
+    },
+    {
+      "subject": "Payment Information Update Notice",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe are sending you a notification regarding your payment information. Please find the attached document for your review.\n\nIf you have any questions or need assistance, do not hesitate to contact us. Thank you for your attention.\n\nRegards,\nBilling Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "invoice_details.pdf"
+    }
+  ],
+  "email_group_6": [
+    {
+      "subject": "Immediate Attention Required: Training Session",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nYou are required to attend a mandatory training session next week. Please download the attached materials to prepare for the session.\n\nFailure to attend may affect your performance review. Act quickly to ensure you are ready!\n\nBest,\nTraining Coordinator",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the pressure to act quickly.",
+      "attachment": "training_materials.pdf.scr"
+    },
+    {
+      "subject": "Upcoming Training Session Details",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe are excited to announce an upcoming mandatory training session next week. Attached are the training materials for your review.\n\nPlease feel free to reach out if you have any questions. Looking forward to seeing you there!\n\nBest,\nTraining Coordinator",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not pressure the recipient.",
+      "attachment": "training_materials.pdf"
+    }
+  ],
+  "email_group_7": [
+    {
+      "subject": "Critical: Update Your Profile Information",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have identified an issue with your profile information that requires immediate correction. Please download the attached file and update your details to avoid any disruptions.\n\nYour prompt action is necessary to maintain your account status.\n\nBest,\nHR Department",
+      "correct": "phish",
+      "explain": "This email is phishing because it includes a suspicious executable attachment and pressures the recipient to act quickly.",
+      "attachment": "profile_update.pdf.bat"
+    },
+    {
+      "subject": "Profile Information Update Reminder",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nThis is a reminder to review your profile information. Please find the attached document for your reference.\n\nIf you have any questions, feel free to reach out to HR. Thank you for your attention.\n\nBest,\nHR Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "profile_update.pdf"
+    }
+  ],
+  "email_group_8": [
+    {
+      "subject": "Urgent: Verify Your Account Details",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe have detected unusual activity on your account. To secure your information, please download the attached file and verify your details immediately.\n\nNeglecting to do so may result in account suspension. Please take action now!\n\nBest,\nAdmin Team",
+      "correct": "phish",
+      "explain": "This email is phishing as it contains an executable attachment and uses alarming language to create urgency.",
+      "attachment": "account_verification.pdf.exe"
+    },
+    {
+      "subject": "Account Verification Instructions",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe are sending you instructions for verifying your account details. Please find the attached document for your reference.\n\nIf you have any questions, please reach out to the admin team. Thank you for your cooperation.\n\nBest,\nAdmin Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not pressure the recipient.",
+      "attachment": "account_verification.pdf"
+    }
+  ],
+  "email_group_9": [
+    {
+      "subject": "Action Required: Update Your Security Settings",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have identified a potential security risk associated with your account. Please download the attached file to update your security settings immediately.\n\nFailure to comply may result in your account being compromised. Act now to protect your information!\n\nSincerely,\nSecurity Team",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the urgency created to pressure the recipient.",
+      "attachment": "security_settings.pdf.bat"
+    },
+    {
+      "subject": "Security Settings Update Notification",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe would like to inform you about the latest updates to our security settings. Please find the attached document for your review.\n\nIf you have any questions, feel free to reach out to the security team. Thank you for your cooperation.\n\nSincerely,\nSecurity Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "security_settings.pdf"
+    }
+  ],
+  "email_group_10": [
+    {
+      "subject": "Important: Update Required for Your Account",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe have noticed that your account requires an important update. Please download the attached file and follow the instructions to ensure your account remains active.\n\nYour immediate attention to this matter is necessary to avoid any disruptions.\n\nBest,\nSupport Team",
+      "correct": "phish",
+      "explain": "This email is phishing because it includes a suspicious executable attachment and pressures the recipient for immediate action.",
+      "attachment": "account_update.pdf.scr"
+    },
+    {
+      "subject": "Account Update Reminder",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nThis is a reminder to review your account information. Please find the attached document for your reference.\n\nIf you have any questions, feel free to reach out to our support team. Thank you for your attention.\n\nBest,\nSupport Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "account_update.pdf"
+    }
+  ],
+  "email_group_11": [
+    {
+      "subject": "Urgent: Verify Your Payment Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have detected an issue with your payment information that requires immediate verification. Please download the attached file and follow the instructions to update your details.\n\nFailure to act promptly may result in payment delays. Please take action now!\n\nRegards,\nBilling Department",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the urgent tone, which pressures the recipient to act quickly.",
+      "attachment": "payment_verification.pdf.exe"
+    },
+    {
+      "subject": "Payment Information Update Notification",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe are sending you a notification regarding your payment information. Please find the attached document for your review.\n\nIf you have any questions or need assistance, do not hesitate to contact us. Thank you for your attention.\n\nRegards,\nBilling Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "payment_verification.pdf"
+    }
+  ],
+  "email_group_12": [
+    {
+      "subject": "Immediate Action Required: Training Confirmation",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nWe have an important training session coming up, and your confirmation is required. Please download the attached file and confirm your attendance immediately.\n\nFailure to confirm may affect your training record. Please act quickly!\n\nBest,\nTraining Coordinator",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the pressure to confirm attendance immediately.",
+      "attachment": "training_confirmation.pdf.bat"
+    },
+    {
+      "subject": "Training Session Confirmation Reminder",
+      "from": "training@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi Team,\n\nThis is a reminder to confirm your attendance for the upcoming training session. Please find the attached document for your reference.\n\nIf you have any questions, feel free to reach out. Looking forward to seeing you there!\n\nBest,\nTraining Coordinator",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not pressure the recipient.",
+      "attachment": "training_confirmation.pdf"
+    }
+  ],
+  "email_group_13": [
+    {
+      "subject": "Action Required: Update Your Contact Information",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have detected outdated contact information in your profile. Please download the attached file and update your details to avoid any disruptions.\n\nYour immediate attention is required to ensure your information is current.\n\nBest,\nHR Department",
+      "correct": "phish",
+      "explain": "This email is phishing because it includes a suspicious executable attachment and pressures the recipient to act quickly.",
+      "attachment": "contact_update.pdf.scr"
+    },
+    {
+      "subject": "Contact Information Update Reminder",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nThis is a reminder to review your contact information. Please find the attached document for your reference.\n\nIf you have any questions, feel free to reach out to HR. Thank you for your attention.\n\nBest,\nHR Department",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "contact_update.pdf"
+    }
+  ],
+  "email_group_14": [
+    {
+      "subject": "Urgent: Confirm Your Account Information",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe have detected suspicious activity on your account. To secure your information, please download the attached file and confirm your details immediately.\n\nNeglecting to do so may result in account suspension. Please take action now!\n\nBest,\nAdmin Team",
+      "correct": "phish",
+      "explain": "This email is phishing as it contains an executable attachment and uses alarming language to create urgency.",
+      "attachment": "account_confirmation.pdf.exe"
+    },
+    {
+      "subject": "Account Confirmation Instructions",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hi,\n\nWe are sending you instructions for confirming your account details. Please find the attached document for your reference.\n\nIf you have any questions, please reach out to the admin team. Thank you for your cooperation.\n\nBest,\nAdmin Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not pressure the recipient.",
+      "attachment": "account_confirmation.pdf"
+    }
+  ],
+  "email_group_15": [
+    {
+      "subject": "Immediate Attention Required: Update Your Security Settings",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe have identified a potential security risk associated with your account. Please download the attached file to update your security settings immediately.\n\nFailure to comply may result in your account being compromised. Act now to protect your information!\n\nSincerely,\nSecurity Team",
+      "correct": "phish",
+      "explain": "This email is phishing due to the executable attachment and the urgency created to pressure the recipient.",
+      "attachment": "security_update.pdf.bat"
+    },
+    {
+      "subject": "Security Settings Update Notification",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee,\n\nWe would like to inform you about the latest updates to our security settings. Please find the attached document for your review.\n\nIf you have any questions, feel free to reach out to the security team. Thank you for your cooperation.\n\nSincerely,\nSecurity Team",
+      "correct": "safe",
+      "explain": "This email is safe as it contains a legitimate PDF attachment and does not request sensitive information.",
+      "attachment": "security_update.pdf"
+    }
+  ],
+  "last_updated_emails": "2025-12-10T07:34:40.044Z"
+}
