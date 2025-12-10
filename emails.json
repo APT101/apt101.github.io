@@ -1,1 +1,384 @@
-
+{
+  "email_group_1": [
+    {
+      "subject": "Upcoming Compliance Training",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We are excited to announce an upcoming compliance training session scheduled for next month. This training is mandatory for all employees and will cover essential topics such as workplace safety, harassment policies, and data protection regulations. The session will be held on March 15th from 10 AM to 12 PM in the main conference room. Please find the training materials attached for your review prior to the session. Your participation is crucial in ensuring we maintain a safe and compliant workplace. If you have any questions or concerns regarding the training, feel free to reach out. Best regards, HR Team.",
+      "correct": "safe",
+      "explain": "The email comes from the HR department, contains relevant information about mandatory training, and has a legitimate attachment."
+    },
+    {
+      "subject": "Important: Update Your Payroll Information",
+      "from": "payroll@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee, We have noticed some discrepancies in your payroll information that need to be addressed immediately. To ensure you receive your correct salary, please download the attached file and follow the instructions to update your information. Failure to do so may result in delays in your next paycheck. Thank you for your prompt attention to this matter. Regards, Payroll Department.",
+      "correct": "phish",
+      "explain": "The email requests sensitive information through an executable attachment, which is a common phishing tactic."
+    }
+  ],
+  "email_group_2": [
+    {
+      "subject": "Quarterly Financial Report",
+      "from": "finance@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hello Team, Attached is the quarterly financial report for your review. This document provides insights into our financial performance over the last quarter, highlighting key areas of growth and opportunities for improvement. Please take the time to go through the report before our upcoming financial review meeting scheduled for next week. Your feedback will be invaluable as we prepare for the discussion. If you have any questions or need further clarification on any points, don't hesitate to reach out. Thank you, Finance Team.",
+      "correct": "safe",
+      "explain": "The email is from the finance department, contains a relevant attachment, and does not request any sensitive information."
+    },
+    {
+      "subject": "Action Required: Verify Your Account",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected unusual activity on your account and require you to verify your information immediately. Please download the attached file and follow the instructions provided. If you do not verify your account within 24 hours, it will be temporarily suspended. We appreciate your cooperation. Sincerely, Support Team.",
+      "correct": "phish",
+      "explain": "The email creates a sense of urgency and includes a suspicious attachment to trick the user into executing it."
+    }
+  ],
+  "email_group_3": [
+    {
+      "subject": "IT System Maintenance Notification",
+      "from": "it@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear All, Please be informed that there will be scheduled maintenance on our IT systems this weekend. The maintenance window will start on Saturday at 10 PM and will last until Sunday at 6 AM. During this time, access to various IT services, including email and file sharing, may be intermittent. We appreciate your understanding and patience as we work to improve our systems. If you have any urgent issues during this time, please contact the IT helpdesk. Thank you, IT Department.",
+      "correct": "safe",
+      "explain": "The email provides necessary information about system maintenance from the IT department without any attachments or requests for sensitive information."
+    },
+    {
+      "subject": "Immediate Action Required: Update Your Security Settings",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Attention Employee, We have identified a security vulnerability in your account that requires immediate action. Please download the attached file to update your security settings and protect your account. Failure to do so could result in unauthorized access. Act now to ensure your account remains secure. Regards, Security Team.",
+      "correct": "phish",
+      "explain": "The email pressures the employee to download an executable file under the guise of a security update, which is a phishing tactic.",
+      "attachment": "security_update.pdf.exe"
+    }
+  ],
+  "email_group_4": [
+    {
+      "subject": "Travel Itinerary Confirmation",
+      "from": "travel@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Employee, Your travel itinerary for the upcoming business trip has been confirmed. Please find the detailed itinerary attached. It includes your flight details, hotel accommodations, and transportation arrangements. Make sure to review it carefully and reach out if you have any questions or need to make changes. We wish you a safe and productive trip. Best, Travel Department.",
+      "correct": "safe",
+      "explain": "The email is from the travel department, contains a legitimate attachment, and provides necessary travel information.",
+      "attachment": "itinerary.pdf"
+    },
+    {
+      "subject": "Urgent: Your Account Will Be Suspended",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We regret to inform you that your account is at risk of suspension due to inactivity. To prevent this, please download the attached document and follow the instructions. If you do not act within the next 48 hours, your account will be permanently suspended. Thank you for your prompt attention to this matter. Regards, Admin Team.",
+      "correct": "phish",
+      "explain": "The email uses fear tactics to prompt the user to download a malicious executable file.",
+      "attachment": "account_suspension_notice.doc.exe"
+    }
+  ],
+  "email_group_5": [
+    {
+      "subject": "New Policy Update",
+      "from": "legal@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We would like to inform you about a new policy update regarding remote work and flexible hours. This update will take effect next month and aims to enhance work-life balance for all employees. Please review the details in the company handbook, which will be updated accordingly. If you have any questions or feedback regarding this policy, feel free to reach out. Thank you for your attention. Best, Legal Department.",
+      "correct": "safe",
+      "explain": "The email provides information about a policy update from the legal department without requesting sensitive information or including attachments."
+    },
+    {
+      "subject": "Final Notice: Update Your Payment Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Attention, Your payment information is outdated and requires immediate updating. Please download the attached document and follow the instructions to update your information. Failure to do so will result in a disruption of service. Act now to avoid any issues. Regards, Billing Department.",
+      "correct": "phish",
+      "explain": "The email creates urgency and includes a malicious executable attachment, typical of phishing attempts."
+    }
+  ],
+  "email_group_6": [
+    {
+      "subject": "Employee Feedback Survey",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We value your feedback and would like to invite you to participate in our annual employee feedback survey. Your insights are crucial for us to improve our workplace environment and policies. The survey will be open from next week and will take approximately 10 minutes to complete. Your responses will be anonymous and greatly appreciated. Thank you for your participation. Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email invites employees to participate in a survey from HR, with no attachments or sensitive requests."
+    },
+    {
+      "subject": "Security Alert: Verify Your Credentials",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected suspicious activity on your account. To protect your information, please verify your credentials by downloading the attached file and following the instructions. Failure to verify may result in account suspension. Thank you for your cooperation. Regards, Security Team.",
+      "correct": "phish",
+      "explain": "The email uses a security alert to prompt the user to download a malicious file, a common phishing tactic."
+    }
+  ],
+  "email_group_7": [
+    {
+      "subject": "Invitation to Company Wellness Program",
+      "from": "wellness@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hello Team, We are pleased to announce a new wellness program aimed at promoting health and well-being among our employees. Attached you will find the program details, including activities, schedules, and how to participate. We encourage everyone to take part and make the most of these opportunities. If you have any questions, please reach out. Best regards, Wellness Team.",
+      "correct": "safe",
+      "explain": "The email provides information about a wellness program from the wellness department and includes a legitimate attachment.",
+      "attachment": "wellness_program.pdf"
+    },
+    {
+      "subject": "Immediate Action Required: Your Account Has Been Compromised",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have identified that your account has been compromised. To secure your account, please download the attached file and follow the instructions immediately. Failure to do so may result in loss of access. Thank you for your prompt attention. Regards, Support Team.",
+      "correct": "phish",
+      "explain": "The email uses fear to prompt the user to download a malicious file, typical of phishing attempts.",
+      "attachment": "account_compromise_alert.bat"
+    }
+  ],
+  "email_group_8": [
+    {
+      "subject": "New Employee Orientation Schedule",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We are excited to welcome new employees to our company! Attached is the schedule for the upcoming orientation sessions. These sessions will cover essential topics to help our new hires integrate smoothly into our company culture. Please share this information with any new team members. If you have any questions, feel free to reach out to HR. Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email provides useful information regarding new employee orientation from HR without any attachments."
+    },
+    {
+      "subject": "Urgent: Confirm Your Email Address",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We need you to confirm your email address to ensure the security of your account. Please download the attached file and follow the instructions. If you do not confirm within 24 hours, your account will be locked. Thank you for your immediate attention. Regards, Admin Team.",
+      "correct": "phish",
+      "explain": "The email pressures the user to download a malicious executable file under the guise of confirming their email."
+    }
+  ],
+  "email_group_9": [
+    {
+      "subject": "Annual Performance Review Process",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, It's that time of year again! The annual performance review process will begin next month. We encourage everyone to prepare by reflecting on your goals and accomplishments over the past year. More details will be shared in the upcoming weeks. If you have any questions, please reach out to HR. Thank you for your dedication and hard work. Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email informs employees about the performance review process from HR without any attachments or requests for sensitive information."
+    },
+    {
+      "subject": "Final Notice: Update Your Billing Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Attention, We have noticed that your billing information is outdated. Please download the attached document and follow the instructions to update your information. Failure to do so may result in service interruption. Thank you for your prompt attention. Regards, Billing Department.",
+      "correct": "phish",
+      "explain": "The email creates urgency and includes a malicious executable attachment, typical of phishing attempts."
+    }
+  ],
+  "email_group_10": [
+    {
+      "subject": "Team Building Event Details",
+      "from": "events@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hello Team, We are excited to announce our upcoming team building event! Attached are the details including the date, location, and activities planned for the day. This is a great opportunity to strengthen our team dynamics and have some fun together. Please make sure to review the attachment and RSVP by the end of the week. Looking forward to seeing everyone there! Best, Events Team.",
+      "correct": "safe",
+      "explain": "The email provides details about a team building event from the events department and includes a legitimate attachment."
+    },
+    {
+      "subject": "Important: Your Account is at Risk",
+      "from": "security@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected unusual activity on your account. To protect your information, please download the attached file and follow the instructions. Failure to do so may result in your account being compromised. Thank you for your cooperation. Regards, Security Team.",
+      "correct": "phish",
+      "explain": "The email uses a security alert to prompt the user to download a malicious file, a common phishing tactic."
+    }
+  ],
+  "email_group_11": [
+    {
+      "subject": "Reminder: Upcoming Company Holiday",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, This is a friendly reminder that our company holiday is approaching. Please mark your calendars for the day off on April 1st. We hope everyone enjoys the break and comes back refreshed. If you have any questions regarding the holiday schedule, please reach out to HR. Thank you! Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email is a simple reminder about a company holiday from HR without any attachments or requests."
+    },
+    {
+      "subject": "Urgent: Update Your Security Settings",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Attention Employee, We have identified a security issue with your account. To rectify this, please download the attached file and follow the instructions. Failure to do so may result in account suspension. Thank you for your immediate attention. Regards, Admin Team.",
+      "correct": "phish",
+      "explain": "The email pressures the employee to download a malicious executable file under the guise of a security update."
+    }
+  ],
+  "email_group_12": [
+    {
+      "subject": "Invitation to Annual Company Picnic",
+      "from": "events@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hello Team, We are thrilled to invite you to our annual company picnic! This year, it will be held at Central Park on June 10th. It will be a day filled with fun activities, food, and games. Please RSVP by the end of this week so we can finalize the arrangements. We look forward to seeing everyone there! Best, Events Team.",
+      "correct": "safe",
+      "explain": "The email invites employees to a company picnic from the events department without any attachments or sensitive requests."
+    },
+    {
+      "subject": "Action Required: Verify Your Account Information",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected suspicious activity on your account. To protect your information, please download the attached document and verify your account information. Failure to do so may result in account suspension. Thank you for your cooperation. Regards, Support Team.",
+      "correct": "phish",
+      "explain": "The email uses urgency and a malicious attachment to trick the user into providing sensitive information.",
+      "attachment": "verify_account_info.doc.exe"
+    }
+  ],
+  "email_group_13": [
+    {
+      "subject": "New Training Opportunities Available",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We are excited to share new training opportunities that are now available to all employees. Attached you will find a document detailing the various training programs, schedules, and how to enroll. We encourage everyone to take advantage of these opportunities for professional growth. If you have any questions, please reach out to HR. Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email provides information about training opportunities from HR and includes a legitimate attachment."
+    },
+    {
+      "subject": "Important: Update Your Payment Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Attention, Your payment information is outdated. Please download the attached file and follow the instructions to update your information. Failure to do so may result in service interruption. Thank you for your prompt attention. Regards, Billing Department.",
+      "correct": "phish",
+      "explain": "The email creates urgency and includes a malicious executable attachment, typical of phishing attempts."
+    }
+  ],
+  "email_group_14": [
+    {
+      "subject": "Feedback Request: Recent Training Session",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, Thank you for participating in the recent training session. We value your feedback and would appreciate it if you could take a few minutes to provide your thoughts on the session. Your insights will help us improve future training programs. If you have any questions or need assistance, please reach out. Thank you for your time! Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email requests feedback from employees after a training session without any attachments or sensitive requests."
+    },
+    {
+      "subject": "Urgent: Your Account Needs Verification",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected unusual activity on your account. To secure your account, please download the attached file and follow the instructions. Failure to do so may result in your account being compromised. Thank you for your cooperation. Regards, Admin Team.",
+      "correct": "phish",
+      "explain": "The email uses urgency to prompt the user to download a malicious file, a common phishing tactic."
+    }
+  ],
+  "email_group_15": [
+    {
+      "subject": "Company Newsletter - March Edition",
+      "from": "communications@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Hello Team, We are excited to share the March edition of our company newsletter! It includes updates on recent projects, employee spotlights, and upcoming events. We encourage everyone to read through it and stay informed about what’s happening in our organization. If you have any contributions or feedback, please let us know. Best, Communications Team.",
+      "correct": "safe",
+      "explain": "The email shares the company newsletter from the communications department without any attachments or sensitive requests."
+    },
+    {
+      "subject": "Final Notice: Update Your Account Information",
+      "from": "billing@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have noticed that your account information is outdated. Please download the attached document and follow the instructions to update your information. Failure to do so may result in service interruption. Thank you for your prompt attention. Regards, Billing Department.",
+      "correct": "phish",
+      "explain": "The email creates urgency and includes a malicious executable attachment, typical of phishing attempts."
+    }
+  ],
+  "email_group_16": [
+    {
+      "subject": "Invitation to Participate in Focus Group",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, We are conducting a focus group to gather insights on employee satisfaction and workplace improvements. Your participation would be greatly valued. If you are interested, please respond to this email by the end of the week. Thank you for your consideration! Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email invites employees to participate in a focus group without any attachments or sensitive requests."
+    },
+    {
+      "subject": "Urgent: Your Account is at Risk",
+      "from": "support@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected suspicious activity on your account. To protect your information, please download the attached file and follow the instructions. Failure to do so may result in your account being compromised. Thank you for your cooperation. Regards, Support Team.",
+      "correct": "phish",
+      "explain": "The email uses a security alert to prompt the user to download a malicious file, a common phishing tactic."
+    }
+  ],
+  "email_group_17": [
+    {
+      "subject": "Reminder: Performance Review Meetings",
+      "from": "hr@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear Team, This is a reminder that performance review meetings will be taking place next week. Please prepare any necessary documentation and be ready to discuss your achievements and goals. If you have any questions, feel free to reach out to HR. Thank you for your hard work! Best, HR Team.",
+      "correct": "safe",
+      "explain": "The email serves as a reminder for performance reviews from HR without any attachments or requests."
+    },
+    {
+      "subject": "Important: Verify Your Account Information",
+      "from": "admin@company.com",
+      "to": [
+        "employee@company.com"
+      ],
+      "desc": "Dear User, We have detected unusual activity on your account. To secure your account, please download the attached file and verify your account information. Failure to do so may result in account suspension. Thank you for your cooperation. Regards, Admin Team.",
+      "correct": "phish",
+      "explain": "The email uses urgency and a malicious attachment to trick the user into providing sensitive information.",
+      "attachment": "verify_account_info.exe"
+    }
+  ],
+  "last_updated_emails": "2025-12-10T09:08:43.695Z"
+}
