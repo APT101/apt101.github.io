@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-02-02T05:10:02.416Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe are implementing a new mandatory training session for all employees to enhance our skills and knowledge. The training will take place on Friday, March 10th, at 10 AM in the main conference room. Please ensure your attendance as this is crucial for our upcoming projects.\n\nAttached is a PDF with details about the training agenda and what to expect. If you have any questions, feel free to reach out.\n\nBest regards,\n\nHR Team",
+        "correct": "safe",
+        "explain": "The email is from HR, has a legitimate subject, and includes a safe attachment related to training.",
+        "attachment": "training.pdf"
+      },
+      {
+        "subject": "Urgent: Mandatory Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe urgently need you to complete the mandatory training session by the end of the week. Attached is the training document that you must download and execute to complete the session. Failure to comply may result in disciplinary action.\n\nPlease do this as soon as possible!\n\nBest,\n\nHR Team",
+        "correct": "phish",
+        "explain": "The email uses urgency and contains a malicious executable attachment disguised as a PDF.",
+        "attachment": "training.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached is the quarterly financial report for your review. Please take a moment to go through the document and prepare any questions you may have for our meeting next week. Your input is valuable as we discuss the financial outlook for the upcoming quarter.\n\nThank you for your attention to this matter.\n\nBest,\n\nFinance Department",
+        "correct": "safe",
+        "explain": "The email is from the finance department, contains a relevant subject, and includes a safe PDF attachment.",
+        "attachment": "report.pdf"
+      },
+      {
+        "subject": "Important: Review Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nPlease find the attached financial report that requires your immediate attention. It is crucial that you open the attachment and follow the instructions inside to ensure compliance with our financial policies.\n\nFailure to do so may result in penalties.\n\nRegards,\n\nFinance Department",
+        "correct": "phish",
+        "explain": "The email pressures the recipient to open a dangerous attachment disguised as a PDF.",
+        "attachment": "report.pdf.bat"
+      }
+    ],
+    [
+      {
+        "subject": "IT System Update Notification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Colleagues,\n\nWe are excited to inform you that we will be updating our IT systems this weekend. Attached is a guide on what to expect during the update process and how it may affect your work.\n\nPlease read through the document carefully and reach out if you have any questions.\n\nBest,\n\nIT Department",
+        "correct": "safe",
+        "explain": "The email is from the IT department, has a relevant subject, and includes a safe attachment."
+      },
+      {
+        "subject": "Critical IT Update Required",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Colleagues,\n\nA critical update to our IT systems is required immediately. Please download the attached file and run it to ensure your system is compliant. This is mandatory for all employees.\n\nFailure to do so could lead to system vulnerabilities.\n\nRegards,\n\nIT Department",
+        "correct": "phish",
+        "explain": "The email creates a false sense of urgency and includes a malicious executable file."
+      }
+    ],
+    [
+      {
+        "subject": "Travel Policy Update",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe have updated our travel policy to better align with our current business needs. Please find the updated policy attached for your review. It is important that you familiarize yourself with the changes before your next business trip.\n\nIf you have any questions, do not hesitate to reach out.\n\nBest,\n\nTravel Department",
+        "correct": "safe",
+        "explain": "The email is from the travel department, has a relevant subject, and includes a safe PDF attachment."
+      },
+      {
+        "subject": "Immediate Action Required: Travel Policy Update",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nImmediate action is required regarding our travel policy update. You must download and execute the attached file to confirm your compliance with the new policy. This is mandatory and must be completed within 24 hours.\n\nRegards,\n\nTravel Department",
+        "correct": "phish",
+        "explain": "The email uses urgency and contains a malicious executable attachment disguised as a PDF."
+      }
+    ],
+    [
+      {
+        "subject": "Upcoming Security Awareness Training",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe are pleased to announce an upcoming security awareness training session scheduled for next Thursday at 2 PM. Attached is the training document that outlines the topics we will cover. Your participation is essential to ensure we maintain a secure working environment.\n\nThank you,\n\nSecurity Team",
+        "correct": "safe",
+        "explain": "The email is from the security department, has a relevant subject, and includes a safe PDF attachment.",
+        "attachment": "security_training.pdf"
+      },
+      {
+        "subject": "Urgent: Security Training Confirmation Required",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nIt is imperative that you confirm your attendance for the security training by downloading and running the attached file. This is a critical requirement to ensure your access to company systems.\n\nFailure to comply may result in restricted access.\n\nBest,\n\nSecurity Team",
+        "correct": "phish",
+        "explain": "The email creates urgency and includes a dangerous executable disguised as a PDF.",
+        "attachment": "security_training.pdf.exe"
+      }
+    ]
+  ]
+}
