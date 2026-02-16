@@ -271,7 +271,7 @@
       "explain": "This email contains a malicious executable attachment and pressures the recipient to act quickly, a common phishing tactic."
     }
   ],
-  "last_updated_emails": "2026-02-16T05:13:04.995Z",
+  "last_updated_emails": "2026-02-09T05:14:01.985Z",
   "email_group_13": [
     {
       "subject": "Annual Performance Review Process",
@@ -1559,121 +1559,6 @@
       "desc": "Dear Employee,\n\nYou are required to download and execute the attached legal document to confirm your agreement. This action must be completed immediately to avoid legal issues.\n\nThank you,\nLegal Department",
       "correct": "phish",
       "explain": "The email requests the employee to execute a file, which is a phishing tactic."
-    }
-  ],
-  "email_group_69": [
-    {
-      "subject": "Mandatory Training Session",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe are excited to announce a mandatory training session scheduled for next week. This training will cover important updates regarding our company policies and procedures. \n\nPlease find the training document attached for your review prior to the session. Attendance is crucial, and we encourage you to come prepared with any questions you may have. \n\nThank you for your cooperation.\n\nBest regards,\n\nHR Department",
-      "correct": "safe",
-      "explain": "This email comes from the HR department and contains a legitimate attachment related to mandatory training."
-    },
-    {
-      "subject": "Urgent: Update Your Training Document",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nIt has come to our attention that your training document needs immediate updating. Please find the updated document attached and ensure you complete the necessary changes by the end of the day.\n\nFailure to comply may result in disciplinary action. \n\nBest,\nHR Team",
-      "correct": "phish",
-      "explain": "This email requests urgent action and contains an executable attachment, which is a common phishing tactic."
-    }
-  ],
-  "email_group_70": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nAttached is the quarterly financial report for your review. Please take a moment to analyze the figures and prepare any questions for our upcoming meeting.\n\nYour insights are valuable, and we look forward to discussing this in detail.\n\nBest,\nFinance Department",
-      "correct": "safe",
-      "explain": "This email is from the finance department and contains a legitimate PDF attachment related to the quarterly report.",
-      "attachment": "quarterly_report.pdf"
-    },
-    {
-      "subject": "Action Required: Financial Report Update",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe have identified discrepancies in your financial report. Please download the attached file and follow the instructions to rectify the issues immediately.\n\nFailure to act may result in penalties.\n\nRegards,\nFinance Team",
-      "correct": "phish",
-      "explain": "This email pressures the recipient to act quickly and includes an executable file, indicating a phishing attempt.",
-      "attachment": "quarterly_report.pdf.exe"
-    }
-  ],
-  "email_group_71": [
-    {
-      "subject": "IT System Maintenance Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe would like to inform you about scheduled maintenance on our IT systems this weekend. During this time, access to certain applications may be limited.\n\nWe appreciate your understanding as we work to improve our systems. If you have any questions, please feel free to reach out.\n\nThank you,\nIT Department",
-      "correct": "safe",
-      "explain": "This email provides information about scheduled maintenance from the IT department and does not include any suspicious attachments."
-    },
-    {
-      "subject": "Immediate Action Required: IT System Update",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello,\n\nDue to a critical security issue, you must update your system immediately. Please download the attached file and execute it to ensure your system is secure.\n\nFailure to do so could put company data at risk.\n\nBest,\nIT Support",
-      "correct": "phish",
-      "explain": "This email urges immediate action and includes a suspicious executable file, which is a common phishing tactic.",
-      "attachment": "update_instructions.bat"
-    }
-  ],
-  "email_group_72": [
-    {
-      "subject": "Travel Policy Update",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe have updated our travel policy to better serve our employees. Please review the attached document to familiarize yourself with the new guidelines.\n\nIf you have any questions or concerns, do not hesitate to reach out.\n\nBest regards,\nTravel Department",
-      "correct": "safe",
-      "explain": "This email is from the travel department and contains a legitimate PDF attachment regarding policy updates.",
-      "attachment": "travel_policy.pdf"
-    },
-    {
-      "subject": "Urgent: Travel Policy Document",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe noticed that you have not reviewed the latest travel policy updates. Please download the attached document and confirm your acknowledgment.\n\nFailure to do so may affect your travel arrangements.\n\nThank you,\nTravel Team",
-      "correct": "phish",
-      "explain": "This email creates a sense of urgency and includes an executable attachment, which is a red flag for phishing.",
-      "attachment": "travel_policy.pdf.exe"
-    }
-  ],
-  "email_group_73": [
-    {
-      "subject": "Upcoming Security Awareness Training",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nWe are pleased to announce an upcoming Security Awareness Training session. This training is essential for helping you recognize and respond to security threats effectively.\n\nMore details will follow, but please mark your calendars for next Thursday at 10 AM.\n\nBest,\nSecurity Department",
-      "correct": "safe",
-      "explain": "This email is an announcement from the security department regarding a training session and does not contain any suspicious attachments."
-    },
-    {
-      "subject": "Immediate Security Training Required",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nDue to recent security breaches, you are required to complete a security training session immediately. Please download and run the attached file to complete your training.\n\nFailure to comply may result in restricted access to company resources.\n\nRegards,\nSecurity Team",
-      "correct": "phish",
-      "explain": "This email pressures the recipient to act quickly and includes an executable attachment, indicating a phishing attempt."
     }
   ]
 }
