@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-04-06T05:35:48.327Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are implementing a new training program that is mandatory for all staff. This training will cover important updates regarding our company policies and procedures. \n\nPlease find the attached document that outlines the training schedule and topics. Make sure to review it carefully and mark your calendars.\n\nIf you have any questions, feel free to reach out.\n\nBest regards,\nHR Team",
+        "correct": "safe",
+        "explain": "The email is from the HR department, includes a legitimate attachment, and is informative about mandatory training."
+      },
+      {
+        "subject": "Urgent: Training Document Update",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have updated the training document that you need to review immediately. It is crucial for compliance with new regulations. \n\nPlease download the attached file and complete the review by the end of the day.\n\nThank you,\nHR Team",
+        "correct": "phish",
+        "explain": "The email contains an executable attachment, which is a common tactic in phishing attempts."
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached is the quarterly financial report for your review. Please ensure to go through it before our next meeting. If you have any questions or need further clarification, do not hesitate to ask.\n\nBest,\nFinance Department",
+        "correct": "safe",
+        "explain": "The email is from the finance department with a legitimate PDF attachment containing a financial report.",
+        "attachment": "report.pdf"
+      },
+      {
+        "subject": "Important: Financial Document",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nPlease find the attached financial document that requires your immediate attention. It is important to process this as soon as possible.\n\nRegards,\nFinance Team",
+        "correct": "phish",
+        "explain": "The email contains an executable attachment, which is suspicious and indicative of a phishing attempt.",
+        "attachment": "invoice.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "IT System Maintenance Notice",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe would like to inform you that there will be scheduled maintenance on our IT systems this weekend. Please save your work and log off by 6 PM on Friday.\n\nThank you for your cooperation.\n\nBest,\nIT Department",
+        "correct": "safe",
+        "explain": "The email is a standard notification from the IT department with no attachments, providing clear information."
+      },
+      {
+        "subject": "Urgent: IT System Update Required",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe need you to update your system immediately. Please download the attached file and run it to ensure your system is secure.\n\nThank you,\nIT Team",
+        "correct": "phish",
+        "explain": "The email requests the download of a batch file, which is a common phishing tactic to compromise systems."
+      }
+    ],
+    [
+      {
+        "subject": "Travel Expense Reimbursement",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi,\n\nAttached you will find the reimbursement form for your recent travel expenses. Please fill it out and submit it by the end of the week to ensure timely processing.\n\nBest,\nTravel Department",
+        "correct": "safe",
+        "explain": "The email is from the travel department with a legitimate PDF attachment for reimbursement.",
+        "attachment": "reimbursement_form.pdf"
+      },
+      {
+        "subject": "Action Required: Travel Expense Document",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have an important document regarding your travel expenses that needs your immediate action. Please download and execute the attached file to proceed.\n\nRegards,\nTravel Team",
+        "correct": "phish",
+        "explain": "The email contains an executable attachment, which is a red flag for phishing attempts.",
+        "attachment": "reimbursement_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Security Policy Update",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nWe have updated our security policies to enhance data protection. Please review the updated policies on our internal portal and ensure compliance.\n\nThank you,\nSecurity Team",
+        "correct": "safe",
+        "explain": "The email is a standard communication about policy updates from the security department with no attachments."
+      },
+      {
+        "subject": "Urgent: Security Policy Document",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nPlease find the attached document that requires your urgent attention regarding our security policy. Download and execute the file to ensure compliance.\n\nBest,\nSecurity Team",
+        "correct": "phish",
+        "explain": "The email contains an executable attachment, which is a common phishing tactic.",
+        "attachment": "security_policy.pdf.exe"
+      }
+    ]
+  ]
+}
