@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-04-13T05:59:20.766Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory HR Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are excited to announce a mandatory training session on workplace safety scheduled for next week. This session will cover essential safety protocols and emergency procedures that every employee must be aware of. \n\nPlease find the training materials attached to this email. It is crucial that you review these documents before the session. \n\nDate: March 15, 2023\nTime: 10:00 AM - 12:00 PM\nLocation: Conference Room B\n\nYour participation is vital to ensure a safe working environment for everyone. If you have any questions, feel free to reach out.\n\nBest regards,\n\nHR Department",
+        "correct": "safe",
+        "explain": "The email is from the HR department and contains a legitimate attachment related to mandatory training."
+      },
+      {
+        "subject": "Urgent: HR Training Document",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have an urgent update regarding the mandatory training session. Please download the attached document to ensure you are prepared. \n\nThis document contains critical information that you must read before attending the session. \n\nDate: March 15, 2023\nTime: 10:00 AM - 12:00 PM\nLocation: Conference Room B\n\nFailure to review this document may result in missing important updates. \n\nRegards,\n\nHR Team",
+        "correct": "phish",
+        "explain": "The attachment is an executable file, which is a common tactic used in phishing emails."
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached is the quarterly financial report for Q1 2023. Please review the document thoroughly as it contains important insights and data that will be discussed in our upcoming meeting. \n\nDate of Meeting: March 20, 2023\nTime: 2:00 PM\nLocation: Main Conference Room\n\nIf you have any questions or need further clarification, don’t hesitate to reach out.\n\nBest,\n\nFinance Department",
+        "correct": "safe",
+        "explain": "The email is from the finance department with a legitimate PDF attachment containing a financial report.",
+        "attachment": "report.pdf"
+      },
+      {
+        "subject": "Important: Financial Document Update",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have attached an important document that requires your immediate attention. Please download and open the attached file to review the updates on our financials. \n\nThis is crucial for our upcoming meeting scheduled for March 20, 2023. \n\nThank you for your prompt attention to this matter.\n\nSincerely,\n\nFinance Team",
+        "correct": "phish",
+        "explain": "The attachment is an executable file, which is a red flag indicating a phishing attempt.",
+        "attachment": "report.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "IT System Maintenance Notification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe would like to inform you about a scheduled maintenance window for our IT systems. The maintenance will take place on March 25, 2023, from 12:00 AM to 6:00 AM. During this time, access to certain systems may be limited. \n\nPlease ensure that you save your work and log out before the maintenance begins. If you have any concerns or questions, feel free to reach out to the IT department. \n\nThank you for your understanding.\n\nBest,\n\nIT Support",
+        "correct": "safe",
+        "explain": "The email is a standard notification from the IT department without any suspicious links or attachments."
+      },
+      {
+        "subject": "Immediate Action Required: IT Update",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have detected a critical issue with your account that requires immediate attention. Please download the attached file and run it to ensure your account remains secure. \n\nFailure to do so may result in loss of access to your account. \n\nThank you for your prompt action.\n\nRegards,\n\nIT Team",
+        "correct": "phish",
+        "explain": "The email requests the download and execution of a file, which is a common phishing tactic.",
+        "attachment": "update.bat"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are pleased to confirm your travel itinerary for the upcoming business trip. Please find the attached document containing all necessary details regarding your flights and accommodations. \n\nDeparture: March 30, 2023\nReturn: April 5, 2023\n\nIf you have any questions or need to make changes, please let us know as soon as possible. \n\nSafe travels!\n\nBest,\n\nTravel Department",
+        "correct": "safe",
+        "explain": "The email provides a legitimate travel itinerary with a PDF attachment.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Urgent: Travel Itinerary Update",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have an urgent update regarding your travel itinerary. Please download the attached file to see the changes made to your booking. \n\nIt is important that you review this document immediately to avoid any issues during your trip. \n\nThank you for your attention.\n\nSincerely,\n\nTravel Team",
+        "correct": "phish",
+        "explain": "The attachment is an executable file, which is a common sign of a phishing email.",
+        "attachment": "itinerary.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Legal Document Review",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nAttached is the legal document that requires your review. Please ensure that you read through the contract thoroughly and provide your feedback by the end of the week. \n\nIf you have any questions or need clarification on specific points, feel free to reach out. \n\nBest regards,\n\nLegal Department",
+        "correct": "safe",
+        "explain": "The email is a legitimate request from the legal department with a PDF attachment."
+      },
+      {
+        "subject": "Action Required: Legal Document",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have attached a legal document that requires your immediate attention. Please download and open the attached file to review the contract. \n\nIt is crucial that you complete this by the end of the day. \n\nThank you for your cooperation.\n\nSincerely,\n\nLegal Team",
+        "correct": "phish",
+        "explain": "The email contains an executable attachment, which is a common phishing tactic."
+      }
+    ]
+  ]
+}
