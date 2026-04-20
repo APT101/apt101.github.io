@@ -271,7 +271,7 @@
       "explain": "This email contains a malicious executable attachment and pressures the recipient to act quickly, a common phishing tactic."
     }
   ],
-  "last_updated_emails": "2026-04-20T05:58:39.327Z",
+  "last_updated_emails": "2026-04-13T05:59:20.767Z",
   "email_group_13": [
     {
       "subject": "Annual Performance Review Process",
@@ -2598,122 +2598,6 @@
       "desc": "Dear Employee,\n\nWe have attached a legal document that requires your immediate attention. Please download and open the attached file to review the contract. \n\nIt is crucial that you complete this by the end of the day. \n\nThank you for your cooperation.\n\nSincerely,\n\nLegal Team",
       "correct": "phish",
       "explain": "The email contains an executable attachment, which is a common phishing tactic."
-    }
-  ],
-  "email_group_114": [
-    {
-      "subject": "Important Update on Employee Benefits",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe are excited to announce some important updates to our employee benefits program. These changes will take effect from next month and are designed to provide you with better health coverage and additional perks.\n\nPlease find the attached document that outlines the new benefits in detail. We encourage you to review it and reach out with any questions.\n\nBest regards,\n\nHR Team",
-      "correct": "safe",
-      "explain": "This email is from the HR department and contains a legitimate attachment regarding employee benefits.",
-      "attachment": "benefits_overview.pdf"
-    },
-    {
-      "subject": "Urgent: Update Your Benefits Information",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe have detected an issue with your benefits information. To ensure you continue receiving your benefits without interruption, please update your information immediately by clicking the link below.\n\nAlso, please find the attached file that you need to run to complete the update process.\n\nThank you,\nHR Department",
-      "correct": "phish",
-      "explain": "This email is attempting to trick the employee into running a malicious executable file under the guise of updating benefits.",
-      "attachment": "update_benefits.exe"
-    }
-  ],
-  "email_group_115": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nAttached is the quarterly financial report for Q3. Please review the document carefully and prepare any questions you may have for our upcoming meeting.\n\nYour insights are valuable as we discuss our financial strategy moving forward.\n\nBest,\nFinance Team",
-      "correct": "safe",
-      "explain": "This email is from the Finance department and contains a legitimate PDF attachment of the financial report."
-    },
-    {
-      "subject": "Immediate Action Required: Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe have attached a financial report that requires your immediate attention. Please download and run the attached file to access the report.\n\nFailure to do so may result in compliance issues.\n\nRegards,\nFinance Department",
-      "correct": "phish",
-      "explain": "This email is trying to deceive the employee into running a harmful batch file disguised as a financial report."
-    }
-  ],
-  "email_group_116": [
-    {
-      "subject": "IT Security Awareness Training",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nAs part of our ongoing commitment to cybersecurity, we are conducting a mandatory IT security awareness training. Attached is the training material that you must review before the scheduled session.\n\nPlease ensure you complete this by the end of the week.\n\nThank you,\nIT Security Team",
-      "correct": "safe",
-      "explain": "This email is from the IT Security department and contains a legitimate PDF attachment for training.",
-      "attachment": "security_training.pdf"
-    },
-    {
-      "subject": "Urgent: Security Training Required",
-      "from": "security@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello,\n\nWe have identified a critical security vulnerability that requires your immediate attention. Please download and execute the attached file to complete the necessary training.\n\nFailure to comply may result in disciplinary action.\n\nBest,\nIT Security",
-      "correct": "phish",
-      "explain": "This email tries to trick the employee into executing a malicious file disguised as training material.",
-      "attachment": "security_training.exe"
-    }
-  ],
-  "email_group_117": [
-    {
-      "subject": "Travel Itinerary Confirmation",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nYour travel itinerary for the upcoming business trip has been confirmed. Please find the attached document with all the details.\n\nIf you have any questions or need to make changes, feel free to reach out.\n\nSafe travels,\nTravel Department",
-      "correct": "safe",
-      "explain": "This email is from the Travel department and includes a legitimate PDF attachment of the travel itinerary.",
-      "attachment": "itinerary.pdf"
-    },
-    {
-      "subject": "Action Required: Travel Itinerary Update",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nThere has been a last-minute change to your travel itinerary. Please download and run the attached file to view the updated details.\n\nIt is crucial that you do this as soon as possible to avoid any issues.\n\nThank you,\nTravel Team",
-      "correct": "phish",
-      "explain": "This email attempts to deceive the employee into running a harmful executable file under the pretense of updating travel information.",
-      "attachment": "itinerary_update.exe"
-    }
-  ],
-  "email_group_118": [
-    {
-      "subject": "Legal Document Review",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi,\n\nPlease find attached the legal documents that require your review. We need your feedback by the end of the week to proceed with the negotiations.\n\nLet me know if you have any questions.\n\nBest,\nLegal Team",
-      "correct": "safe",
-      "explain": "This email is from the Legal department and contains a legitimate PDF attachment for document review."
-    },
-    {
-      "subject": "Immediate Review Needed: Legal Document",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe have attached a legal document that requires your immediate review. Please download and execute the attached file to access the document.\n\nYour prompt action is necessary to avoid delays.\n\nRegards,\nLegal Department",
-      "correct": "phish",
-      "explain": "This email is trying to trick the employee into executing a harmful screen saver file disguised as a legal document."
     }
   ]
 }
