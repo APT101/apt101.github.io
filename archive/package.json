@@ -10,6 +10,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "openai": "^6.44.0"
+    "openai": "^6.45.0"
   }
 }

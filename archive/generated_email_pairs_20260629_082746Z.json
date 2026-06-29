@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-06-29T08:28:09.337Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory Compliance Training",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nAs part of our commitment to maintaining compliance with industry regulations, we are requiring all employees to complete a mandatory compliance training course by the end of this month. Please find the training materials attached to this email.\n\nMake sure to review the content thoroughly and complete the associated quiz to confirm your understanding. If you have any questions, feel free to reach out.\n\nBest regards,\n\nHR Team\nCompany Name",
+        "correct": "safe",
+        "explain": "The email is from the HR department, contains a legitimate attachment for training, and follows standard corporate communication.",
+        "attachment": "training.pdf"
+      },
+      {
+        "subject": "Urgent: Compliance Training Required",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have detected that you have not completed your compliance training. It is crucial that you download the attached file and complete the training immediately to avoid penalties. \n\nFailure to comply may result in disciplinary action. Please act quickly!\n\nRegards,\n\nHR Department\nCompany Name",
+        "correct": "phish",
+        "explain": "The email uses urgency to pressure the employee, contains a suspicious executable attachment, and does not follow standard communication practices.",
+        "attachment": "training.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached is the quarterly financial report for your review. Please take the time to analyze the data and prepare any questions you may have for our upcoming meeting.\n\nIf you have any issues accessing the document, let me know.\n\nThanks,\n\nFinance Team\nCompany Name",
+        "correct": "safe",
+        "explain": "The email is from the Finance department and contains a standard report attachment, which is common in corporate communications."
+      },
+      {
+        "subject": "Action Required: Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nPlease find attached the financial report that requires your immediate attention. It is vital that you open the document and follow the instructions inside to ensure compliance.\n\nFailure to do so may result in serious consequences.\n\nThank you,\n\nFinance Department\nCompany Name",
+        "correct": "phish",
+        "explain": "The email creates a false sense of urgency, includes a suspicious executable attachment, and deviates from normal communication practices."
+      }
+    ],
+    [
+      {
+        "subject": "IT System Upgrade Notification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe would like to inform you that we will be upgrading our IT systems this weekend. During this time, access to certain applications may be temporarily unavailable. We appreciate your understanding and patience during this upgrade process.\n\nIf you have any questions or concerns, please contact the IT helpdesk.\n\nBest,\n\nIT Department\nCompany Name",
+        "correct": "safe",
+        "explain": "The email is a standard notification from the IT department, has no attachments, and provides clear information about an upcoming system upgrade."
+      },
+      {
+        "subject": "Immediate Action Required: IT System Upgrade",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are performing an urgent system upgrade and you must download the attached file to ensure your systems are updated. Failure to do so will result in loss of access to critical applications.\n\nPlease complete this action immediately.\n\nThank you,\n\nIT Support\nCompany Name",
+        "correct": "phish",
+        "explain": "The email uses urgency to compel action, includes a suspicious attachment, and does not reflect standard IT communication."
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel itinerary for the upcoming business trip has been finalized. Please find the attached document for your reference. Ensure to review the details and let us know if you have any questions.\n\nSafe travels!\n\nTravel Department\nCompany Name",
+        "correct": "safe",
+        "explain": "The email is a standard confirmation from the Travel department with a legitimate PDF attachment containing itinerary details.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Important: Travel Itinerary Update",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nThere has been a critical update to your travel itinerary. You must download the attached file to view the changes. This is very important for your upcoming trip.\n\nPlease act immediately to avoid any issues.\n\nBest,\n\nTravel Team\nCompany Name",
+        "correct": "phish",
+        "explain": "The email creates urgency, contains a suspicious executable attachment, and does not follow typical travel communication protocols.",
+        "attachment": "itinerary.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Annual Performance Review Schedule",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are writing to inform you that your annual performance review has been scheduled for next week. Please prepare any necessary documentation and be ready to discuss your achievements and goals.\n\nIf you have any questions about the process, feel free to reach out.\n\nSincerely,\n\nHR Team\nCompany Name",
+        "correct": "safe",
+        "explain": "The email provides standard information regarding performance reviews and does not contain any suspicious elements."
+      },
+      {
+        "subject": "Urgent: Complete Your Performance Review",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou must complete your performance review immediately. Download the attached form and fill it out before your scheduled meeting. Failure to do so will affect your evaluation.\n\nThank you,\n\nHR Department\nCompany Name",
+        "correct": "phish",
+        "explain": "The email pressures the employee with urgency, includes a suspicious executable attachment, and deviates from normal HR communication.",
+        "attachment": "review_form.docx.exe"
+      }
+    ]
+  ]
+}
