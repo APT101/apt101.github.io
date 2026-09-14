@@ -271,7 +271,7 @@
       "explain": "This email contains a malicious executable attachment and pressures the recipient to act quickly, a common phishing tactic."
     }
   ],
-  "last_updated_emails": "2026-09-14T09:04:35.762Z",
+  "last_updated_emails": "2026-09-07T08:27:41.561Z",
   "email_group_13": [
     {
       "subject": "Annual Performance Review Process",
@@ -5022,121 +5022,6 @@
       "correct": "phish",
       "explain": "The email prompts immediate action and includes a suspicious zip file attachment, which is a common phishing tactic.",
       "attachment": "settings.zip"
-    }
-  ],
-  "email_group_219": [
-    {
-      "subject": "Mandatory Training Session",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe would like to remind you of the upcoming mandatory training session scheduled for next Wednesday at 10 AM in the main conference room. Attendance is crucial as we will be covering important updates regarding company policies and procedures.\n\nPlease find the training materials attached for your review prior to the session. If you have any questions, feel free to reach out.\n\nBest regards,\n\nHR Department",
-      "correct": "safe",
-      "explain": "The email is from the HR department with a legitimate attachment related to training.",
-      "attachment": "training.pdf"
-    },
-    {
-      "subject": "Mandatory Training Session",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe would like to remind you of the upcoming mandatory training session scheduled for next Wednesday at 10 AM in the main conference room. Attendance is crucial as we will be covering important updates regarding company policies and procedures.\n\nPlease find the training materials attached for your review prior to the session. If you have any questions, feel free to reach out.\n\nBest regards,\n\nHR Department",
-      "correct": "phish",
-      "explain": "The attachment is an executable file, which is suspicious and likely malicious.",
-      "attachment": "training.pdf.exe"
-    }
-  ],
-  "email_group_220": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nAttached you will find the quarterly financial report for your review. This document provides a comprehensive overview of our financial performance over the last quarter, including key metrics and insights.\n\nPlease take some time to review the report before our upcoming meeting on Friday. If you have any questions or need further clarification, don’t hesitate to reach out.\n\nThank you,\n\nFinance Team",
-      "correct": "safe",
-      "explain": "The email is from the Finance department and contains a legitimate PDF attachment."
-    },
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nAttached you will find the quarterly financial report for your review. This document provides a comprehensive overview of our financial performance over the last quarter, including key metrics and insights.\n\nPlease take some time to review the report before our upcoming meeting on Friday. If you have any questions or need further clarification, don’t hesitate to reach out.\n\nThank you,\n\nFinance Team",
-      "correct": "phish",
-      "explain": "The attachment is a batch file, which is a common method for executing malicious scripts."
-    }
-  ],
-  "email_group_221": [
-    {
-      "subject": "IT System Maintenance Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear All,\n\nWe want to inform you that there will be scheduled maintenance on our IT systems this Saturday from 2 AM to 4 AM. During this time, access to various applications may be limited.\n\nPlease plan your work accordingly and reach out if you have any concerns. Thank you for your understanding.\n\nBest,\n\nIT Department",
-      "correct": "safe",
-      "explain": "The email is a standard notification from the IT department with no attachments."
-    },
-    {
-      "subject": "IT System Maintenance Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear All,\n\nWe want to inform you that there will be scheduled maintenance on our IT systems this Saturday from 2 AM to 4 AM. During this time, access to various applications may be limited.\n\nPlease plan your work accordingly and reach out if you have any concerns. Thank you for your understanding.\n\nBest,\n\nIT Department",
-      "correct": "phish",
-      "explain": "The attachment is an executable file, which is a red flag for phishing.",
-      "attachment": "maintenance_details.pdf.exe"
-    }
-  ],
-  "email_group_222": [
-    {
-      "subject": "Travel Expense Reimbursement",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Team,\n\nI hope this message finds you well. Attached is the reimbursement form for your recent travel expenses. Please fill it out and submit it by the end of the week to ensure timely processing.\n\nIf you have any questions regarding the form or the reimbursement process, feel free to reach out to me directly.\n\nBest regards,\n\nTravel Department",
-      "correct": "safe",
-      "explain": "The email is from the Travel department with a legitimate PDF attachment."
-    },
-    {
-      "subject": "Travel Expense Reimbursement",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi Team,\n\nI hope this message finds you well. Attached is the reimbursement form for your recent travel expenses. Please fill it out and submit it by the end of the week to ensure timely processing.\n\nIf you have any questions regarding the form or the reimbursement process, feel free to reach out to me directly.\n\nBest regards,\n\nTravel Department",
-      "correct": "phish",
-      "explain": "The attachment is an executable file disguised as a PDF, which is suspicious."
-    }
-  ],
-  "email_group_223": [
-    {
-      "subject": "Legal Document Review",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Colleagues,\n\nAttached you will find the legal document that requires your review. Please go through it and provide your feedback by the end of the week. Your insights are valuable for our upcoming negotiations.\n\nShould you have any questions, do not hesitate to contact me.\n\nRegards,\n\nLegal Team",
-      "correct": "safe",
-      "explain": "The email is from the Legal department and contains a legitimate PDF attachment.",
-      "attachment": "contract_review.pdf"
-    },
-    {
-      "subject": "Legal Document Review",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Colleagues,\n\nAttached you will find the legal document that requires your review. Please go through it and provide your feedback by the end of the week. Your insights are valuable for our upcoming negotiations.\n\nShould you have any questions, do not hesitate to contact me.\n\nRegards,\n\nLegal Team",
-      "correct": "phish",
-      "explain": "The attachment is an executable file, which is a common phishing tactic.",
-      "attachment": "contract_review.pdf.exe"
     }
   ]
 }
