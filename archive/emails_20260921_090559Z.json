@@ -271,7 +271,7 @@
       "explain": "This email contains a malicious executable attachment and pressures the recipient to act quickly, a common phishing tactic."
     }
   ],
-  "last_updated_emails": "2026-09-21T09:06:17.529Z",
+  "last_updated_emails": "2026-09-14T09:04:35.762Z",
   "email_group_13": [
     {
       "subject": "Annual Performance Review Process",
@@ -5137,121 +5137,6 @@
       "correct": "phish",
       "explain": "The attachment is an executable file, which is a common phishing tactic.",
       "attachment": "contract_review.pdf.exe"
-    }
-  ],
-  "email_group_224": [
-    {
-      "subject": "Mandatory Training Session on Cybersecurity",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe are implementing a new cybersecurity training program that is mandatory for all employees. The training will cover essential topics such as phishing awareness, password security, and safe internet practices. \n\nPlease find the training schedule attached. Make sure to complete the training by the end of the month. \n\nIf you have any questions, feel free to reach out.\n\nBest regards,\nHR Department",
-      "correct": "safe",
-      "explain": "The email is from the HR department and contains a legitimate attachment related to mandatory training."
-    },
-    {
-      "subject": "Urgent: Complete Your Cybersecurity Training Now!",
-      "from": "hr@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello,\n\nThis is a reminder to complete your mandatory cybersecurity training immediately. Failure to do so may result in disciplinary action. \n\nPlease download the attached file and follow the instructions carefully. \n\nThank you,\nHR Department",
-      "correct": "phish",
-      "explain": "The email uses urgency to prompt action and contains a malicious executable attachment."
-    }
-  ],
-  "email_group_225": [
-    {
-      "subject": "Quarterly Financial Report",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nAttached you will find the quarterly financial report for your review. Please take the time to go through it and let me know if you have any questions or concerns. \n\nYour feedback is valuable as we prepare for the upcoming board meeting.\n\nBest,\nFinance Team",
-      "correct": "safe",
-      "explain": "The email is from the finance department and contains a legitimate PDF report.",
-      "attachment": "report.pdf"
-    },
-    {
-      "subject": "Important: Your Financial Report is Ready!",
-      "from": "finance@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi,\n\nYour financial report is attached. Please review it at your earliest convenience. \n\nMake sure to open the attachment to see your detailed report. \n\nRegards,\nFinance Team",
-      "correct": "phish",
-      "explain": "The email prompts the recipient to open a suspicious executable attachment disguised as a report.",
-      "attachment": "report.pdf.exe"
-    }
-  ],
-  "email_group_226": [
-    {
-      "subject": "IT System Upgrade Notification",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello Team,\n\nWe would like to inform you that there will be a system upgrade on Friday at 10 PM. During this time, all systems will be temporarily unavailable. \n\nPlease save your work and log off before the upgrade begins. We appreciate your understanding and cooperation during this process. \n\nThank you,\nIT Department",
-      "correct": "safe",
-      "explain": "The email provides a clear notification about a scheduled system upgrade without any attachments."
-    },
-    {
-      "subject": "Action Required: IT System Upgrade",
-      "from": "it@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Employee,\n\nWe are upgrading our IT systems and you need to follow the attached instructions to ensure your data is safe. \n\nPlease download the file and execute it to prepare for the upgrade. \n\nBest,\nIT Department",
-      "correct": "phish",
-      "explain": "The email contains a suspicious executable file disguised as instructions for a system upgrade.",
-      "attachment": "upgrade_instructions.bat"
-    }
-  ],
-  "email_group_227": [
-    {
-      "subject": "Travel Policy Update",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Team,\n\nWe have updated our travel policy to better serve our employees. Please find the updated policy attached for your reference. \n\nIf you have any questions regarding the changes, do not hesitate to reach out.\n\nBest regards,\nTravel Department",
-      "correct": "safe",
-      "explain": "The email is from the travel department and contains a legitimate PDF attachment regarding policy updates."
-    },
-    {
-      "subject": "Urgent: Review Your Travel Policy Now!",
-      "from": "travel@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hello,\n\nIt is crucial that you review the attached travel policy immediately. Failure to comply may affect your upcoming travel plans. \n\nPlease download and open the attachment to ensure you are informed.\n\nThank you,\nTravel Department",
-      "correct": "phish",
-      "explain": "The email creates a sense of urgency and includes a malicious executable disguised as a policy document."
-    }
-  ],
-  "email_group_228": [
-    {
-      "subject": "New Compliance Guidelines",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Dear Colleagues,\n\nPlease find attached the new compliance guidelines that will take effect next month. It is important that everyone reviews these guidelines to ensure we remain compliant with regulations. \n\nIf you have any questions, please contact the legal department.\n\nBest,\nLegal Team",
-      "correct": "safe",
-      "explain": "The email is from the legal department and contains a legitimate PDF attachment regarding compliance.",
-      "attachment": "compliance_guidelines.pdf"
-    },
-    {
-      "subject": "Immediate Action Required: Compliance Guidelines",
-      "from": "legal@company.com",
-      "to": [
-        "employee@company.com"
-      ],
-      "desc": "Hi,\n\nYou must review the attached compliance guidelines immediately to avoid penalties. Download the attachment and follow the instructions carefully. \n\nRegards,\nLegal Team",
-      "correct": "phish",
-      "explain": "The email uses urgency and contains a malicious executable attachment disguised as a compliance document.",
-      "attachment": "compliance_guidelines.pdf.exe"
     }
   ]
 }
