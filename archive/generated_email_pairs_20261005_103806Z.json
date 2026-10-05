@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-10-05T10:38:17.975Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Important: Update Your HR Information",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nAs part of our annual review process, we need you to update your HR information. Please find the attached form that needs to be filled out and returned by the end of the week.\n\nIf you have any questions, feel free to reach out to the HR department.\n\nBest regards,\n\nHR Team\nCompany Name",
+        "correct": "safe",
+        "explain": "The email is from the HR department and contains a legitimate attachment for updating information.",
+        "attachment": "update_form.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your HR Information Now!",
+        "from": "hr-update@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have detected a serious issue with your HR records. You must update your information immediately to avoid suspension. Click the attachment to download the form and fill it out.\n\nFailure to comply will result in immediate action.\n\nRegards,\n\nHR Alert Team",
+        "correct": "phish",
+        "explain": "The email is from a suspicious address and the attachment is an executable file, indicating a phishing attempt.",
+        "attachment": "update_form.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached you will find the quarterly financial report for Q3. Please review the document and let me know if you have any questions or concerns.\n\nThank you for your attention to this matter.\n\nBest,\n\nFinance Department",
+        "correct": "safe",
+        "explain": "The email is from the finance department and includes a legitimate PDF report."
+      },
+      {
+        "subject": "Immediate Action Required: Financial Report",
+        "from": "finance-alert@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou must review the attached financial report immediately. Failure to do so may result in penalties. Open the attachment to proceed.\n\nRegards,\n\nFinance Alert Team",
+        "correct": "phish",
+        "explain": "The email is from a suspicious address and the attachment is a batch file, indicating a phishing attempt."
+      }
+    ],
+    [
+      {
+        "subject": "IT Security Training Reminder",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hi Team,\n\nThis is a reminder for the upcoming IT security training scheduled for next week. Please refer to the attached schedule for details and make sure to attend.\n\nBest,\n\nIT Department",
+        "correct": "safe",
+        "explain": "The email is from the IT department and includes a legitimate PDF attachment for training.",
+        "attachment": "training_schedule.pdf"
+      },
+      {
+        "subject": "Urgent: IT Security Training Required!",
+        "from": "it-security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou are required to complete the attached IT security training immediately. Failure to comply will result in access restrictions. Click the attachment to start.\n\nThank you,\n\nIT Security Team",
+        "correct": "phish",
+        "explain": "The email is from a suspicious address and the attachment is an executable file, indicating a phishing attempt.",
+        "attachment": "training_schedule.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel itinerary for the upcoming business trip has been confirmed. Please find the attached document for all details regarding your flights and accommodations.\n\nSafe travels!\n\nTravel Department",
+        "correct": "safe",
+        "explain": "The email is from the travel department and includes a legitimate PDF itinerary."
+      },
+      {
+        "subject": "Action Required: Travel Itinerary Confirmation",
+        "from": "travel-alert@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel itinerary requires immediate confirmation. Open the attached file to verify your details. Failure to confirm may result in cancellation of your trip.\n\nBest,\n\nTravel Alert Team",
+        "correct": "phish",
+        "explain": "The email is from a suspicious address and the attachment is an executable file, indicating a phishing attempt."
+      }
+    ],
+    [
+      {
+        "subject": "Legal Document Review",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello,\n\nPlease find attached the legal document that requires your review. Make sure to provide your feedback by the end of the week.\n\nThank you,\n\nLegal Department",
+        "correct": "safe",
+        "explain": "The email is from the legal department and includes a legitimate PDF document for review.",
+        "attachment": "contract_review.pdf"
+      },
+      {
+        "subject": "Urgent: Legal Document Review Needed!",
+        "from": "legal-notice@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou must review the attached legal document immediately. Failure to respond will lead to serious consequences. Open the attachment to proceed.\n\nRegards,\n\nLegal Notice Team",
+        "correct": "phish",
+        "explain": "The email is from a suspicious address and the attachment is an executable file, indicating a phishing attempt.",
+        "attachment": "contract_review.pdf.exe"
+      }
+    ]
+  ]
+}
