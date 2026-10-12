@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-10-12T11:04:09.817Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are reaching out to inform you about a mandatory training session scheduled for next week. This session will cover essential topics regarding workplace safety and compliance. Attendance is required for all employees.\n\nPlease find the training materials attached to this email. Make sure to review them before the session.\n\nBest regards,\nHR Department",
+        "correct": "safe",
+        "explain": "This email is from the HR department and contains a legitimate attachment related to mandatory training.",
+        "attachment": "training.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your Training Documents",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nIt has come to our attention that you need to update your training documents immediately. Please download the attached file and follow the instructions carefully.\n\nFailure to comply may result in disciplinary actions.\n\nRegards,\nHR Department",
+        "correct": "phish",
+        "explain": "This email requests the employee to download an executable file, which is a common tactic in phishing attacks.",
+        "attachment": "training.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached you will find the quarterly financial report for your review. Please take a moment to go through the document and prepare any questions you might have for our upcoming meeting.\n\nThank you for your attention to this matter.\n\nBest,\nFinance Team",
+        "correct": "safe",
+        "explain": "This email is from the Finance department and includes a legitimate report attachment."
+      },
+      {
+        "subject": "Action Required: Invoice Payment",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have received an invoice that requires your immediate attention. Please download the attached file and process the payment as soon as possible to avoid penalties.\n\nThank you,\nFinance Team",
+        "correct": "phish",
+        "explain": "This email contains an executable attachment and pressures the employee to act quickly, which are common phishing tactics."
+      }
+    ],
+    [
+      {
+        "subject": "IT System Maintenance Notification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear All,\n\nPlease be informed that there will be scheduled maintenance on our IT systems this weekend. During this time, access to certain services may be limited.\n\nWe appreciate your understanding and patience as we work to improve our systems.\n\nBest regards,\nIT Department",
+        "correct": "safe",
+        "explain": "This email provides a legitimate notification about IT maintenance without any attachments."
+      },
+      {
+        "subject": "Important: Update Your IT Credentials",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have detected unusual activity in your account. Please download the attached file to update your credentials immediately to secure your account.\n\nFailure to do so may result in account suspension.\n\nThanks,\nIT Department",
+        "correct": "phish",
+        "explain": "This email requests the download of a suspicious file under the guise of security, which is a typical phishing attempt."
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel itinerary has been confirmed. Please find the details attached. Ensure that you review the itinerary and let us know if you have any questions or concerns.\n\nSafe travels!\n\nBest,\nTravel Department",
+        "correct": "safe",
+        "explain": "This email contains a legitimate travel itinerary attachment from the Travel department.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Urgent: Confirm Your Travel Booking",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYour travel booking requires urgent confirmation. Download the attached file and follow the instructions to secure your booking. Failure to confirm may lead to cancellation.\n\nThanks,\nTravel Department",
+        "correct": "phish",
+        "explain": "This email includes an executable attachment and creates a sense of urgency, which are common signs of phishing.",
+        "attachment": "travel_confirmation.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Legal Document Review",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nPlease find attached the documents that require your review for the upcoming legal meeting. Make sure to provide your feedback by the end of the week.\n\nThank you for your cooperation.\n\nBest,\nLegal Team",
+        "correct": "safe",
+        "explain": "This email is from the Legal department and contains a legitimate document for review.",
+        "attachment": "legal_review.pdf"
+      },
+      {
+        "subject": "Immediate Action Required: Legal Notice",
+        "from": "legal@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nYou have received a legal notice that requires your immediate attention. Download the attached file and follow the instructions carefully to avoid legal repercussions.\n\nRegards,\nLegal Team",
+        "correct": "phish",
+        "explain": "This email requests the download of an executable file under the pretense of a legal notice, which is a phishing tactic.",
+        "attachment": "legal_notice.pdf.exe"
+      }
+    ]
+  ]
+}
