@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-11-09T11:48:57.446Z",
+  "count_pairs": 5,
+  "pairs": [
+    [
+      {
+        "subject": "Mandatory HR Training Session",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe are pleased to announce a mandatory training session on workplace safety scheduled for next Thursday at 10 AM in the main conference room. This training is essential for ensuring a safe working environment for all employees.\n\nPlease find the training materials attached to this email. Make sure to review them before the session. Attendance will be taken, and those who do not attend will need to reschedule.\n\nThank you for your cooperation.\n\nBest regards,\n\nHR Department",
+        "correct": "safe",
+        "explain": "The email is from the HR department and contains a legitimate attachment related to mandatory training.",
+        "attachment": "training.pdf"
+      },
+      {
+        "subject": "Urgent: Update Your HR Training",
+        "from": "hr@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nIt has come to our attention that your HR training records are incomplete. Please download the attached file to update your training status immediately. Failure to do so may result in disciplinary action.\n\nThis is urgent, and we appreciate your prompt attention to this matter.\n\nSincerely,\n\nHR Department",
+        "correct": "phish",
+        "explain": "The email requests the employee to download an executable file, which is a common phishing tactic.",
+        "attachment": "training.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Quarterly Financial Report",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Hello Team,\n\nAttached you will find the quarterly financial report for Q3. Please review the document and be prepared to discuss its contents in our upcoming meeting next week.\n\nIf you have any questions or need further clarification, do not hesitate to reach out.\n\nBest,\n\nFinance Team",
+        "correct": "safe",
+        "explain": "The email is from the finance department and includes a legitimate PDF report attachment."
+      },
+      {
+        "subject": "Action Required: Financial Report Update",
+        "from": "finance@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe have updated the financial report, and you are required to download the attached file to review the changes. This is critical for our upcoming audit.\n\nPlease act swiftly as this needs to be completed by the end of the day.\n\nThank you,\n\nFinance Team",
+        "correct": "phish",
+        "explain": "The email contains a suspicious executable file attachment, which is a red flag for phishing."
+      }
+    ],
+    [
+      {
+        "subject": "IT System Maintenance Notification",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear All,\n\nThis is a reminder that our IT department will be conducting system maintenance this Saturday from 2 AM to 4 AM. During this time, access to certain applications may be limited.\n\nWe appreciate your understanding and patience as we work to improve our systems.\n\nBest regards,\n\nIT Department",
+        "correct": "safe",
+        "explain": "The email informs employees about scheduled maintenance without any suspicious attachments."
+      },
+      {
+        "subject": "Immediate Action Required: IT Security Update",
+        "from": "it@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Attention Employee,\n\nDue to a recent security breach, we need you to download the attached file and run it to secure your account. This is mandatory and must be done immediately.\n\nFailure to comply may result in account suspension.\n\nThank you,\n\nIT Department",
+        "correct": "phish",
+        "explain": "The email prompts the employee to download an executable file, which is a typical phishing attempt.",
+        "attachment": "security_update.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Travel Itinerary Confirmation",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nWe are pleased to confirm your travel itinerary for the upcoming conference. Please find the details attached.\n\nIf you have any questions or need to make changes, feel free to reach out.\n\nSafe travels!\n\nTravel Department",
+        "correct": "safe",
+        "explain": "The email contains a legitimate PDF attachment regarding travel arrangements.",
+        "attachment": "itinerary.pdf"
+      },
+      {
+        "subject": "Urgent: Travel Itinerary Update Required",
+        "from": "travel@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nThere has been a critical update to your travel itinerary. Please download the attached file to review the changes. This is urgent and must be done immediately.\n\nThank you for your prompt attention.\n\nTravel Department",
+        "correct": "phish",
+        "explain": "The email contains an executable file disguised as a PDF, which is a common phishing tactic.",
+        "attachment": "itinerary.pdf.exe"
+      }
+    ],
+    [
+      {
+        "subject": "Security Policy Update",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Team,\n\nWe have updated our security policies to enhance data protection. Please ensure you review the changes on the company intranet.\n\nIf you have any questions, feel free to reach out.\n\nBest,\n\nSecurity Team",
+        "correct": "safe",
+        "explain": "The email is a standard notification regarding policy updates without attachments."
+      },
+      {
+        "subject": "Immediate Action Required: Security Update",
+        "from": "security@company.com",
+        "to": [
+          "employee@company.com"
+        ],
+        "desc": "Dear Employee,\n\nDue to a security breach, you must download the attached file and follow the instructions to secure your account. This is mandatory and needs to be completed within 24 hours.\n\nFailure to comply may result in account suspension.\n\nThank you,\n\nSecurity Team",
+        "correct": "phish",
+        "explain": "The email requests downloading a ZIP file, which is a common phishing method to spread malware."
+      }
+    ]
+  ]
+}
